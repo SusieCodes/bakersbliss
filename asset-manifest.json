@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/bakersbliss/static/css/main.4a780522.css",
-    "main.js": "/bakersbliss/static/js/main.6e58fb20.js",
+    "main.css": "/bakersbliss/static/css/main.466c7a40.css",
+    "main.js": "/bakersbliss/static/js/main.ce76b4b4.js",
+    "static/media/small-logo.png": "/bakersbliss/static/media/small-logo.c81c4d7f0e6c7d6e540c.png",
     "index.html": "/bakersbliss/index.html",
-    "main.4a780522.css.map": "/bakersbliss/static/css/main.4a780522.css.map",
-    "main.6e58fb20.js.map": "/bakersbliss/static/js/main.6e58fb20.js.map"
+    "main.466c7a40.css.map": "/bakersbliss/static/css/main.466c7a40.css.map",
+    "main.ce76b4b4.js.map": "/bakersbliss/static/js/main.ce76b4b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a780522.css",
-    "static/js/main.6e58fb20.js"
+    "static/css/main.466c7a40.css",
+    "static/js/main.ce76b4b4.js"
   ]
 }
