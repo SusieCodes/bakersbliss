@@ -1,14 +1,32 @@
-import logo from "../src/images/small-logo.png";
+import React, { useState } from "react";
+import { ApplicationViews } from "./ApplicationViews";
+import "./App.scss";
 
-function App() {
+export function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    sessionStorage.getItem("bb_user") !== null
+  );
+
+  const setAuthUser = (user) => {
+    sessionStorage.setItem("bb_user", user.id);
+    const [firstname] = user.name.split(" ");
+    sessionStorage.setItem("bb_username", firstname);
+    setIsAuthenticated(sessionStorage.getItem("bb_user") !== null);
+  };
+
+  const clearUser = () => {
+    sessionStorage.clear();
+    setIsAuthenticated(sessionStorage.getItem("bb_user") !== null);
+  };
+
   return (
-    <div className="App">
-      <div>Coming Soon...</div>
-      <div>
-        <img src={logo} width="300" />
-      </div>
-    </div>
+    <>
+      <ApplicationViews
+        setAuthUser={setAuthUser}
+        isAuthenticated={isAuthenticated}
+        clearUser={clearUser}
+      />
+    </>
   );
 }
-
 export default App;

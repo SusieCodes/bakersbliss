@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "name": "Susie Stanley",
+      "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1636436400/susie2_vzbbqq.png",
+      "email": "me@me.com",
+      "phone": "615-400-5555",
+      "address": "301 Plus Park Blvd",
+      "city": "Nashville",
+      "stateProvince": "TN",
+      "zipCode": "37217",
+      "country": "USA",
+      "timestamp": 1636443563791,
+      "id": 1
+    },
+    {
+      "name": "Taylor",
+      "email": "taylor@email.com",
+      "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1635548970/wendy_fampug.png",
+      "phone": "425-555-1212",
+      "address": "123 Othello Dr",
+      "city": "Anytown",
+      "stateProvince": "TN",
+      "zipCode": "91514",
+      "country": "USA",
+      "timestamp": 1635611882958,
+      "id": 2
+    }
+  ]
+}

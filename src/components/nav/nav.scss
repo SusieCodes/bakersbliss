@@ -1,0 +1,111 @@
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .toolbar-left {
+  }
+  .toolbar-center {
+    flex: 1;
+  }
+  .toolbar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 20px;
+    .avatar-wrapper {
+      width: 50px;
+      margin: 0px 20px;
+      img {
+        width: 100%;
+        border-radius: 50%;
+        border: 3px solid lightgray;
+      }
+    }
+  }
+}
+
+// Welcome Bar styling
+.welcome-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
+  background-image: linear-gradient(
+    to left,
+    #ff0000,
+    #f3932c,
+    #ffd24a,
+    #90be6d,
+    #57bed6,
+    #9c71d4
+  );
+  .welcome-left {
+    font-weight: 600;
+    .welcome-name {
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+  .welcome-title {
+  }
+  .welcome-right {
+  }
+}
+
+// Sidebar Styling
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100px;
+    .tab1,
+    .tab2,
+    .tab3,
+    .tab4,
+    .tab5 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 90px;
+      border: none;
+      color: #565656;
+      font-size: 1rem;
+      opacity: 60%;
+      background-color: pink;
+    }
+    .tab1.active1,
+    .tab2.active2,
+    .tab3.active3,
+    .tab4.active4,
+    .tab5.active5 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: black;
+      opacity: 1;
+      background-color: white;
+      border: 5px solid rgb(255, 179, 192);
+    }
+  }
+  .panels {
+    width: 100vw;
+  }
+  .panel {
+    display: none;
+    background-color: #eaeaea;
+    padding: 70px;
+  }
+  .panel.active {
+    display: block;
+    min-width: 100%;
+    min-height: 450px;
+  }
+}

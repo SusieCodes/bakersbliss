@@ -1,0 +1,28 @@
+.primary-btn,
+.secondary-btn {
+  width: 140px;
+  padding: 6px 0px;
+  margin: 20px 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.primary-btn {
+  border: 2px solid rgb(80, 168, 179);
+  background-color: powderblue;
+}
+
+.secondary-btn {
+  border: 2px solid rgb(254, 155, 172);
+  background-color: pink;
+}
+
+.logout {
+  border: 1px solid lightgray;
+  padding: 6px 10px;
+  margin: 20px 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  border-radius: 8px;
+  font-size: 20px;
+}
