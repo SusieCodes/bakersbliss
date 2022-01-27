@@ -56,3 +56,8 @@ export const getNotesByRecipeId = (recipeId) => {
     `${url}/notes/?recipeId=${recipeId}&_sort=timestamp&_order=desc`
   ).then((res) => res.json());
 };
+
+export const getAllCategories = () => {
+  console.log("getAllCategories ran");
+  return fetch(`${url}/categories`).then((res) => res.json());
+};

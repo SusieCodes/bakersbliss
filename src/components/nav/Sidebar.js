@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { CategoryCard } from "../recipes/CategoryCard";
+import { getAllCategories } from "../../components/recipes/RecipeManager";
 
 export const Sidebar = () => {
+  const [categories, setCategories] = useState([]);
   const [activeIndex, setActiveIndex] = useState(1);
   const handleClick = (index) => setActiveIndex(index);
   const checkActive = (index, className) =>
     activeIndex === index ? className : "";
+
+  // get categories from database and set it to state
+  const getCategories = () => {
+    console.log("getCategories ran");
+    getAllCategories().then((categories) => {
+      setCategories(categories);
+    });
+  };
+
+  useEffect(() => {
+    getCategories();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <div className="sidebar">
@@ -43,6 +60,7 @@ export const Sidebar = () => {
         <div className="panels">
           <div className={`panel ${checkActive(1, "active")}`}>
             <div className="category-container">
+              Categories should display under here
               {categories.map((category) => (
                 <CategoryCard key={category.id} category={category} />
               ))}

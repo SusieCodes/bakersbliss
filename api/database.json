@@ -82,62 +82,77 @@
   "categories": [
     {
       "name": "All",
+      "image": "3dcake.png",
       "id": 1
     },
     {
       "name": "Cookies",
+      "image": "3dcake.png",
       "id": 2
     },
     {
       "name": "Cakes",
+      "image": "3dcake.png",
       "id": 3
     },
     {
       "name": "Cupcakes",
+      "image": "3dcake.png",
       "id": 4
     },
     {
       "name": "Muffins",
+      "image": "3dcake.png",
       "id": 5
     },
     {
       "name": "Brownies",
+      "image": "3dcake.png",
       "id": 6
     },
     {
       "name": "Bars",
+      "image": "3dcake.png",
       "id": 7
     },
     {
       "name": "Holidays",
+      "image": "3dcake.png",
       "id": 8
     },
     {
       "name": "Breads",
+      "image": "3dcake.png",
       "id": 9
     },
     {
       "name": "Pies",
+      "image": "3dcake.png",
       "id": 10
     },
     {
       "name": "Frosting",
+      "image": "3dcake.png",
       "id": 11
     },
     {
       "name": "Candy",
+      "image": "3dcake.png",
       "id": 12
     },
     {
       "name": "Donuts",
+      "image": "3dcake.png",
       "id": 13
     },
     {
       "name": "Chocolate",
+      "image": "3dcake.png",
       "id": 14
     },
     {
       "name": "Other",
+      "image": "3dcake.png",
       "id": 15
     }
   ],

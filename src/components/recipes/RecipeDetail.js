@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getRecipeById, deleteRecipe } from "./RecipeManager";
+import {
+  getRecipeById,
+  deleteRecipe,
+  getNotesByRecipeId,
+} from "./RecipeManager";
 import { useParams, useHistory } from "react-router-dom";
+import { NoteCard } from "../recipes/NoteCard";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { changeFave } from "./RecipeManager";
@@ -59,7 +64,7 @@ export const RecipeDetail = () => {
     getNotesByRecipeId(recipeId).then((notes) => {
       setNotes(notes);
     });
-  }, []);
+  }, [recipeId]);
 
   return (
     <>
@@ -83,7 +88,10 @@ export const RecipeDetail = () => {
             <div className="recipe-info">
               <div className="recipe-prep"></div>
               <div className="btn-list">
-                <div className="print-btn" onClick={}>
+                <div
+                  className="print-btn"
+                  // onClick={}
+                >
                   Print
                 </div>
 
@@ -103,50 +111,47 @@ export const RecipeDetail = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="recipe-top__col2">
+          <div className="recipe-photo">
+            {recipe.image !== "" ? (
+              <img src={recipe.image} alt={recipe.name} />
+            ) : (
+              <img
+                src={require(`../../images/default.png`).default}
+                alt="default"
+              />
+            )}
           </div>
-            <div className="recipe-top__col2">
-              <div className="recipe-photo">
-                {recipe.image !== "" ? (
-                  <img
-                    src={recipe.image}
-                    alt={recipe.name}
-                  />
-                ) : (
-                  <img
-                    src={require(`../../images/default.png`).default}
-                    alt="default"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="recipe-middle">
-            <h3>Description:</h3>
-            <p>{recipe.description}</p>
-          </div>
+        </div>
+      </div>
+      <div className="recipe-middle">
+        <h3>Description:</h3>
+        <p>{recipe.description}</p>
+      </div>
 
-          <div className="recipe-general">
-            <div className="row1">
-              <h3>Ingredients:</h3>
-              <div className="ingredient-list">Ingredient List goes here</div>
-            </div>
-            
-            <div className="row2">
-              <h3>Instructions:</h3>
-              <p className="instructions">{recipe?.instructions}</p>
-            </div>
-          </div>
-          
-{/* ternary statement that shows recipe cards if they exist and message if none exist yet */}
-          {notes[0] ? (
-            <div className="recipe-notes">
-              {notes.map((note) => (
-                <NoteCard key={note.id} note={note}/>
-              ))}
-            </div>
-          ) : (
-              ""
-          )}
+      <div className="recipe-general">
+        <div className="row1">
+          <h3>Ingredients:</h3>
+          <div className="ingredient-list">Ingredient List goes here</div>
+        </div>
+
+        <div className="row2">
+          <h3>Instructions:</h3>
+          <p className="instructions">{recipe?.instructions}</p>
+        </div>
+      </div>
+
+      {/* ternary statement that shows recipe cards if they exist and message if none exist yet */}
+      {notes[0] ? (
+        <div className="recipe-notes">
+          {notes.map((note) => (
+            <NoteCard key={note.id} note={note} />
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };

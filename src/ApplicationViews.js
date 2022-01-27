@@ -5,6 +5,7 @@ import { TopNav } from "./components/nav/TopNav";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { RecipeForm } from "./components/recipes/RecipeForm";
 import { RecipeEditForm } from "./components/recipes/RecipeEditForm";
+import { RecipeDetail } from "./components/recipes/RecipeDetail";
 
 export const ApplicationViews = ({
   setAuthUser,

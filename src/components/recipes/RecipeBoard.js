@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { deleteRecipe, getRecipesByUserId } from "./RecipeManager";
+import { getRecipesByUserId } from "./RecipeManager";
 import { RecipeCard } from "./RecipeCard";
 import { RecipeDummyCard } from "./RecipeDummyCard";
 
