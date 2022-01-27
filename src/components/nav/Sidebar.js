@@ -41,9 +41,7 @@ export const Sidebar = () => {
           </div>
         </div>
         <div className="panels">
-          <div className={`panel ${checkActive(1, "active")}`}>
-            <p>TAB 1 CONTENT</p>
-          </div>
+          <div className={`panel ${checkActive(1, "active")}`}></div>
           <div className={`panel ${checkActive(2, "active")}`}>
             <p>TAB 2 CONTENT</p>
           </div>

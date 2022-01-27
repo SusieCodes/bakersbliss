@@ -1,16 +1,11 @@
 {
   "users": [
     {
-      "name": "Susie Stanley",
-      "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1636436400/susie2_vzbbqq.png",
+      "first_name": "Susie",
+      "last_name": "Stanley",
       "email": "me@me.com",
-      "phone": "615-400-5555",
-      "address": "301 Plus Park Blvd",
-      "city": "Nashville",
-      "stateProvince": "TN",
-      "zipCode": "37217",
-      "country": "USA",
-      "timestamp": 1636443563791,
+      "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1636436400/susie2_vzbbqq.png",
+      "last_visit": 1636443563791,
       "id": 1
     },
     {
@@ -24,6 +19,300 @@
       "zipCode": "91514",
       "country": "USA",
       "timestamp": 1635611882958,
+      "id": 2
+    }
+  ],
+  "recipes": [
+    {
+      "userId": 1,
+      "name": "Strawberry Cake",
+      "description": "Summary of this recipe goes here",
+      "instructions": "Bake cake then eat it",
+      "isFave": false,
+      "stars": 4,
+      "servings": 6,
+      "date": 1635611882958,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "Chocolate Cake",
+      "description": "Summary of this recipe goes here",
+      "instructions": "Bake cake then eat it",
+      "isFave": false,
+      "stars": 3,
+      "servings": 6,
+      "date": 1635611882958,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "Banana Muffins",
+      "description": "Summary of this recipe goes here",
+      "instructions": "Bake cake then eat it",
+      "isFave": false,
+      "stars": 4,
+      "servings": 6,
+      "date": 1635611882958,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "name": "Sugar Cookies",
+      "description": "Summary of this recipe goes here",
+      "instructions": "Bake cake then eat it",
+      "isFave": true,
+      "stars": 5,
+      "servings": 6,
+      "date": 1635611882958,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "name": "Cookie Icing",
+      "description": "Summary of this recipe goes here",
+      "instructions": "Bake cake then eat it",
+      "isFave": true,
+      "stars": 5,
+      "servings": 6,
+      "date": 1635611882958,
+      "id": 5
+    }
+  ],
+  "categories": [
+    {
+      "name": "All",
+      "id": 1
+    },
+    {
+      "name": "Cookies",
+      "id": 2
+    },
+    {
+      "name": "Cakes",
+      "id": 3
+    },
+    {
+      "name": "Cupcakes",
+      "id": 4
+    },
+    {
+      "name": "Muffins",
+      "id": 5
+    },
+    {
+      "name": "Brownies",
+      "id": 6
+    },
+    {
+      "name": "Bars",
+      "id": 7
+    },
+    {
+      "name": "Holidays",
+      "id": 8
+    },
+    {
+      "name": "Breads",
+      "id": 9
+    },
+    {
+      "name": "Pies",
+      "id": 10
+    },
+    {
+      "name": "Frosting",
+      "id": 11
+    },
+    {
+      "name": "Candy",
+      "id": 12
+    },
+    {
+      "name": "Donuts",
+      "id": 13
+    },
+    {
+      "name": "Chocolate",
+      "id": 14
+    },
+    {
+      "name": "Other",
+      "id": 15
+    }
+  ],
+  "measurements": [
+    {
+      "name": "cup",
+      "id": 1
+    },
+    {
+      "name": "cups",
+      "id": 2
+    },
+    {
+      "name": "tbsp",
+      "id": 3
+    },
+    {
+      "name": "tsp",
+      "id": 4
+    },
+    {
+      "name": "pinch",
+      "id": 5
+    },
+    {
+      "name": "pint",
+      "id": 6
+    },
+    {
+      "name": "box",
+      "id": 7
+    },
+    {
+      "name": "oz",
+      "id": 8
+    },
+    {
+      "name": "quart",
+      "id": 9
+    },
+    {
+      "name": "liter",
+      "id": 10
+    },
+    {
+      "name": "ml",
+      "id": 11
+    },
+    {
+      "name": "grams",
+      "id": 12
+    },
+    {
+      "name": "dash",
+      "id": 13
+    }
+  ],
+  "ingredients": [
+    {
+      "recipeId": 1,
+      "name": "sugar",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 1
+    },
+    {
+      "recipeId": 1,
+      "name": "butter",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 2
+    },
+    {
+      "recipeId": 1,
+      "name": "flour",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 3
+    },
+    {
+      "recipeId": 1,
+      "name": "eggs",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 4
+    },
+    {
+      "recipeId": 1,
+      "name": "milk",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 5
+    },
+    {
+      "recipeId": 1,
+      "name": "cream",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 6
+    },
+    {
+      "recipeId": 1,
+      "name": "icing sugar",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 7
+    },
+    {
+      "recipeId": 1,
+      "name": "food coloring",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 8
+    },
+    {
+      "recipeId": 1,
+      "name": "brown sugar",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 9
+    },
+    {
+      "recipeId": 1,
+      "name": "sprinkles",
+      "amount": 2,
+      "measurementId": 2,
+      "id": 10
+    }
+  ],
+  "images": [
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643225764/purple_pic_at1ktt.png",
+      "id": 1
+    },
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643225764/purple_pic_at1ktt.png",
+      "id": 2
+    },
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643225764/purple_pic_at1ktt.png",
+      "id": 3
+    }
+  ],
+  "notes": [
+    {
+      "recipeId": 1,
+      "text": "Add less sugar next time",
+      "date": 1635611882958,
+      "id": 1
+    },
+    {
+      "recipeId": 1,
+      "text": "Add more sugar next time",
+      "date": 1635611882958,
+      "id": 2
+    },
+    {
+      "recipeId": 1,
+      "text": "Next time bake an extra 5 minutes, it was a touch undercooked in the middle",
+      "date": 1635611882958,
+      "id": 3
+    }
+  ],
+  "recipeCategory": [
+    {
+      "recipeId": 2,
+      "categoryId": 3,
+      "id": 1
+    },
+    {
+      "recipeId": 2,
+      "categoryId": 14,
       "id": 2
     }
   ]

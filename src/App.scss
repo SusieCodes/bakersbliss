@@ -2,32 +2,33 @@
 @import "./components/nav/nav.scss";
 @import "./components/buttons/buttons.scss";
 @import "./components/nav/sidebar.scss";
+@import "./components/dashboard/dashboard.scss";
 @import "~bootstrap/scss/bootstrap";
 
 * {
   margin: 0;
   padding: 0;
-  // list-style: none;
   text-decoration: none;
 }
 
 body {
   background-color: #f0f0f0;
-  // background-color: #f5f6f8;
   padding: 0px;
   margin: 0px;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   align-content: center;
-  min-height: 100vh;
-  padding: 150px 0px;
   text-align: center;
-  background-image: url("../src/images/confectionary.png");
-  background-repeat: repeat;
   font-size: 3rem;
 }
