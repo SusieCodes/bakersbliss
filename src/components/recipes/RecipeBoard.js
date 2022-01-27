@@ -61,11 +61,6 @@ export const RecipeBoard = () => {
     );
   };
 
-  const handleDelete = (recipeId) => {
-    //invoke the delete function and re-direct to the list
-    deleteRecipe(recipeId).then(() => getRecipes());
-  };
-
   useEffect(() => {
     getRecipes();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -87,11 +82,7 @@ export const RecipeBoard = () => {
           {recipes[0] ? (
             <div className="recipes-container">
               {recipes.map((recipe) => (
-                <RecipeCard
-                  key={recipe.id}
-                  recipe={recipe}
-                  handleDelete={handleDelete}
-                />
+                <RecipeCard key={recipe.id} recipe={recipe} />
               ))}
             </div>
           ) : (

@@ -41,7 +41,13 @@ export const Sidebar = () => {
           </div>
         </div>
         <div className="panels">
-          <div className={`panel ${checkActive(1, "active")}`}></div>
+          <div className={`panel ${checkActive(1, "active")}`}>
+            <div className="category-container">
+              {categories.map((category) => (
+                <CategoryCard key={category.id} category={category} />
+              ))}
+            </div>
+          </div>
           <div className={`panel ${checkActive(2, "active")}`}>
             <p>TAB 2 CONTENT</p>
           </div>

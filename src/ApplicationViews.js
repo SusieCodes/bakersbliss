@@ -3,6 +3,8 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { TopNav } from "./components/nav/TopNav";
 import { Dashboard } from "./components/dashboard/Dashboard";
+import { RecipeForm } from "./components/recipes/RecipeForm";
+import { RecipeEditForm } from "./components/recipes/RecipeEditForm";
 
 export const ApplicationViews = ({
   setAuthUser,
@@ -25,6 +27,18 @@ export const ApplicationViews = ({
 
       <Route exact path="/dashboard">
         <Dashboard />
+      </Route>
+
+      <Route exact path="/recipes/create">
+        <RecipeForm />
+      </Route>
+
+      <Route exact path="/recipes/:recipeId(\d+)/edit">
+        <RecipeEditForm />
+      </Route>
+
+      <Route exact path="/recipes/:recipeId(\d+)">
+        <RecipeDetail />
       </Route>
     </>
   );

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { getRecipeById, deleteRecipe } from "./RecipeManager";
 import { useParams, useHistory } from "react-router-dom";
-// import { formatDateNoWeekday } from "../helper";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { changeFave } from "./RecipeManager";
 
 export const RecipeDetail = () => {
+  const [notes, setNotes] = useState([]);
   const [recipe, setRecipe] = useState({
     userId: sessionStorage.getItem("bb_user"),
     name: "",
@@ -53,6 +53,13 @@ export const RecipeDetail = () => {
       });
     });
   }, [recipeId]);
+
+  useEffect(() => {
+    //use getNotes() from RecipeManager to grab notes and set it to state when page first loads
+    getNotesByRecipeId(recipeId).then((notes) => {
+      setNotes(notes);
+    });
+  }, []);
 
   return (
     <>
@@ -129,9 +136,17 @@ export const RecipeDetail = () => {
               <p className="instructions">{recipe?.instructions}</p>
             </div>
           </div>
-          <div className="recipe-bottom">
-            <NoteCard />
-          </div>
+          
+{/* ternary statement that shows recipe cards if they exist and message if none exist yet */}
+          {notes[0] ? (
+            <div className="recipe-notes">
+              {notes.map((note) => (
+                <NoteCard key={note.id} note={note}/>
+              ))}
+            </div>
+          ) : (
+              ""
+          )}
     </>
   );
 };

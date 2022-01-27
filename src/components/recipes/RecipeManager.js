@@ -50,3 +50,9 @@ export const changeFave = (id, fave) => {
     },
   }).then((res) => res.json());
 };
+
+export const getNotesByRecipeId = (recipeId) => {
+  return fetch(
+    `${url}/notes/?recipeId=${recipeId}&_sort=timestamp&_order=desc`
+  ).then((res) => res.json());
+};
