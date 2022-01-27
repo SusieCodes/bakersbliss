@@ -12,8 +12,8 @@
     align-content: center;
     position: -webkit-sticky;
     position: sticky;
-    // top: 0;
     width: 100px;
+    height: 450px;
     background-color: white;
     border-radius: 0px 10px 10px 0px;
     box-shadow: 3px 3px 5px 1px lightgray;
@@ -28,13 +28,34 @@
       align-items: center;
       width: 100%;
       height: 90px;
-      border: none;
+      border: transparent;
       color: #565656;
       font-size: 1rem;
       opacity: 60%;
       background: transparent;
-      border-radius: 0px 5px 5px 0px;
     }
+    .tab1 {
+      border-radius: 0px 10px 0px 0px;
+    }
+    .tab5 {
+      border-radius: 0px 0px 10px 0px;
+    }
+    .tab1:hover,
+    .tab2:hover,
+    .tab3:hover,
+    .tab4:hover,
+    .tab5:hover {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: black;
+      opacity: 1;
+      background-color: rgb(255, 221, 226);
+    }
+    // .tab6 {
+    //   flex: 1;
+    //   align-self: center;
+    //   background-color: blue;
+    // }
     .tab1.active1,
     .tab2.active2,
     .tab3.active3,
@@ -44,8 +65,15 @@
       font-weight: 800;
       color: black;
       opacity: 1;
-      background-color: white;
-      border-radius: 0px 5px 5px 0px;
+      background-image: linear-gradient(
+        135deg,
+        #ff62bba0 6%,
+        #ff9f39a0,
+        #ffe62fa0,
+        #90ff42a0,
+        #4bdbffa0,
+        #c27cffa0 92%
+      );
     }
   }
   .panels {
@@ -58,7 +86,7 @@
   .panel.active {
     display: block;
     min-width: 100%;
-    min-height: 450px;
+    min-height: 500px;
     background: transparent;
     .categories {
       display: flex;
@@ -72,7 +100,7 @@
         align-items: center;
         background-color: white;
         border-radius: 10px;
-        padding: 10px 0px;
+        padding: 0px;
         margin: 30px;
         text-align: center;
         border: 1px dashed lightgray;
@@ -80,20 +108,18 @@
           display: flex;
           flex-direction: row;
           justify-content: center;
-          align-items: center;
-          background-color: rgb(255, 222, 227);
-          border-radius: 50%;
-          width: 54px;
-          height: 54px;
-          margin-left: -27px;
+          align-items: flex-end;
+          width: 80px;
+          height: 80px;
+          margin-left: -40px;
         }
         .title {
           display: flex;
           flex-direction: row;
           justify-content: center;
           width: 200px;
-          padding: 20px;
-          font-size: 26px;
+          padding: 10px 0px;
+          font-size: 30px;
           font-weight: 500;
         }
       }

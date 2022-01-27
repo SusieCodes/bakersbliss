@@ -18,7 +18,6 @@ export const WelcomeBar2 = (props) => {
       <div className="page-title__headline">{title}</div>
 
       <div className="page-title__right">
-        Today: &nbsp;&nbsp;
         <span className="todays-date">{dateFormatWithSuffix(Date.now())}</span>
       </div>
     </div>

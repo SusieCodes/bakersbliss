@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getRecipesByUserId } from "./RecipeManager";
 import { RecipeCard } from "./RecipeCard";
 import { RecipeDummyCard } from "./RecipeDummyCard";
+import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
 export const RecipeBoard = () => {
   const [recipes, setRecipes] = useState([]);
@@ -42,7 +43,7 @@ export const RecipeBoard = () => {
   };
   //gets the user's recipes sorted by rating and sets it to state
   const getRecipesByStars = () => {
-    getRecipessByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
         recipesFromAPI.sort(function (a, b) {
           return b - a;
@@ -53,7 +54,7 @@ export const RecipeBoard = () => {
   };
   // sort all user's recipes by name and set it to state
   const getRecipesByName = () => {
-    getRecipessByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
         recipesFromAPI.sort((a, b) => a.name.localeCompare(b.name));
         setRecipes(recipesFromAPI);

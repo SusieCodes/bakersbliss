@@ -2,3 +2,54 @@ input#description {
   width: 300px;
   height: 200px;
 }
+
+.recipes-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 1px lightgray;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .recipe-image {
+    width: 200px;
+    .recipe-photo {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+  .name-fave-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .recipe-name {
+    font-weight: 600;
+    // margin-right: 10px;
+    max-width: 150px;
+    white-space: wrap;
+  }
+  .recipe-fave {
+  }
+  .recipe-stars {
+    padding: 0px 10px;
+  }
+  .recipe-description {
+    padding: 0px 10px;
+    width: 200px;
+    white-space: wrap;
+  }
+}

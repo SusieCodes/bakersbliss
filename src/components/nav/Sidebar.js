@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CategoryCard } from "../recipes/CategoryCard";
+import { RecipeBoard } from "../recipes/RecipeBoard";
 import { getAllCategories } from "../../components/recipes/RecipeManager";
 
 export const Sidebar = () => {
@@ -13,6 +14,7 @@ export const Sidebar = () => {
   const getCategories = () => {
     console.log("getCategories ran");
     getAllCategories().then((categories) => {
+      console.log("categories is returned as", categories);
       setCategories(categories);
     });
   };
@@ -56,18 +58,18 @@ export const Sidebar = () => {
           >
             5
           </div>
+          {/* <div className="tab6">""</div> */}
         </div>
         <div className="panels">
           <div className={`panel ${checkActive(1, "active")}`}>
-            <div className="category-container">
-              Categories should display under here
+            <div className="categories">
               {categories.map((category) => (
                 <CategoryCard key={category.id} category={category} />
               ))}
             </div>
           </div>
           <div className={`panel ${checkActive(2, "active")}`}>
-            <p>TAB 2 CONTENT</p>
+            <RecipeBoard />
           </div>
           <div className={`panel ${checkActive(3, "active")}`}>
             <p>TAB 3 CONTENT</p>

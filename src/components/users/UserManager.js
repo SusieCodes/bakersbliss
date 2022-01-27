@@ -1,4 +1,4 @@
-//Purpose: Fetch calls to get User info
+//Purpose: Fetch calls to get user info
 
 const url = "http://localhost:8088";
 

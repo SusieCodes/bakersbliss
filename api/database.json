@@ -25,7 +25,7 @@
   "recipes": [
     {
       "userId": 1,
-      "name": "Strawberry Cake",
+      "name": "Strawberry Cake Extraordinaire",
       "description": "Summary of this recipe goes here",
       "instructions": "Bake cake then eat it",
       "isFave": false,
@@ -81,7 +81,7 @@
   ],
   "categories": [
     {
-      "name": "All",
+      "name": "All Recipes",
       "image": "3dcake.png",
       "id": 1
     },

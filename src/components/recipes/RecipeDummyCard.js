@@ -3,7 +3,7 @@
 
 import React from "react";
 
-export const ConnectionDummyCard = () => {
+export const RecipeDummyCard = () => {
   return (
     <>
       <div className="dummy-card">
