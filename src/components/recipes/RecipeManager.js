@@ -58,6 +58,9 @@ export const getNotesByRecipeId = (recipeId) => {
 };
 
 export const getAllCategories = () => {
-  console.log("getAllCategories ran");
   return fetch(`${url}/categories`).then((res) => res.json());
+};
+
+export const getAllImages = (recipeId) => {
+  return fetch(`${url}/images/?recipeId=${recipeId}`).then((res) => res.json());
 };

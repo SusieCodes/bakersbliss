@@ -1,28 +1,40 @@
 //Author: Susie Stanley
 //Purpose: Creates and displays individual recipe cards for a single recipe that is passed as a prop
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
-import { changeFave } from "./RecipeManager";
-import photo from "../../images/purplepic.png";
+import { changeFave, getAllImages } from "./RecipeManager";
+import photo from "../../images/default.png";
 
 export const RecipeCard = ({ recipe }) => {
   // const history = useHistory();
+  const [images, setImages] = useState([]);
 
   const handleFave = (e) => {
     changeFave(recipe.id, e.target.checked);
   };
+
+  const getImages = (recipeId) => {
+    getAllImages(recipeId).then((imagesFromAPI) => {
+      console.log("images from API are: ", imagesFromAPI);
+      setImages(imagesFromAPI);
+    });
+  };
+
+  useEffect(() => {
+    getImages(recipe?.id);
+  }, []);
 
   return (
     <>
       <div className="recipe-card">
         <Link to={`/recipes/${recipe?.id}`}>
           <div className="recipe-image">
-            {recipe?.image ? (
+            {images[0] ? (
               <img
-                src={recipe?.image}
+                src={`../../images/${images[0]}`}
                 alt={recipe?.name}
                 className="recipe-photo"
               />

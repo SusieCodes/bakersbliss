@@ -14,6 +14,7 @@ input#description {
   display: flex;
   flex-direction: column;
   align-content: center;
+  align-items: center;
   background-color: white;
   padding: 20px;
   margin: 20px;
@@ -24,7 +25,7 @@ input#description {
     color: black;
   }
   .recipe-image {
-    width: 200px;
+    width: 250px;
     .recipe-photo {
       width: 100%;
       border-radius: 10px;
@@ -33,23 +34,31 @@ input#description {
   .name-fave-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
+    padding: 0px;
+    border: 1px solid blue;
   }
   .recipe-name {
     font-weight: 600;
     // margin-right: 10px;
-    max-width: 150px;
-    white-space: wrap;
+    // max-width: 200px;
+    // white-space: wrap;
+    border: 1px solid red;
   }
   .recipe-fave {
+    // border: 1px solid green;
   }
   .recipe-stars {
-    padding: 0px 10px;
+    padding: 10px 0px;
+    border-top: 1px solid lightgray;
   }
   .recipe-description {
-    padding: 0px 10px;
-    width: 200px;
+    padding: 0px;
+    width: 250px;
     white-space: wrap;
+    text-align: justify;
+    // border: 1px solid aqua;
   }
 }

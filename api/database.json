@@ -25,11 +25,11 @@
   "recipes": [
     {
       "userId": 1,
-      "name": "Strawberry Cake Extraordinaire",
-      "description": "Summary of this recipe goes here",
+      "name": "Strawberry Cake Extra123",
+      "description": "Summary of this recipe goes here. It will show a maximum character count of XX and will make it show 3 dots at the end if it exceeds that amount...",
       "instructions": "Bake cake then eat it",
       "isFave": false,
-      "stars": 4,
+      "stars": "★★★★☆",
       "servings": 6,
       "date": 1635611882958,
       "id": 1
@@ -37,7 +37,7 @@
     {
       "userId": 1,
       "name": "Chocolate Cake",
-      "description": "Summary of this recipe goes here",
+      "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": false,
       "stars": 3,
@@ -48,7 +48,7 @@
     {
       "userId": 1,
       "name": "Banana Muffins",
-      "description": "Summary of this recipe goes here",
+      "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": false,
       "stars": 4,
@@ -59,7 +59,7 @@
     {
       "userId": 1,
       "name": "Sugar Cookies",
-      "description": "Summary of this recipe goes here",
+      "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": 5,
@@ -70,7 +70,7 @@
     {
       "userId": 1,
       "name": "Cookie Icing",
-      "description": "Summary of this recipe goes here",
+      "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": 5,
@@ -285,12 +285,12 @@
   "images": [
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643225764/purple_pic_at1ktt.png",
+      "image_path": "bluepic.png",
       "id": 1
     },
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643225764/purple_pic_at1ktt.png",
+      "image_path": "bluepic.png",
       "id": 2
     },
     {

@@ -1,5 +1,4 @@
 import React from "react";
-import icon from "../../images/3dcake.png";
 
 export const CategoryCard = ({ category }) => {
   return (
@@ -7,8 +6,7 @@ export const CategoryCard = ({ category }) => {
       <div className="category-icon">
         {category.image ? (
           <img
-            // src={require(`../../images/${category?.image}`).default}
-            src={icon}
+            src={require(`../../images/${category?.image}`)}
             alt="icon"
             className="icon"
           />
