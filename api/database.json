@@ -29,7 +29,7 @@
       "categoryId": 3,
       "description": "Summary will show a maximum character count of XX and will make it show 3 dots at the end if it exceeds that amount...",
       "instructions": "Bake cake then eat it",
-      "isFave": false,
+      "isFave": true,
       "stars": "★★★★☆",
       "servings": 6,
       "date": 1635611882958,
