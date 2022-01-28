@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { WelcomeBar2 } from "../nav/WelcomeBar2";
 import { CategoryCard } from "../recipes/CategoryCard";
 import { RecipeBoard } from "../recipes/RecipeBoard";
 import { getAllCategories } from "../../components/recipes/RecipeManager";
@@ -12,9 +13,7 @@ export const Sidebar = () => {
 
   // get categories from database and set it to state
   const getCategories = () => {
-    console.log("getCategories ran");
     getAllCategories().then((categories) => {
-      console.log("categories is returned as", categories);
       setCategories(categories);
     });
   };
@@ -58,14 +57,20 @@ export const Sidebar = () => {
           >
             5
           </div>
-          {/* <div className="tab6">""</div> */}
         </div>
         <div className="panels">
           <div className={`panel ${checkActive(1, "active")}`}>
             <div className="categories">
-              {categories.map((category) => (
-                <CategoryCard key={category.id} category={category} />
-              ))}
+              <WelcomeBar2 title="categories" />
+              <div className="category-container">
+                <div className="category-container__center">
+                  <div className="category_extra">
+                    {categories.map((category) => (
+                      <CategoryCard key={category.id} category={category} />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className={`panel ${checkActive(2, "active")}`}>

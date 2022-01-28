@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getUserById } from "../users/UserManager";
 import { LogoutBtn } from "../buttons/Buttons";
 import logo from "../../images/small-logo.png";
@@ -18,7 +18,7 @@ export const TopNav = ({ clearUser }) => {
     );
   };
 
-  // const history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     getUser();

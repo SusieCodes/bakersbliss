@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export const PrimaryBtn = (props) => {
   const { PrimaryBtnLabel } = props;
@@ -9,6 +9,14 @@ export const PrimaryBtn = (props) => {
 export const SecondaryBtn = (props) => {
   const { SecondaryBtnLabel } = props;
   return <button className="secondary-btn">{SecondaryBtnLabel}</button>;
+};
+
+export const AddRecipeBtn = () => {
+  return (
+    <Link to="recipes/create">
+      <button className="add-recipe">Add Recipe</button>
+    </Link>
+  );
 };
 
 export const LogoutBtn = ({ clearUser }) => {

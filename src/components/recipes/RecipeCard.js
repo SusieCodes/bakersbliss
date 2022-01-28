@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { changeFave, getAllImages } from "./RecipeManager";
-import photo from "../../images/default.png";
+import photo from "../../images/defaultcupcake.png";
 
 export const RecipeCard = ({ recipe }) => {
   // const history = useHistory();
@@ -18,13 +18,12 @@ export const RecipeCard = ({ recipe }) => {
 
   const getImages = (recipeId) => {
     getAllImages(recipeId).then((imagesFromAPI) => {
-      console.log("images from API are: ", imagesFromAPI);
       setImages(imagesFromAPI);
     });
   };
 
   useEffect(() => {
-    getImages(recipe?.id);
+    getImages(recipe.id);
   }, []);
 
   return (
@@ -34,7 +33,7 @@ export const RecipeCard = ({ recipe }) => {
           <div className="recipe-image">
             {images[0] ? (
               <img
-                src={`../../images/${images[0]}`}
+                src={`${images[0].image_path}`}
                 alt={recipe?.name}
                 className="recipe-photo"
               />
@@ -43,11 +42,11 @@ export const RecipeCard = ({ recipe }) => {
             )}
           </div>
         </Link>
-        <div className="name-fave-wrapper">
-          <Link to={`/recipes/${recipe?.id}`}>
-            <div className="recipe-name">{recipe?.name}</div>
-          </Link>
-          <div className="recipe-fave">
+        <div className="recipe-text-wrapper">
+          <div className="name-fave-wrapper">
+            <Link to={`/recipes/${recipe?.id}`}>
+              <div className="recipe-name">{recipe?.name}</div>
+            </Link>
             <Checkbox
               color="error"
               icon={<FavoriteBorder />}
@@ -56,11 +55,11 @@ export const RecipeCard = ({ recipe }) => {
               onChange={(e) => handleFave(e)}
             />
           </div>
+          <Link to={`/recipes/${recipe?.id}`}>
+            <div className="recipe-stars">Rating: {recipe?.stars}</div>
+            <div className="recipe-description">{recipe?.description}</div>
+          </Link>
         </div>
-        <Link to={`/recipes/${recipe?.id}`}>
-          <div className="recipe-stars">Rating: {recipe?.stars}</div>
-          <div className="recipe-description">{recipe?.description}</div>
-        </Link>
       </div>
     </>
   );

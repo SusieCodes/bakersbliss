@@ -1,3 +1,22 @@
+/* rainbow
+  background-image: linear-gradient(
+    to left,
+    #ff62bba0 6%,
+    #ff9f39a0,
+    #ffe62fa0,
+    #90ff42a0,
+    #4bdbffa0,
+    #c27cffa0 92%
+  );
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "BananaSplit";
+  src: local("BananaSplit"), url(./fonts/bananasplit.ttf) format("truetype");
+}
+@import "./fonts/bananasplit.ttf";
+
 @import "./components/auth/auth.scss";
 @import "./components/nav/nav.scss";
 @import "./components/buttons/buttons.scss";
@@ -24,6 +43,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url("./images/confectionary.png");
+  background-repeat: repeat;
 }
 
 .App {

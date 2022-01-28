@@ -25,7 +25,8 @@
   "recipes": [
     {
       "userId": 1,
-      "name": "Strawberry Cake Extra123",
+      "name": "Strawberry Cake Extra0",
+      "categoryId": 3,
       "description": "Summary of this recipe goes here. It will show a maximum character count of XX and will make it show 3 dots at the end if it exceeds that amount...",
       "instructions": "Bake cake then eat it",
       "isFave": false,
@@ -37,6 +38,7 @@
     {
       "userId": 1,
       "name": "Chocolate Cake",
+      "categoryId": 3,
       "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": false,
@@ -48,9 +50,10 @@
     {
       "userId": 1,
       "name": "Banana Muffins",
+      "categoryId": 5,
       "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
-      "isFave": false,
+      "isFave": true,
       "stars": 4,
       "servings": 6,
       "date": 1635611882958,
@@ -59,6 +62,7 @@
     {
       "userId": 1,
       "name": "Sugar Cookies",
+      "categoryId": 2,
       "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": true,
@@ -70,6 +74,7 @@
     {
       "userId": 1,
       "name": "Cookie Icing",
+      "categoryId": 11,
       "description": "Summary of this recipe goes here, it should be a max character count of 120",
       "instructions": "Bake cake then eat it",
       "isFave": true,
@@ -83,76 +88,91 @@
     {
       "name": "All Recipes",
       "image": "3dcake.png",
+      "path": "/allrecipes",
       "id": 1
     },
     {
       "name": "Cookies",
       "image": "3dcake.png",
+      "path": "/cookies",
       "id": 2
     },
     {
       "name": "Cakes",
       "image": "3dcake.png",
+      "path": "/cakes",
       "id": 3
     },
     {
       "name": "Cupcakes",
       "image": "3dcake.png",
+      "path": "/cupcakes",
       "id": 4
     },
     {
       "name": "Muffins",
       "image": "3dcake.png",
+      "path": "/muffins",
       "id": 5
     },
     {
       "name": "Brownies",
       "image": "3dcake.png",
+      "path": "/brownies",
       "id": 6
     },
     {
       "name": "Bars",
       "image": "3dcake.png",
+      "path": "/bars",
       "id": 7
     },
     {
       "name": "Holidays",
       "image": "3dcake.png",
+      "path": "/holidays",
       "id": 8
     },
     {
       "name": "Breads",
       "image": "3dcake.png",
+      "path": "/breads",
       "id": 9
     },
     {
       "name": "Pies",
       "image": "3dcake.png",
+      "path": "/pies",
       "id": 10
     },
     {
       "name": "Frosting",
       "image": "3dcake.png",
+      "path": "/frosting",
       "id": 11
     },
     {
       "name": "Candy",
       "image": "3dcake.png",
+      "path": "/candy",
       "id": 12
     },
     {
       "name": "Donuts",
       "image": "3dcake.png",
+      "path": "/donuts",
       "id": 13
     },
     {
-      "name": "Chocolate",
+      "name": "Rolls ",
       "image": "3dcake.png",
+      "path": "/rolls",
       "id": 14
     },
     {
       "name": "Other",
       "image": "3dcake.png",
+      "path": "/other",
       "id": 15
     }
   ],
@@ -285,18 +305,43 @@
   "images": [
     {
       "recipeId": 1,
-      "image_path": "bluepic.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
       "id": 1
     },
     {
       "recipeId": 1,
-      "image_path": "bluepic.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302239/cupcake_nzecbn.png",
       "id": 2
     },
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643225764/purple_pic_at1ktt.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302249/cupcake2_t6vypm.png",
       "id": 3
+    },
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
+      "id": 4
+    },
+    {
+      "recipeId": 2,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
+      "id": 4
+    },
+    {
+      "recipeId": 3,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303602/bluepic_sylimn.png",
+      "id": 4
+    },
+    {
+      "recipeId": 4,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303608/purplepic_h0trrq.png",
+      "id": 4
+    },
+    {
+      "recipeId": 5,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303613/greenpic_i9uhkr.png",
+      "id": 4
     }
   ],
   "notes": [

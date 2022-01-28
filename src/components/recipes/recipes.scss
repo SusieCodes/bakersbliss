@@ -3,11 +3,39 @@ input#description {
   height: 200px;
 }
 
+.recipe-board {
+  padding: 125px 0px 0px 70px;
+  .recipe-create {
+    text-align: center;
+    a {
+      button {
+        font-size: 1.3rem;
+        font-weight: 500;
+        width: 170px;
+        padding: 5px 0px;
+        margin: 15px 0px;
+        border-radius: 10px;
+        border: 5px solid white;
+        background-image: linear-gradient(
+          45deg,
+          #ff62bba0 6%,
+          #ff9f39a0,
+          #ffe62fa0,
+          #90ff42a0,
+          #4bdbffa0,
+          #c27cffa0 92%
+        );
+      }
+    }
+  }
+}
+
 .recipes-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding-top: 10px;
 }
 
 .recipe-card {
@@ -24,6 +52,9 @@ input#description {
     text-decoration: none;
     color: black;
   }
+  a:hover {
+    color: black;
+  }
   .recipe-image {
     width: 250px;
     .recipe-photo {
@@ -31,34 +62,36 @@ input#description {
       border-radius: 10px;
     }
   }
-  .name-fave-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    padding: 0px;
-    border: 1px solid blue;
-  }
-  .recipe-name {
-    font-weight: 600;
-    // margin-right: 10px;
-    // max-width: 200px;
-    // white-space: wrap;
-    border: 1px solid red;
-  }
-  .recipe-fave {
-    // border: 1px solid green;
-  }
-  .recipe-stars {
-    padding: 10px 0px;
-    border-top: 1px solid lightgray;
-  }
-  .recipe-description {
-    padding: 0px;
+  .recipe-text-wrapper {
+    padding: 0px 10px;
     width: 250px;
-    white-space: wrap;
-    text-align: justify;
-    // border: 1px solid aqua;
+
+    .name-fave-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding: 0px;
+      a {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .recipe-name {
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+    }
+    .recipe-stars {
+      padding: 10px 0px;
+      border-top: 1px solid lightgray;
+    }
+    .recipe-description {
+      padding: 0px;
+      white-space: wrap;
+      text-align: justify;
+    }
   }
 }

@@ -64,3 +64,9 @@ export const getAllCategories = () => {
 export const getAllImages = (recipeId) => {
   return fetch(`${url}/images/?recipeId=${recipeId}`).then((res) => res.json());
 };
+
+export const getCookieRecipesByUserId = (userId) => {
+  return fetch(`${url}/recipes/?userId=${userId}&?categoryId=2`).then((res) =>
+    res.json()
+  );
+};

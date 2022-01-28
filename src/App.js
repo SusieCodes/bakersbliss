@@ -9,8 +9,7 @@ export function App() {
 
   const setAuthUser = (user) => {
     sessionStorage.setItem("bb_user", user.id);
-    const [firstname] = user.name.split(" ");
-    sessionStorage.setItem("bb_username", firstname);
+    sessionStorage.setItem("bb_username", user.first_name);
     setIsAuthenticated(sessionStorage.getItem("bb_user") !== null);
   };
 
