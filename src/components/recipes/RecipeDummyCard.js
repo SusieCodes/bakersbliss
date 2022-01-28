@@ -24,7 +24,7 @@ export const RecipeDummyCard = () => {
           </div>
           <div className="recipe-stars">Rating: ★★★★★</div>
           <div className="recipe-description">
-            Please Create A Recipe Using "+Add Recipe" button above
+            Please Create A Recipe Using "Add Recipe" button above
           </div>
         </div>
       </div>

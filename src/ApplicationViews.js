@@ -4,6 +4,7 @@ import { Register } from "./components/auth/Register";
 import { Navigation } from "./components/nav/Navigation";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { AllRecipes } from "./components/recipes/AllRecipes";
+// import { RecipeBoard } from "./components/recipes/OldRecipeBoard";
 import { Cookies } from "./components/categories/Cookies";
 import { Cakes } from "./components/categories/Cakes";
 import { Cupcakes } from "./components/categories/Cupcakes";

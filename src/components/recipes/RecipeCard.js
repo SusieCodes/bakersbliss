@@ -9,7 +9,6 @@ import { changeFave, getAllImages } from "./RecipeManager";
 import photo from "../../images/defaultcupcake.png";
 
 export const RecipeCard = ({ recipe }) => {
-  // const history = useHistory();
   const [images, setImages] = useState([]);
 
   const handleFave = (e) => {

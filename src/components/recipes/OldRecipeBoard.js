@@ -3,17 +3,17 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getRecipesByCategory } from "./RecipeManager";
 import { getRecipesByUserId } from "./RecipeManager";
 import { RecipeCard } from "./RecipeCard";
 import { RecipeDummyCard } from "./RecipeDummyCard";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
-export const RecipeBoard = () => {
+export const RecipeBoard = (category) => {
   const [recipes, setRecipes] = useState([]);
 
-  // sort all user's recipes by date (most recent first) and set it to state
   const getRecipes = () => {
-    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByCategory(sessionStorage.getItem("bb_user"), category).then(
       (recipesFromAPI) => {
         setRecipes(recipesFromAPI);
       }

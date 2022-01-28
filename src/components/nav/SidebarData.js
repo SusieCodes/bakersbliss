@@ -12,7 +12,7 @@ export const SidebarData = [
   },
   {
     title: "User",
-    path: "/users/:recipeId(d+)",
+    path: "/users/:userId(d+)",
     icon: <FaIcons.FaUserCircle />,
     cName: "side-text",
   },

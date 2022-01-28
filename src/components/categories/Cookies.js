@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getCookieRecipesByUserId } from "../recipes/RecipeManager";
 import { RecipeCard } from "../recipes/RecipeCard";
 import { RecipeDummyCard } from "../recipes/RecipeDummyCard";
 import { WelcomeBar } from "../nav/WelcomeBar";
+import { AddRecipeBtn } from "../buttons/Buttons";
 
 export const Cookies = () => {
   const [recipes, setRecipes] = useState([]);
@@ -23,14 +25,27 @@ export const Cookies = () => {
 
   return (
     <>
-      {" "}
-      <div className="cookie-recipes">
+      <div className="recipe-board">
         <WelcomeBar title="Cookie Recipes" />
-        <div className="recipe-container">
-          {recipes.map((recipe) => (
-            <RecipeCard key={recipe.id} recipe={recipe} />
-          ))}
+
+        <div className="recipe-create">
+          <Link to={`/recipes/create`}>
+            <AddRecipeBtn />
+          </Link>
         </div>
+
+        {/* ternary statement that shows recipe cards if they exist and message if none exist yet */}
+        {recipes[0] ? (
+          <div className="recipes-container">
+            {recipes.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
+          </div>
+        ) : (
+          <div className="dummy-container">
+            <RecipeDummyCard />
+          </div>
+        )}
       </div>
     </>
   );
