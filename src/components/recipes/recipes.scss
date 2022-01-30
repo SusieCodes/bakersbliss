@@ -111,6 +111,7 @@
 }
 
 // styling for create & edit recipe forms
+// Create new recipe form
 .add-edit-recipe {
   font-size: 1.3rem;
   font-weight: 500;
@@ -195,6 +196,7 @@ input#description {
   }
 }
 
+// Edit existing recipe form
 .form-btns {
   .form-btn {
     font-size: 1.3rem;
@@ -203,5 +205,51 @@ input#description {
     background-color: pink;
     border: none;
     border-radius: 5px;
+  }
+}
+
+// Recipe Detail styling
+.recipe-detail {
+  padding: 125px 0px 0px 70px;
+  .recipe-wrapper {
+    .recipe-top {
+      .recipe-top__col1 {
+        .recipe-info {
+          .name-fave-wrapper {
+            .recipe-name {
+            }
+            .checkbox {
+            }
+          }
+        }
+        .recipe-time {
+          .recipe-prep {
+          }
+          .btn-list {
+            .print-btn,
+            .details-btn {
+            }
+          }
+        }
+      }
+      .recipe-top__col2 {
+        .recipe-photo {
+          img {
+          }
+        }
+      }
+    }
+    .recipe-middle {
+    }
+    .recipe-general {
+      .row1 {
+      }
+      .row2 {
+      }
+    }
+    .recipe-notes {
+      .title-date-wrapper {
+      }
+    }
   }
 }
