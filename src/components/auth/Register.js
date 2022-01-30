@@ -4,8 +4,11 @@ import logo from "../../images/small-logo.png";
 
 export const Register = ({ setAuthUser }) => {
   const [registerUser, setRegisterUser] = useState({
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
+    image: "",
+    last_visit: Date.now(),
   });
   const [conflictDialog, setConflictDialog] = useState(false);
 
@@ -34,8 +37,11 @@ export const Register = ({ setAuthUser }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: registerUser.name,
+            first_name: registerUser.first_name,
+            last_name: registerUser.last_name,
             email: registerUser.email,
+            image: registerUser.image,
+            last_visit: Date.now(),
           }),
         })
           .then((res) => res.json())
@@ -70,24 +76,45 @@ export const Register = ({ setAuthUser }) => {
           <form className="form-login" onSubmit={handleRegister}>
             <div className="form-register__headline">Please Register</div>
             <div className="logo-login-wrapper">
-              <img className="logo-login" src={logo} alt="Baker's Bliss" />
+              <img
+                className="logo-login"
+                src={logo}
+                width="300"
+                alt="Baker's Bliss"
+              />
             </div>
             <fieldset className="login-fieldset">
               <div className="register-wrapper">
                 <div className="register-name">
-                  <label htmlFor="name" className="register-label">
-                    Name:
+                  <label htmlFor="first_name" className="register-label">
+                    First Name:
                   </label>
 
                   <input
                     type="text"
-                    name="name"
-                    id="name"
+                    name="first_name"
+                    id="first_name"
                     className="form-group__edit"
-                    placeholder="Full Name"
+                    placeholder="First Name"
                     required
                     autoFocus
-                    value={registerUser.name}
+                    value={registerUser.first_name}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="register-name">
+                  <label htmlFor="last_name" className="register-label">
+                    Last Name:
+                  </label>
+
+                  <input
+                    type="text"
+                    name="last_name"
+                    id="last_name"
+                    className="form-group__edit"
+                    placeholder="Last Name"
+                    required
+                    value={registerUser.last_name}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -105,7 +132,6 @@ export const Register = ({ setAuthUser }) => {
                     className="form-group__edit"
                     placeholder="name@email.com"
                     required
-                    autofocus
                     value={registerUser.email}
                     onChange={handleInputChange}
                   />

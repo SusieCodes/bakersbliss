@@ -9,17 +9,20 @@
       "id": 1
     },
     {
-      "name": "Taylor",
+      "first_name": "Taylor",
+      "last_name": "Smith",
       "email": "taylor@email.com",
       "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1635548970/wendy_fampug.png",
-      "phone": "425-555-1212",
-      "address": "123 Othello Dr",
-      "city": "Anytown",
-      "stateProvince": "TN",
-      "zipCode": "91514",
-      "country": "USA",
-      "timestamp": 1635611882958,
+      "last_visit": 1635611882958,
       "id": 2
+    },
+    {
+      "first_name": "Testy",
+      "last_name": "Tester",
+      "email": "test@test.com",
+      "image": "",
+      "last_visit": 1643510276140,
+      "id": 3
     }
   ],
   "recipes": [
@@ -31,6 +34,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 1
@@ -43,6 +48,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 2
@@ -55,6 +62,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 3
@@ -67,6 +76,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 4
@@ -79,6 +90,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 5
@@ -91,6 +104,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 6
@@ -103,6 +118,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 7
@@ -115,6 +132,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 8
@@ -127,6 +146,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 9
@@ -139,6 +160,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 10
@@ -151,6 +174,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 11
@@ -163,6 +188,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 12
@@ -175,6 +202,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 13
@@ -187,6 +216,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 14
@@ -199,6 +230,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 15
@@ -211,6 +244,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 16
@@ -223,6 +258,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 17
@@ -235,6 +272,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 18
@@ -247,6 +286,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 19
@@ -259,6 +300,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 20
@@ -271,6 +314,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 21
@@ -283,6 +328,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 22
@@ -295,6 +342,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 23
@@ -307,6 +356,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 24
@@ -319,6 +370,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 25
@@ -331,6 +384,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 26
@@ -343,6 +398,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 27
@@ -355,6 +412,8 @@
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
+      "prep": "20",
+      "cook": "30",
       "servings": 6,
       "date": 1635611882958,
       "id": 28

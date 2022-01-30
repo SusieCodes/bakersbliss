@@ -3,6 +3,8 @@ import * as AiIcons from "react-icons/ai";
 import * as Io5Icons from "react-icons/io5";
 import * as FaIcons from "react-icons/fa";
 
+let userId = sessionStorage.getItem("bb_user");
+
 export const SidebarData = [
   {
     title: "Home",
@@ -12,7 +14,7 @@ export const SidebarData = [
   },
   {
     title: "User",
-    path: "/users/:userId(d+)",
+    path: `/users/${userId}`,
     icon: <FaIcons.FaUserCircle />,
     cName: "side-text",
   },

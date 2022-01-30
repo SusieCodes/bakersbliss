@@ -42,17 +42,17 @@ export const Navigation = ({ clearUser }) => {
             {sessionStorage.getItem("bb_user") ? (
               <>
                 <div className="avatar-wrapper">
-                  {user?.image ? (
-                    <Link to={`/users/${user?.id}`}>
+                  <Link to={`/users/${sessionStorage.getItem("bb_user")}`}>
+                    {user?.image ? (
                       <img src={user?.image} alt={user?.name} />
-                    </Link>
-                  ) : (
-                    <img
-                      src={require(`../../images/default.png`).default}
-                      alt="default-user"
-                      className="avatar-photo"
-                    />
-                  )}
+                    ) : (
+                      <img
+                        src={require(`../../images/default.png`)}
+                        alt="default-user"
+                        className="avatar-photo"
+                      />
+                    )}
+                  </Link>
                 </div>
                 <Link
                   to="/"
@@ -61,14 +61,7 @@ export const Navigation = ({ clearUser }) => {
                     clearUser();
                   }}
                 >
-                  <button
-                    className="logout"
-                    onClick={() => {
-                      clearUser();
-                    }}
-                  >
-                    Logout
-                  </button>
+                  <button className="logout">Logout</button>
                 </Link>
               </>
             ) : (

@@ -108,7 +108,102 @@
 }
 
 // styling for create & edit recipe forms
+.add-edit-recipe {
+  padding: 125px 0px 30px 70px;
+  .recipe-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    fieldset {
+      width: 600px;
+      padding: 30px 50px;
+      margin: 10px 0px;
+      background-color: white;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      box-shadow: 2px 2px 3px 1px rgb(223, 223, 223);
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+.form-group-row {
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  padding: 20px 0px 0px;
+  // border: 1px solid green;
+  label {
+    white-space: nowrap;
+    // border: 1px solid blue;
+  }
+  input {
+    margin: 0px 35px 0px 5px;
+    width: 50px;
+    // border: 1px solid red;
+  }
+}
+.form-group-cat {
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  padding: 0px 0px 20px;
+  // border: 1px solid green;
+  label {
+    white-space: nowrap;
+    // border: 1px solid blue;
+  }
+  select {
+    margin: 0px 10px 0px;
+    // border: 1px solid red;
+  }
+}
+
+.upload-section {
+  font-weight: 500;
+}
+
+input#name,
 input#description {
-  width: 300px;
-  height: 200px;
+  margin-bottom: 20px;
+}
+
+input#description {
+  // width: 300px;
+  // height: 200px;
+  font-size: 1rem;
+  resize: none;
+}
+
+.ingredients-wrapper {
+  font-weight: 500;
+  .ingredients-group {
+    padding: 20px 0px 0px;
+    input#amount {
+      width: 50px;
+      margin: 0px 5px;
+    }
+    input#ingredient-name {
+      width: 250px;
+      margin: 0px 5px;
+    }
+    select#measurement {
+      height: 35px;
+    }
+  }
+}
+
+.form-btns {
+  .form-btn {
+    font-size: 1.3rem;
+    margin: 10px 5px;
+    padding: 5px 10px;
+    background-color: pink;
+    border: none;
+    border-radius: 5px;
+  }
 }
