@@ -4,9 +4,9 @@
 const url = "http://localhost:8088";
 
 export const getRecipesByUserId = (userId) => {
-  return fetch(
-    `${url}/recipes/?userId=${userId}&_sort=timestamp&_order=desc`
-  ).then((res) => res.json());
+  return fetch(`${url}/recipes/?userId=${userId}&_sort=date&_order=desc`).then(
+    (res) => res.json()
+  );
 };
 
 export const getRecipeById = (id) => {

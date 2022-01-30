@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "author": "Susie Stanley",
-  "homepage": "https://susiecodes.github.io/bakersbliss/",
+  "description": "Baker's Bliss: Your Personal Recipe Tracker - created by Susie Stanley",
+  "homepage": "http://localhost:3000/",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",

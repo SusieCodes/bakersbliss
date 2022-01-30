@@ -92,6 +92,9 @@
       a {
         text-decoration: none;
         color: black;
+        .recipe-stars {
+          font-weight: 500;
+        }
         .recipe-description {
           padding: 0px 10px;
           white-space: wrap;
@@ -109,6 +112,8 @@
 
 // styling for create & edit recipe forms
 .add-edit-recipe {
+  font-size: 1.3rem;
+  font-weight: 500;
   padding: 125px 0px 30px 70px;
   .recipe-form {
     display: flex;
@@ -116,11 +121,11 @@
     align-items: center;
     fieldset {
       width: 600px;
-      padding: 30px 50px;
+      padding: 25px 50px 30px;
       margin: 10px 0px;
       background-color: white;
       border-radius: 10px;
-      font-size: 1.3rem;
+      // font-size: 1.3rem;
       box-shadow: 2px 2px 3px 1px rgb(223, 223, 223);
     }
   }
@@ -129,12 +134,11 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  font-weight: 500;
 }
+
 .form-group-row {
   display: flex;
   flex-direction: row;
-  font-weight: 500;
   padding: 20px 0px 0px;
   // border: 1px solid green;
   label {
@@ -147,10 +151,11 @@
     // border: 1px solid red;
   }
 }
-.form-group-cat {
+
+.form-group-cat,
+.form-group-stars {
   display: flex;
   flex-direction: row;
-  font-weight: 500;
   padding: 0px 0px 20px;
   // border: 1px solid green;
   label {
@@ -163,24 +168,17 @@
   }
 }
 
-.upload-section {
-  font-weight: 500;
-}
-
 input#name,
 input#description {
   margin-bottom: 20px;
 }
 
 input#description {
-  // width: 300px;
-  // height: 200px;
-  font-size: 1rem;
-  resize: none;
+  // resize: none;
 }
 
 .ingredients-wrapper {
-  font-weight: 500;
+  // font-weight: 500;
   .ingredients-group {
     padding: 20px 0px 0px;
     input#amount {

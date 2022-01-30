@@ -26,9 +26,9 @@ export const RecipeEditForm = () => {
   const history = useHistory();
 
   const handleFieldChange = (evt) => {
-    const stateToChange = { ...recipe };
-    stateToChange[evt.target.id] = evt.target.value;
-    setRecipe(stateToChange);
+    const editedRecipe = { ...recipe };
+    editedRecipe[evt.target.id] = evt.target.value;
+    setRecipe(editedRecipe);
   };
 
   const updateExistingRecipe = (evt) => {
@@ -55,7 +55,7 @@ export const RecipeEditForm = () => {
     ) {
       setConflictDialog(true);
     } else {
-      updateRecipe(editedRecipe).then(() => history.push("/recipes"));
+      updateRecipe(editedRecipe).then(() => history.push("/category/1"));
     }
   };
 
@@ -150,6 +150,24 @@ export const RecipeEditForm = () => {
                 className="form-group__edit"
                 onChange={handleFieldChange}
                 value={recipe?.servings}
+              />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="notes">Notes: </label>
+              <textarea
+                name="notes"
+                id="notes"
+                maxLength="1000"
+                required
+                cols="24"
+                rows="4"
+                onChange={handleFieldChange}
+                className="form-group__edit"
+                placeholder=" Enter recipe notes"
+                value={recipe?.notes}
               />
             </div>
           </fieldset>

@@ -63,7 +63,9 @@ export const RecipeCard = ({ recipe }) => {
             <hr />
           </div>
           <div className="rate-fave-wrapper">
-            <div className="recipe-stars">Rating: {recipe?.stars}</div>
+            <Link to={`/recipes/${recipe?.id}`}>
+              <div className="recipe-stars">Rating: {recipe?.stars}</div>
+            </Link>
             <Checkbox
               color="error"
               icon={<FavoriteBorder />}
@@ -73,7 +75,9 @@ export const RecipeCard = ({ recipe }) => {
             />
           </div>
           <Link to={`/recipes/${recipe?.id}`}>
-            <div className="recipe-description">{recipe?.description}</div>
+            <div className="recipe-description">
+              {`${recipe.description.substring(120, 0).concat("...")}`}
+            </div>
           </Link>
         </div>
       </div>

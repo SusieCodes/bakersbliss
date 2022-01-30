@@ -12,10 +12,13 @@ export const RecipeForm = () => {
   const [recipe, setRecipe] = useState({
     userId: parseInt(sessionStorage.getItem("bb_user")),
     name: "",
+    categoryId: 1,
     description: "",
     instructions: "",
     isFave: false,
-    stars: "",
+    stars: "☆☆☆☆☆",
+    prep: "",
+    cook: "",
     servings: "",
     date: Date.now(),
   });
@@ -58,20 +61,22 @@ export const RecipeForm = () => {
     setRecipe({
       userId: parseInt(sessionStorage.getItem("bb_user")),
       name: "",
+      categoryId: 1,
       description: "",
       instructions: "",
       isFave: false,
-      stars: "",
+      stars: "☆☆☆☆☆",
+      prep: "",
+      cook: "",
       servings: "",
       date: Date.now(),
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleControlledInputChange = (evt) => {
+  const handleFieldChange = (evt) => {
     const newRecipe = { ...recipe };
-    let selectedVal = evt.target.value;
-    newRecipe[evt.target.id] = selectedVal;
+    newRecipe[evt.target.id] = evt.target.value;
     setRecipe(newRecipe);
   };
 
@@ -83,14 +88,17 @@ export const RecipeForm = () => {
       const newRecipe = {
         userId: parseInt(sessionStorage.getItem("bb_user")),
         name: recipe.name,
+        categoryId: recipe.categoryId,
         description: recipe.description,
         instructions: recipe.instructions,
         isFave: recipe.isFave,
         stars: recipe.stars,
+        prep: recipe.prep,
+        cook: recipe.cook,
         servings: recipe.servings,
         date: Date.now(),
       };
-      addRecipe(newRecipe).then(() => history.push("/recipes"));
+      addRecipe(newRecipe).then(() => history.push("/category/1"));
     }
   };
 
@@ -119,10 +127,10 @@ export const RecipeForm = () => {
                 maxLength="20"
                 required
                 autoFocus
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 className="form-group__edit"
                 placeholder=" Recipe Name"
-                value={recipe.name}
+                // value={recipe?.name}
               />
             </div>
 
@@ -160,9 +168,9 @@ export const RecipeForm = () => {
                 name="categoryId"
                 id="categoryId"
                 required
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 className="form-group__edit"
-                // value={ingredient.categoryId}
+                value={recipe?.categoryId}
               >
                 <option value="cup">Cookies</option>
                 <option value="cups">Cake</option>
@@ -181,19 +189,40 @@ export const RecipeForm = () => {
               </select>
             </div>
 
+            <div className="form-group-stars">
+              <label for="stars">Select # of Stars: </label>
+              <select
+                name="stars"
+                id="stars"
+                required
+                className="star-options"
+                onChange={handleFieldChange}
+                value={recipe?.stars}
+              >
+                <option value="☆☆☆☆☆" selected="selected">
+                  ☆☆☆☆☆
+                </option>
+                <option value="★">★</option>
+                <option value="★★">★★</option>
+                <option value="★★★">★★★</option>
+                <option value="★★★★">★★★★</option>
+                <option value="★★★★★">★★★★★</option>
+              </select>
+            </div>
+
             <div className="form-group">
               <label htmlFor="name">Description: </label>
               <textarea
                 name="description"
                 id="description"
-                maxLength="1000"
+                maxLength="1500"
                 required
                 cols="24"
                 rows="4"
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 className="form-group__edit"
                 placeholder=" Enter recipe instructions"
-                value={recipe.description}
+                // value={recipe?.description}
               />
             </div>
 
@@ -206,7 +235,7 @@ export const RecipeForm = () => {
                 id="prep"
                 maxLength="3"
                 required
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 className="form-group__edit"
                 value={recipe.prep}
               />
@@ -218,9 +247,9 @@ export const RecipeForm = () => {
                 id="cook"
                 maxLength="3"
                 required
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 classcook="form-group__edit"
-                value={recipe.cook}
+                // value={recipe?.cook}
               />
             </div>
             <div className="form-group-row">
@@ -230,9 +259,9 @@ export const RecipeForm = () => {
                 id="servings"
                 maxLength="3"
                 required
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 className="form-group__edit"
-                value={recipe.servings}
+                // value={recipe?.servings}
               />
             </div>
           </fieldset>
@@ -245,7 +274,7 @@ export const RecipeForm = () => {
                   id="amount"
                   maxLength="8"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   placeholder="  #"
                   // value={ingredient.amount}
@@ -254,7 +283,7 @@ export const RecipeForm = () => {
                   name="measurement"
                   id="measurement"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   // value={ingredient.measurement}
                 >
@@ -275,7 +304,7 @@ export const RecipeForm = () => {
                   id="ingredient-name"
                   maxLength="20"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   placeholder=" ingredient name"
                   // value={ingredient.name}
@@ -287,7 +316,7 @@ export const RecipeForm = () => {
                   id="amount"
                   maxLength="8"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   placeholder="  #"
                   // value={ingredient.amount}
@@ -296,7 +325,7 @@ export const RecipeForm = () => {
                   name="measurement"
                   id="measurement"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   // value={ingredient.measurement}
                 >
@@ -317,7 +346,7 @@ export const RecipeForm = () => {
                   id="ingredient-name"
                   maxLength="20"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   placeholder=" ingredient name"
                   // value={ingredient.name}
@@ -329,7 +358,7 @@ export const RecipeForm = () => {
                   id="amount"
                   maxLength="8"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   placeholder="  #"
                   // value={ingredient.amount}
@@ -338,7 +367,7 @@ export const RecipeForm = () => {
                   name="measurement"
                   id="measurement"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   // value={ingredient.measurement}
                 >
@@ -359,7 +388,7 @@ export const RecipeForm = () => {
                   id="ingredient-name"
                   maxLength="20"
                   required
-                  onChange={handleControlledInputChange}
+                  onChange={handleFieldChange}
                   className="form-group__edit"
                   placeholder=" ingredient name"
                   // value={ingredient.name}
@@ -373,63 +402,17 @@ export const RecipeForm = () => {
               <textarea
                 name="instructions"
                 id="instructions"
-                maxLength="1000"
+                maxLength="2000"
                 required
                 cols="24"
                 rows="4"
-                onChange={handleControlledInputChange}
+                onChange={handleFieldChange}
                 className="form-group__edit"
                 placeholder=" Enter recipe instructions"
-                value={recipe.instructions}
+                // value={recipe?.instructions}
               />
             </div>
           </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <label htmlFor="notes">Notes: </label>
-              <textarea
-                name="notes"
-                id="notes"
-                maxLength="1000"
-                required
-                cols="24"
-                rows="4"
-                onChange={handleControlledInputChange}
-                className="form-group__edit"
-                placeholder=" Enter recipe notes"
-                value={recipe.notes}
-              />
-            </div>
-          </fieldset>
-
-          {/* <div className="form-group">
-              <div className="measurement-wrapper">
-                <label htmlFor="zodiac">Measurement: </label>
-                <select
-                  name="measurement"
-                  id="measurement"
-                  className="measurement-options"
-                  onChange={handleControlledInputChange}
-                  value={recipe?.measurement}
-                > */}
-          {/* <option className="measurement-placeholder" value="">
-                    Choose...
-                  </option>
-                  <option value="Aries">Aries</option>
-                  <option value="Taurus">Taurus</option>
-                  <option value="Gemini">Gemini</option>
-                  <option value="Cancer">Cancer</option>
-                  <option value="Leo">Leo</option>
-                  <option value="Virgo">Virgo</option>
-                  <option value="Libra">Libra</option>
-                  <option value="Scorpio">Scorpio</option>
-                  <option value="Sagittarius">Sagittarius</option>
-                  <option value="Capricorn">Capricorn</option>
-                  <option value="Aquarius">Aquarius</option>
-                  <option value="Pisces">Pisces</option> */}
-          {/* </select> */}
-          {/* </div>
-            </div> */}
 
           <div className="form-btns">
             <button type="button" className="form-btn" onClick={handleSave}>
@@ -443,7 +426,7 @@ export const RecipeForm = () => {
             <button
               type="button"
               className="form-btn"
-              onClick={() => history.push("/recipes")}
+              onClick={() => history.push("/category/1")}
             >
               Cancel
             </button>
