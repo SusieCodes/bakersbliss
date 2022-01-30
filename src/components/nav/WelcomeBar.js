@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { dateFormatWithSuffix } from "../../helper";
+import { dateFormatWithSuffixNoYear } from "../../helper";
 
 //WelcomeBar displays username, title & date (use WelcomeBar2 if back button needed)
 export const WelcomeBar = (props) => {
@@ -19,7 +19,9 @@ export const WelcomeBar = (props) => {
 
       <div className="welcome-title">{title}</div>
 
-      <div className="welcome-right">{dateFormatWithSuffix(Date.now())}</div>
+      <div className="welcome-right">
+        {dateFormatWithSuffixNoYear(Date.now())}
+      </div>
     </div>
   );
 };

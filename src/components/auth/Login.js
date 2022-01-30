@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../images/small-logo.png";
 
-export const Login = ({ setAuthUser }) => {
+export const Login = ({ setAuthUser, clearUser }) => {
   const [loginUser, setLoginUser] = useState({ email: "" });
   const [existDialog, setExistDialog] = useState(false);
 
@@ -32,6 +32,10 @@ export const Login = ({ setAuthUser }) => {
       }
     });
   };
+
+  useEffect(() => {
+    clearUser();
+  }, []);
 
   return (
     <main className="container-login">

@@ -7,18 +7,17 @@
     justify-content: center;
     // border: 1px solid blue;
     .category-container {
-      // max-width: 1200px;
-      padding: 30px 0px 0px 35px;
+      max-width: 1300px;
+      padding: 30px 0px 30px 35px;
       margin: 0 auto;
       display: grid;
-      grid-gap: 1rem;
-      // grid-template-columns: repeat(auto-fill, 300px);
-      // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-column-gap: 5rem;
+      grid-row-gap: 2rem;
+      grid-template-columns: repeat(auto-fill, 300px);
       // border: 1px solid red;
       a {
         text-decoration: none;
         color: black;
-
         .category-card {
           display: flex;
           flex-direction: row;
@@ -27,7 +26,6 @@
           background-color: white;
           border-radius: 10px;
           padding: 0px;
-          margin: 0px 40px 50px;
           text-align: center;
           border: 1px dashed lightgray;
           .icon {
@@ -36,17 +34,19 @@
             justify-content: center;
             align-items: flex-end;
             width: 80px;
-            height: 80px;
-            margin-left: -40px;
+            // height: 80px;
+            margin: 5px 0px 5px -50px;
+            // border: 1px solid blue;
           }
           .title {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            width: 200px;
+            width: 245px;
             padding: 10px 0px;
             font-size: 30px;
             font-weight: 500;
+            // border: 1px solid red;
           }
         }
       }
@@ -54,14 +54,130 @@
   }
 }
 
-@media (min-width: 600px) {
-  .category-container {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1250px) {
+  .dashboard {
+    .categories {
+      .category-container {
+        max-width: 900px;
+        padding: 30px 0px 30px 30px;
+        grid-template-columns: repeat(auto-fill, 280px);
+        // border: 1px solid red;
+        a {
+          .category-card {
+            .title {
+              width: 200px;
+            }
+            .icon {
+              width: 70px;
+              height: 70px;
+              margin-left: -50px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-@media (min-width: 900px) {
-  .category-container {
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 900px) {
+  .dashboard {
+    .categories {
+      .category-container {
+        padding: 30px 0px 30px 28px;
+        grid-template-columns: repeat(auto-fill, 250px);
+        a {
+          .category-card {
+            .icon {
+              width: 65px;
+              height: 65px;
+            }
+            .title {
+              width: 170px;
+              font-size: 24px;
+              // border: 1px solid aqua;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 745px) {
+  .dashboard {
+    padding: 95px 0px 10px 70px;
+    .categories {
+      .category-container {
+        max-width: 600px;
+        padding: 20px 0px 30px 37px;
+        grid-template-columns: repeat(auto-fill, 320px);
+        a {
+          .category-card {
+            .icon {
+              width: 80px;
+              height: 80px;
+              margin-left: -45px;
+            }
+            .title {
+              width: 260px;
+              font-size: 34px;
+              // border: 1px solid aqua;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 85px 0px 10px 70px;
+    .categories {
+      .category-container {
+        max-width: 450px;
+        padding: 10px 0px 20px 25px;
+        grid-template-columns: repeat(auto-fill, 220px);
+        grid-row-gap: 1.4rem;
+        a {
+          .category-card {
+            .icon {
+              width: 60px;
+              height: 60px;
+              margin-left: -45px;
+            }
+            .title {
+              width: 140px;
+              font-size: 24px;
+              // border: 1px solid aqua;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 359px) {
+  .dashboard {
+    padding: 150px 0px 10px;
+    .categories {
+      .category-container {
+        grid-template-columns: repeat(auto-fill, 260px);
+        // border: 1px solid red;
+        a {
+          .category-card {
+            .title {
+              width: 160px;
+            }
+            .icon {
+              width: 70px;
+              height: 70px;
+              margin-left: -55px;
+            }
+          }
+        }
+      }
+    }
   }
 }

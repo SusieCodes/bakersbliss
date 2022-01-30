@@ -140,3 +140,13 @@ export const dateFormatWithSuffix = (milliseconds) => {
   let dateString = dayMonth + day + ", " + year;
   return dateString;
 };
+
+// formats date with input as milliseconds and output as Fri Jan 5th
+export const dateFormatWithSuffixNoYear = (milliseconds) => {
+  let newDate = new Date(milliseconds);
+  const strDate = newDate.toDateString();
+  const dayMonth = strDate.slice(0, 8);
+  const day = addOrdinalSuffix(newDate.getDate());
+  let dateString = dayMonth + day;
+  return dateString;
+};

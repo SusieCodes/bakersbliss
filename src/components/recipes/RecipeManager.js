@@ -71,56 +71,6 @@ export const getRecipesByCategory = (userId, categoryId) => {
   ).then((res) => res.json());
 };
 
-export const getCookieRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=2`).then((res) =>
-    res.json()
-  );
-};
-
-export const getCakeRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=3`).then((res) =>
-    res.json()
-  );
-};
-
-export const getCupcakeRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=4`).then((res) =>
-    res.json()
-  );
-};
-
-export const getMuffinRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=5`).then((res) =>
-    res.json()
-  );
-};
-
-export const getBrownieRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=6`).then((res) =>
-    res.json()
-  );
-};
-
-export const getBarRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=7`).then((res) =>
-    res.json()
-  );
-};
-
-export const getHolidayRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=8`).then((res) =>
-    res.json()
-  );
-};
-
-export const getBreadRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=9`).then((res) =>
-    res.json()
-  );
-};
-
-export const getPieRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&categoryId=10`).then((res) =>
-    res.json()
-  );
+export const getCategoryById = (categoryId) => {
+  return fetch(`${url}/categories/${categoryId}`).then((res) => res.json());
 };

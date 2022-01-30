@@ -9,7 +9,7 @@ export const CategoryCard = ({ category }) => {
             <img
               src={require(`../../images/${category?.image}`)}
               alt="icon"
-              className="icon"
+              className={`icon ${category}`}
             />
           ) : (
             ""

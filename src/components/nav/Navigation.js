@@ -4,7 +4,7 @@ import { getUserById } from "../users/UserManager";
 import { SidebarData } from "./SidebarData";
 import { SidebarLogout } from "./SidebarData";
 import { IconContext } from "react-icons";
-import logo from "../../images/small-logo.png";
+import logo from "../../images/logo2.png";
 
 export const Navigation = ({ clearUser }) => {
   const [user, setUser] = useState({

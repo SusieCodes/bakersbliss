@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getRecipesByCategory } from "./RecipeManager";
 import { getRecipesByUserId } from "./RecipeManager";
 import { RecipeCard } from "./RecipeCard";
 import { RecipeDummyCard } from "./RecipeDummyCard";

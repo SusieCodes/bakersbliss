@@ -11,6 +11,20 @@ import photo from "../../images/defaultcupcake.png";
 export const RecipeCard = ({ recipe }) => {
   const [images, setImages] = useState([]);
 
+  // const formatStars = (stars) => {
+  //   if (stars == 1) {
+  //     return "★☆☆☆☆";
+  //   } else if (stars == 2) {
+  //     return "★★☆☆☆";
+  //   } else if (stars == 3) {
+  //     return "★★★☆☆";
+  //   } else if (stars == 4) {
+  //     return "★★★★☆";
+  //   } else if (stars == 5) {
+  //     return "★★★★★";
+  //   }
+  // };
+
   const handleFave = (e) => {
     changeFave(recipe.id, e.target.checked);
   };
@@ -42,10 +56,14 @@ export const RecipeCard = ({ recipe }) => {
           </div>
         </Link>
         <div className="recipe-text-wrapper">
-          <div className="name-fave-wrapper">
-            <Link to={`/recipes/${recipe?.id}`}>
-              <div className="recipe-name">{recipe?.name}</div>
-            </Link>
+          <Link to={`/recipes/${recipe?.id}`}>
+            <div className="recipe-name">{recipe?.name}</div>
+          </Link>
+          <div className="line">
+            <hr />
+          </div>
+          <div className="rate-fave-wrapper">
+            <div className="recipe-stars">Rating: {recipe?.stars}</div>
             <Checkbox
               color="error"
               icon={<FavoriteBorder />}
@@ -55,7 +73,6 @@ export const RecipeCard = ({ recipe }) => {
             />
           </div>
           <Link to={`/recipes/${recipe?.id}`}>
-            <div className="recipe-stars">Rating: {recipe?.stars}</div>
             <div className="recipe-description">{recipe?.description}</div>
           </Link>
         </div>
