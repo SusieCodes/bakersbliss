@@ -2,27 +2,36 @@ import React, { useState, useEffect } from "react";
 import {
   getRecipeById,
   deleteRecipe,
-  getAllImages,
-  getNotesByRecipeId,
+  changeFave,
+  getIngredientsByRecipeId,
 } from "./RecipeManager";
 import { useParams, useHistory } from "react-router-dom";
-import { NoteCard } from "../recipes/NoteCard";
+import { NoteCard, IngredientCard } from "../recipes/Cards";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
-import { changeFave } from "./RecipeManager";
+import { WelcomeBar2 } from "../nav/WelcomeBar2";
 import photo from "../../images/defaultcupcake.png";
 
 export const RecipeDetail = () => {
   const [notes, setNotes] = useState([]);
   const [images, setImages] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState({
-    userId: sessionStorage.getItem("bb_user"),
+    userId: 1,
     name: "",
+    categoryId: 1,
+    category: [],
+    images: [],
     description: "",
+    ingredients: [],
     instructions: "",
-    isFave: false,
+    isFave: true,
     stars: 1,
+    prep: "",
+    cook: "",
     servings: 1,
+    notes: [],
+    date: 1,
   });
 
   const { recipeId } = useParams();
@@ -37,32 +46,46 @@ export const RecipeDetail = () => {
     changeFave(recipeId, e.target.checked);
   };
 
-  // const goBack = () => {
-  //   history.push("/recipes");
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
-
   const handleEdit = () => {
     history.push(`/recipes/${recipeId}/edit`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  useEffect(() => {
-    // fetches recipe info, images & notes from RecipeManager and sets them to state
+  const getRecipe = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
+      setImages(recipe.images);
+      // setIngredients(recipe.ingredients);
+      setNotes(recipe.notes);
+      console.log("recipe info is ", recipe);
     });
-    getAllImages(recipeId).then((recipeImages) => {
-      setImages(recipeImages);
-    });
-    getNotesByRecipeId(recipeId).then((notes) => {
-      setNotes(notes);
+  };
+
+  useEffect(() => {
+    getRecipe();
+    getIngredientsByRecipeId(recipeId).then((ingredients) => {
+      setIngredients(ingredients);
     });
   }, []);
+
+  // useEffect(() => {
+  // fetches recipe info, images & notes from RecipeManager and sets them to state
+  // getRecipe();
+  // setImages(recipe.images);
+  // setIngredients(recipe.ingredients);
+  // setNotes(recipe.notes);
+  // console.log("recipe info is ", recipe);
+  // console.log("ingredients array is ", ingredients);
+  // getIngredientsByRecipeId(recipeId).then((ingredients) => {
+  //   setIngredients(ingredients);
+  //   console.log("Ingredients are: ", ingredients);
+  // });
+  // }, []);
 
   return (
     <>
       <div className="recipe-detail">
+        <WelcomeBar2 title="Recipe Details" />
         <div className="recipe-wrapper">
           <div className="recipe-top">
             <div className="recipe-top__col1">
@@ -79,9 +102,31 @@ export const RecipeDetail = () => {
                     />
                   </div>
                 </div>
+                <div className="cat-rating-wrapper">
+                  <div className="category">
+                    Category: <span>{recipe?.category.name}</span>
+                  </div>
+                  <div className="rating">
+                    Rating: <span>{recipe?.stars}</span>
+                  </div>
+                </div>
               </div>
               <div className="recipe-time">
-                <div className="recipe-prep"></div>
+                <div className="prep-time-wrapper">
+                  <div className="prep-text">
+                    <div className="prep">Prep time:</div>
+                    <div className="cook">Cook time:</div>
+                    <div className="total">Total:</div>
+                  </div>
+                  <div className="prep-times">
+                    <div className="prep">{recipe?.prep}mins</div>
+                    <div className="cook">{recipe?.cook}mins</div>
+                    <div className="total">
+                      {parseInt(recipe?.prep) + parseInt(recipe?.cook)}mins
+                    </div>
+                  </div>
+                </div>
+                <div className="recipe-prep-info"></div>
                 <div className="btn-list">
                   <div
                     className="print-btn"
@@ -91,7 +136,7 @@ export const RecipeDetail = () => {
                   </div>
 
                   <div
-                    className="details-btn"
+                    className="details-btn middle-btn"
                     onClick={() => handleEdit(recipe?.id)}
                   >
                     Edit
@@ -106,49 +151,87 @@ export const RecipeDetail = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="recipe-top__col2">
-            <div className="recipe-photo">
-              {images[0] ? (
-                <img src={images[0].image_path} alt={recipe.name} />
+
+            <div className="recipe-top__col2">
+              {images[1] ? (
+                <div className="recipe-photo__thumbnails">
+                  <div className="thumbnail">
+                    {images[1] ? (
+                      <img src={images[1].image_path} alt={recipe?.name} />
+                    ) : (
+                      <img src={photo} alt="Add image" />
+                    )}
+                  </div>
+                  <div className="thumbnail middle">
+                    {images[2] ? (
+                      <img src={images[2].image_path} alt={recipe?.name} />
+                    ) : (
+                      <img src={photo} alt="Add image" />
+                    )}
+                  </div>
+                  <div className="thumbnail">
+                    {images[3] ? (
+                      <img src={images[3].image_path} alt={recipe?.name} />
+                    ) : (
+                      <img src={photo} alt="Add image" />
+                    )}
+                  </div>
+                </div>
               ) : (
-                <img src={photo} alt="Add image" />
+                ""
               )}
-            </div>
-            <div className="recipe-photo_thumbnails">
-              <div className="thumbnail">1</div>
-              <div className="thumbnail">2</div>
-              <div className="thumbnail">3</div>
+
+              <div className="recipe-photo">
+                {images[0] ? (
+                  <img src={images[0].image_path} alt={recipe?.name} />
+                ) : (
+                  <img src={photo} alt="Add image" />
+                )}
+              </div>
             </div>
           </div>
 
           <div className="recipe-middle">
-            <h3>Description:</h3>
-            <p>{recipe.description}</p>
+            <h4>Description:</h4>
+            <p>{recipe?.description}</p>
           </div>
 
           <div className="recipe-general">
-            <div className="row1">
-              <h3>Ingredients:</h3>
-              <div className="ingredient-list">Ingredient List goes here</div>
+            <div className="ingredients">
+              <h4>Ingredients:</h4>
+              {/* ternary statement that shows ingredients if they exist */}
+              {ingredients[0] ? (
+                <div className="ingredient-list">
+                  {ingredients.map((ingredient) => (
+                    <IngredientCard
+                      key={ingredient.id}
+                      ingredient={ingredient}
+                    />
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
 
-            <div className="row2">
-              <h3>Instructions:</h3>
-              <p className="instructions">{recipe?.instructions}</p>
+            <div className="instructions">
+              <h4>Instructions:</h4>
+              <p>{recipe?.instructions}</p>
             </div>
+
+            {/* ternary statement that shows notes if they exist */}
+            {notes[0] ? (
+              <div className="notes">
+                <h4>Notes:</h4>
+
+                {notes.map((note) => (
+                  <NoteCard key={note.id} note={note} />
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
-
-          {/* ternary statement that shows recipe cards if they exist and message if none exist yet */}
-          {notes[0] ? (
-            <div className="recipe-notes">
-              {notes.map((note) => (
-                <NoteCard key={note.id} note={note} />
-              ))}
-            </div>
-          ) : (
-            ""
-          )}
         </div>
       </div>
     </>

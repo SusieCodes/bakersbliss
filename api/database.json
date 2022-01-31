@@ -44,7 +44,7 @@
       "userId": 1,
       "name": "Chocolate Cake",
       "categoryId": 3,
-      "description": "Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount.",
+      "description": "Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just",
       "instructions": "Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
@@ -59,7 +59,7 @@
       "name": "Birthday Cupcakes",
       "categoryId": 4,
       "description": "Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified by the code in recipe card",
-      "instructions": "Bake cake then eat it",
+      "instructions": "Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it says we just Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds that amount. add some more words to get up to five hundred words to see what it looks like just keep typing and don't worry about what it say",
       "isFave": true,
       "stars": "★★★★☆",
       "prep": "20",
@@ -421,10 +421,10 @@
     {
       "userId": 1,
       "name": "New Test Name",
-      "categoryId": "tbsp",
+      "categoryId": "2",
       "description": "I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! ",
       "instructions": "Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! ",
-      "isFave": false,
+      "isFave": true,
       "stars": "★★★★★",
       "prep": "15",
       "cook": "15",
@@ -435,11 +435,11 @@
     {
       "userId": 1,
       "name": "Susie Special",
-      "categoryId": "tsp",
+      "categoryId": "2",
       "description": "I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes!",
       "instructions": "Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes!",
-      "isFave": false,
-      "stars": "",
+      "isFave": true,
+      "stars": "☆☆☆☆☆",
       "prep": "40",
       "cook": "120",
       "servings": "10",
@@ -452,7 +452,7 @@
       "categoryId": "tsp",
       "description": "I love me some frosting",
       "instructions": "Put instructions here",
-      "isFave": false,
+      "isFave": true,
       "stars": "☆☆☆☆☆",
       "prep": "15",
       "cook": "15",
@@ -689,22 +689,42 @@
     {
       "recipeId": 2,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
-      "id": 4
+      "id": 5
+    },
+    {
+      "recipeId": 2,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
+      "id": 6
+    },
+    {
+      "recipeId": 2,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
+      "id": 7
+    },
+    {
+      "recipeId": 2,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
+      "id": 8
     },
     {
       "recipeId": 3,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303602/bluepic_sylimn.png",
-      "id": 4
+      "id": 9
+    },
+    {
+      "recipeId": 3,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303602/bluepic_sylimn.png",
+      "id": 10
     },
     {
       "recipeId": 4,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303608/purplepic_h0trrq.png",
-      "id": 4
+      "id": 11
     },
     {
-      "recipeId": 5,
+      "recipeId": 4,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303613/greenpic_i9uhkr.png",
-      "id": 4
+      "id": 12
     }
   ],
   "notes": [
@@ -722,21 +742,9 @@
     },
     {
       "recipeId": 1,
-      "text": "Next time bake an extra 5 minutes, it was a touch undercooked in the middle",
+      "text": "Next time bake an extra 5 minutes, it was a touch undercooked in the middle. Add a bunch of words to see what a really long note looks like. Doesnt matter what it says because it will be erased eventually just wanna see the output on the page when it displays and what maximum character count looks like.",
       "date": 1635611882958,
       "id": 3
-    }
-  ],
-  "recipeCategory": [
-    {
-      "recipeId": 2,
-      "categoryId": 3,
-      "id": 1
-    },
-    {
-      "recipeId": 2,
-      "categoryId": 14,
-      "id": 2
     }
   ]
 }

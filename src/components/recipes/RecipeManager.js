@@ -10,7 +10,9 @@ export const getRecipesByUserId = (userId) => {
 };
 
 export const getRecipeById = (id) => {
-  return fetch(`${url}/recipes/${id}`).then((res) => res.json());
+  return fetch(
+    `${url}/recipes/${id}?_expand=category&_embed=images&_embed=ingredients&_embed=notes`
+  ).then((res) => res.json());
 };
 
 export const deleteRecipe = (id) => {
@@ -73,4 +75,10 @@ export const getRecipesByCategory = (userId, categoryId) => {
 
 export const getCategoryById = (categoryId) => {
   return fetch(`${url}/categories/${categoryId}`).then((res) => res.json());
+};
+
+export const getIngredientsByRecipeId = (recipeId) => {
+  return fetch(
+    `${url}/ingredients/?recipeId=${recipeId}&_order=asc&_expand=measurement`
+  ).then((res) => res.json());
 };

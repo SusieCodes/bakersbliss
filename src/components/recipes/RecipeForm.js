@@ -130,7 +130,7 @@ export const RecipeForm = () => {
                 onChange={handleFieldChange}
                 className="form-group__edit"
                 placeholder=" Recipe Name"
-                // value={recipe?.name}
+                value={recipe.name}
               />
             </div>
 
@@ -170,22 +170,22 @@ export const RecipeForm = () => {
                 required
                 onChange={handleFieldChange}
                 className="form-group__edit"
-                value={recipe?.categoryId}
+                value={recipe.categoryId}
               >
-                <option value="cup">Cookies</option>
-                <option value="cups">Cake</option>
-                <option value="tbsp">Cupcakes</option>
-                <option value="tsp">Muffins</option>
-                <option value="cup">Brownies</option>
-                <option value="cups">Bars</option>
-                <option value="tbsp">Holidays</option>
-                <option value="tsp">Breads</option>
-                <option value="tbsp">Pies</option>
-                <option value="tsp">Frosting</option>
-                <option value="cup">Candy</option>
-                <option value="cups">Donuts</option>
-                <option value="tbsp">Rolls</option>
-                <option value="tsp">Other</option>
+                <option value="2">Cookies</option>
+                <option value="3">Cake</option>
+                <option value="4">Cupcakes</option>
+                <option value="5">Muffins</option>
+                <option value="6">Brownies</option>
+                <option value="7">Bars</option>
+                <option value="8">Holidays</option>
+                <option value="9">Breads</option>
+                <option value="10">Pies</option>
+                <option value="11">Frosting</option>
+                <option value="12">Candy</option>
+                <option value="13">Donuts</option>
+                <option value="14">Rolls</option>
+                <option value="15">Other</option>
               </select>
             </div>
 
@@ -197,7 +197,7 @@ export const RecipeForm = () => {
                 required
                 className="star-options"
                 onChange={handleFieldChange}
-                value={recipe?.stars}
+                value={recipe.stars}
               >
                 <option value="☆☆☆☆☆" selected="selected">
                   ☆☆☆☆☆
@@ -215,14 +215,14 @@ export const RecipeForm = () => {
               <textarea
                 name="description"
                 id="description"
-                maxLength="1500"
+                maxLength="500"
                 required
                 cols="24"
                 rows="4"
                 onChange={handleFieldChange}
                 className="form-group__edit"
                 placeholder=" Enter recipe instructions"
-                // value={recipe?.description}
+                value={recipe.description}
               />
             </div>
 
@@ -249,7 +249,7 @@ export const RecipeForm = () => {
                 required
                 onChange={handleFieldChange}
                 classcook="form-group__edit"
-                // value={recipe?.cook}
+                value={recipe.cook}
               />
             </div>
             <div className="form-group-row">
@@ -261,7 +261,7 @@ export const RecipeForm = () => {
                 required
                 onChange={handleFieldChange}
                 className="form-group__edit"
-                // value={recipe?.servings}
+                value={recipe.servings}
               />
             </div>
           </fieldset>
@@ -409,7 +409,7 @@ export const RecipeForm = () => {
                 onChange={handleFieldChange}
                 className="form-group__edit"
                 placeholder=" Enter recipe instructions"
-                // value={recipe?.instructions}
+                value={recipe.instructions}
               />
             </div>
           </fieldset>
