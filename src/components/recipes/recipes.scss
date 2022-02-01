@@ -179,19 +179,27 @@ input#description {
 }
 
 .ingredients-wrapper {
-  // font-weight: 500;
+  // border: 1px solid red;
   .ingredients-group {
+    // border: 1px solid blue;
     padding: 20px 0px 0px;
     input#amount {
       width: 50px;
       margin: 0px 5px;
     }
-    input#ingredient-name {
-      width: 250px;
+    input#label {
+      width: 260px;
       margin: 0px 5px;
     }
-    select#measurement {
+    select#measurementId {
       height: 35px;
+    }
+    .save-ingred-btn {
+      font-weight: 400;
+      padding: 5px 10px;
+      background-color: lightpink;
+      border-radius: 5px;
+      // border: 1px solid lightgray;
     }
   }
 }
@@ -302,6 +310,7 @@ input#description {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            cursor: pointer;
             // border: 2px dashed green;
             .print-btn,
             .details-btn {
@@ -360,17 +369,20 @@ input#description {
       border-radius: 10px;
       border: 1px dashed lightgray;
       .ingredients {
+        border: 1px solid red;
         .ingredient-list {
           display: flex;
           flex-direction: column;
           flex-wrap: wrap;
           height: 175px;
           padding: 10px 10px 0px;
-          // border: 1px solid red;
+          border: 1px solid green;
           .ingredient-info {
             margin: 0px 20px;
+            border: 1px solid blue;
             span {
               padding-left: 7px;
+              border: 1px solid purple;
             }
           }
         }
@@ -396,4 +408,15 @@ input#description {
       }
     }
   }
+}
+
+.blue {
+  min-width: 300px;
+  padding: 20px;
+  background-color: powderblue;
+}
+.pink {
+  min-width: 300px;
+  padding: 20px;
+  background-color: pink;
 }

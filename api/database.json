@@ -31,11 +31,11 @@
       "name": "Sugar Cookies",
       "categoryId": 2,
       "description": "Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified by the code in recipe card",
-      "instructions": "Bake cake then eat it",
+      "instructions": "Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
-      "prep": "20",
-      "cook": "30",
+      "prep": "15",
+      "cook": "45",
       "servings": 6,
       "date": 1635611882958,
       "id": 1
@@ -459,6 +459,11 @@
       "servings": "12",
       "date": 1643566535657,
       "id": 31
+    },
+    {
+      "name": "ingredient",
+      "categoryId": 2,
+      "id": 32
     }
   ],
   "categories": [
@@ -541,19 +546,19 @@
   ],
   "measurements": [
     {
-      "name": "cup",
+      "name": "tsp",
       "id": 1
     },
     {
-      "name": "cups",
+      "name": "tbsp",
       "id": 2
     },
     {
-      "name": "tbsp",
+      "name": "cup",
       "id": 3
     },
     {
-      "name": "tsp",
+      "name": "cups",
       "id": 4
     },
     {
@@ -561,105 +566,113 @@
       "id": 5
     },
     {
-      "name": "pint",
+      "name": "dash",
       "id": 6
     },
     {
-      "name": "box",
+      "name": "pint",
       "id": 7
     },
     {
-      "name": "oz",
+      "name": "quart",
       "id": 8
     },
     {
-      "name": "quart",
+      "name": "stick",
       "id": 9
     },
     {
-      "name": "liter",
+      "name": "box",
       "id": 10
     },
     {
-      "name": "ml",
+      "name": "can",
       "id": 11
     },
     {
-      "name": "grams",
+      "name": "oz",
       "id": 12
     },
     {
-      "name": "dash",
+      "name": "liter",
       "id": 13
+    },
+    {
+      "name": "ml",
+      "id": 14
+    },
+    {
+      "name": "grams",
+      "id": 15
     }
   ],
   "ingredients": [
     {
       "recipeId": 1,
-      "name": "sugar",
+      "label": "sugar",
       "amount": 2,
       "measurementId": 2,
       "id": 1
     },
     {
       "recipeId": 1,
-      "name": "butter",
+      "label": "butter",
       "amount": 2,
       "measurementId": 2,
       "id": 2
     },
     {
       "recipeId": 1,
-      "name": "flour",
+      "label": "flour",
       "amount": 2,
       "measurementId": 2,
       "id": 3
     },
     {
       "recipeId": 1,
-      "name": "eggs",
+      "label": "eggs",
       "amount": 2,
       "measurementId": 2,
       "id": 4
     },
     {
       "recipeId": 1,
-      "name": "milk",
+      "label": "milk",
       "amount": 2,
       "measurementId": 2,
       "id": 5
     },
     {
       "recipeId": 1,
-      "name": "cream",
+      "label": "cream",
       "amount": 2,
       "measurementId": 2,
       "id": 6
     },
     {
       "recipeId": 1,
-      "name": "icing sugar",
+      "label": "icing sugar",
       "amount": 2,
       "measurementId": 2,
       "id": 7
     },
     {
       "recipeId": 1,
-      "name": "food coloring",
+      "label": "food coloring",
       "amount": 2,
       "measurementId": 2,
       "id": 8
     },
     {
       "recipeId": 1,
-      "name": "brown sugar",
+      "label": "brown sugar",
       "amount": 2,
       "measurementId": 2,
       "id": 9
     },
     {
       "recipeId": 1,
-      "name": "sprinkles",
+      "label": "sprinkles",
       "amount": 2,
       "measurementId": 2,
       "id": 10

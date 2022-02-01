@@ -10,10 +10,13 @@ export const RecipeEditForm = () => {
   // Defining initial state of the form inputs with useState()
   const [recipe, setRecipe] = useState({
     name: "",
+    categoryId: 1,
     description: "",
     instructions: "",
     isFave: false,
     stars: "",
+    prep: "",
+    cook: "",
     servings: 1,
     date: Date.now(),
     userId: parseInt(sessionStorage.getItem("bb_user")),
@@ -36,21 +39,27 @@ export const RecipeEditForm = () => {
 
     // This is an edit, so we need the id
     const editedRecipe = {
-      id: recipeId,
+      userId: parseInt(sessionStorage.getItem("bb_user")),
       name: recipe?.name,
+      categoryId: recipe?.categoryId,
       description: recipe?.description,
       instructions: recipe?.instructions,
       isFave: recipe?.isFave,
       stars: recipe?.stars,
+      prep: recipe?.prep,
+      cook: recipe?.cook,
       servings: recipe?.servings,
       date: Date.now(),
-      userId: parseInt(sessionStorage.getItem("bb_user")),
+      id: recipeId,
     };
 
     if (
       recipe.name === "" ||
+      recipe.category === 1 ||
       recipe.description === "" ||
       recipe.instructions === "" ||
+      recipe.prep === "" ||
+      recipe.cook === "" ||
       recipe.servings === ""
     ) {
       setConflictDialog(true);
@@ -63,6 +72,7 @@ export const RecipeEditForm = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
       setIsLoading(false);
+      console.log("stars is ", recipe?.stars);
     });
   }, [recipeId]);
 
@@ -92,7 +102,7 @@ export const RecipeEditForm = () => {
                 id="name"
                 maxLength="25"
                 required
-                autofocus
+                autoFocus
                 className="form-group__edit"
                 onChange={handleFieldChange}
                 value={recipe?.name}
@@ -124,21 +134,20 @@ export const RecipeEditForm = () => {
               />
             </div>
             <div className="star-wrapper">
-              <label for="stars">Select # of Stars: </label>
+              <label htmlFor="stars">Select # of Stars: </label>
               <select
                 name="stars"
                 id="stars"
-                required
                 className="star-options"
                 onChange={handleFieldChange}
                 value={recipe?.stars}
               >
-                <option value=""></option>
-                <option value="1">★</option>
-                <option value="2">★★</option>
-                <option value="3">★★★</option>
-                <option value="4">★★★★</option>
-                <option value="5">★★★★★</option>
+                <option value={recipe?.stars}>{recipe?.stars}</option>
+                <option value="★☆☆☆☆">★☆☆☆☆</option>
+                <option value="★★☆☆☆">★★☆☆☆</option>
+                <option value="★★★☆☆">★★★☆☆</option>
+                <option value="★★★★☆">★★★★☆</option>
+                <option value="★★★★★">★★★★★</option>
               </select>
             </div>
             <div className="form-group">
@@ -184,7 +193,7 @@ export const RecipeEditForm = () => {
 
             <button
               type="button"
-              onClick={() => history.push(`/recipes`)}
+              onClick={() => history.push(`/category/1`)}
               className="form-btn"
             >
               Cancel

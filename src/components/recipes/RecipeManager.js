@@ -31,6 +31,16 @@ export const addRecipe = (recipe) => {
   }).then((response) => response.json());
 };
 
+export const addIngredient = (ingredient) => {
+  return fetch(`${url}/ingredients`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(ingredient),
+  }).then((response) => response.json());
+};
+
 export const updateRecipe = (editedRecipe) => {
   return fetch(`${url}/recipes/${editedRecipe.id}`, {
     method: "PUT",

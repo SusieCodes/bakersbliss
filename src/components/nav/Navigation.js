@@ -25,81 +25,76 @@ export const Navigation = ({ clearUser }) => {
   }, []);
   return (
     <>
-      <IconContext.Provider value={{ color: "#000000", size: "1.5em" }}>
-        {/* start of NavBar at top of page */}
-        <div className="toolbar">
-          <div className="toolbar-left">
-            <Link to="/dashboard">
-              <img
-                className="logo"
-                src={logo}
-                width="200"
-                alt="Baker's Bliss"
-              />
-            </Link>
-          </div>
-          <div className="toolbar-right">
-            {sessionStorage.getItem("bb_user") ? (
-              <>
-                <div className="avatar-wrapper">
-                  <Link to={`/users/${sessionStorage.getItem("bb_user")}`}>
-                    {user?.image ? (
-                      <img src={user?.image} alt={user?.name} />
-                    ) : (
-                      <img
-                        src={require(`../../images/default.png`)}
-                        alt="default-user"
-                        className="avatar-photo"
-                      />
-                    )}
-                  </Link>
-                </div>
+      {/* <IconContext.Provider value={{ color: "#000000", size: "1.5em" }}> */}
+      {/* start of NavBar at top of page */}
+      <div className="toolbar">
+        <div className="toolbar-left">
+          <Link to="/dashboard">
+            <img className="logo" src={logo} width="200" alt="Baker's Bliss" />
+          </Link>
+        </div>
+        <div className="toolbar-right">
+          {sessionStorage.getItem("bb_user") ? (
+            <>
+              <div className="avatar-wrapper">
+                <Link to={`/users/${sessionStorage.getItem("bb_user")}`}>
+                  {user?.image ? (
+                    <img src={user?.image} alt={user?.name} />
+                  ) : (
+                    <img
+                      src={require(`../../images/default.png`)}
+                      alt="default-user"
+                      className="avatar-photo"
+                    />
+                  )}
+                </Link>
+              </div>
+              <Link
+                to="/"
+                title="logout"
+                onClick={() => {
+                  clearUser();
+                }}
+              >
+                <button className="logout">Logout</button>
+              </Link>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+      {/* start of side menu */}
+      <div className="side-menu">
+        <ul className="side-menu-items">
+          {SidebarData.map((item, index) => {
+            return (
+              <li key={index} className={item.cName}>
+                <Link to={item.path} title={item.title}>
+                  {item.icon}
+                </Link>
+              </li>
+            );
+          })}
+          {SidebarLogout.map((item, index) => {
+            return (
+              <li key={index} className={item.cName}>
                 <Link
-                  to="/"
-                  title="logout"
+                  to={item.path}
+                  title={item.title}
                   onClick={() => {
                     clearUser();
                   }}
                 >
-                  <button className="logout">Logout</button>
+                  {item.icon}
                 </Link>
-              </>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
-        {/* start of side menu */}
-        <div className="side-menu">
-          <ul className="side-menu-items">
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path} title={item.title}>
-                    {item.icon}
-                  </Link>
-                </li>
-              );
-            })}
-            {SidebarLogout.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link
-                    to={item.path}
-                    title={item.title}
-                    onClick={() => {
-                      clearUser();
-                    }}
-                  >
-                    {item.icon}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        {/* end of side menu */}
-      </IconContext.Provider>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      {/* end of side menu */}
+      {/* </IconContext.Provider> */}
     </>
   );
 };

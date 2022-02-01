@@ -3,7 +3,6 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { Navigation } from "./components/nav/Navigation";
 import { Dashboard } from "./components/dashboard/Dashboard";
-import { AllRecipes } from "./components/recipes/AllRecipes";
 import { CategoryBoard } from "./components/categories/CategoryBoard";
 import { RecipeForm } from "./components/recipes/RecipeForm";
 import { RecipeEditForm } from "./components/recipes/RecipeEditForm";
@@ -30,10 +29,6 @@ export const ApplicationViews = ({
 
       <Route exact path="/dashboard">
         <Dashboard />
-      </Route>
-
-      <Route exact path="/allrecipes">
-        <AllRecipes />
       </Route>
 
       <Route exact path="/category/:categoryId(\d+)">

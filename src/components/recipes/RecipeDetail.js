@@ -21,16 +21,13 @@ export const RecipeDetail = () => {
     name: "",
     categoryId: 1,
     category: [],
-    images: [],
     description: "",
-    ingredients: [],
     instructions: "",
     isFave: true,
     stars: 1,
     prep: "",
     cook: "",
     servings: 1,
-    notes: [],
     date: 1,
   });
 
@@ -39,7 +36,7 @@ export const RecipeDetail = () => {
 
   const handleDelete = () => {
     //invokes the delete function from Recipe Manager and re-directs to recipe list
-    deleteRecipe(recipeId).then(() => history.push("/recipes"));
+    deleteRecipe(recipeId).then(() => history.push("/category/1"));
   };
 
   const handleFave = (e) => {
@@ -55,7 +52,6 @@ export const RecipeDetail = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
       setImages(recipe.images);
-      // setIngredients(recipe.ingredients);
       setNotes(recipe.notes);
       console.log("recipe info is ", recipe);
     });
@@ -67,20 +63,6 @@ export const RecipeDetail = () => {
       setIngredients(ingredients);
     });
   }, []);
-
-  // useEffect(() => {
-  // fetches recipe info, images & notes from RecipeManager and sets them to state
-  // getRecipe();
-  // setImages(recipe.images);
-  // setIngredients(recipe.ingredients);
-  // setNotes(recipe.notes);
-  // console.log("recipe info is ", recipe);
-  // console.log("ingredients array is ", ingredients);
-  // getIngredientsByRecipeId(recipeId).then((ingredients) => {
-  //   setIngredients(ingredients);
-  //   console.log("Ingredients are: ", ingredients);
-  // });
-  // }, []);
 
   return (
     <>
@@ -119,10 +101,18 @@ export const RecipeDetail = () => {
                     <div className="total">Total:</div>
                   </div>
                   <div className="prep-times">
-                    <div className="prep">{recipe?.prep}mins</div>
-                    <div className="cook">{recipe?.cook}mins</div>
+                    <div className="prep">
+                      {recipe?.prep !== "" ? recipe.prep : 0}mins
+                    </div>
+                    <div className="cook">
+                      {" "}
+                      {recipe?.cook !== "" ? recipe.cook : 0}mins
+                    </div>
                     <div className="total">
-                      {parseInt(recipe?.prep) + parseInt(recipe?.cook)}mins
+                      {recipe?.prep !== "" && recipe?.cook !== ""
+                        ? parseInt(recipe.prep) + parseInt(recipe.cook)
+                        : 0}
+                      mins
                     </div>
                   </div>
                 </div>
@@ -159,21 +149,21 @@ export const RecipeDetail = () => {
                     {images[1] ? (
                       <img src={images[1].image_path} alt={recipe?.name} />
                     ) : (
-                      <img src={photo} alt="Add image" />
+                      <img src={photo} alt={recipe?.name} />
                     )}
                   </div>
                   <div className="thumbnail middle">
                     {images[2] ? (
                       <img src={images[2].image_path} alt={recipe?.name} />
                     ) : (
-                      <img src={photo} alt="Add image" />
+                      <img src={photo} alt={recipe?.name} />
                     )}
                   </div>
                   <div className="thumbnail">
                     {images[3] ? (
                       <img src={images[3].image_path} alt={recipe?.name} />
                     ) : (
-                      <img src={photo} alt="Add image" />
+                      <img src={photo} alt={recipe?.name} />
                     )}
                   </div>
                 </div>
@@ -185,7 +175,7 @@ export const RecipeDetail = () => {
                 {images[0] ? (
                   <img src={images[0].image_path} alt={recipe?.name} />
                 ) : (
-                  <img src={photo} alt="Add image" />
+                  <img src={photo} alt={recipe?.name} />
                 )}
               </div>
             </div>
