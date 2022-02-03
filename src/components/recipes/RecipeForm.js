@@ -9,7 +9,7 @@ import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
 export const RecipeForm = () => {
   const [conflictDialog, setConflictDialog] = useState(false);
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [measurements, setMeasurements] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState({
@@ -153,10 +153,6 @@ export const RecipeForm = () => {
     evt.preventDefault(); //Prevents the browser from submitting the form
     const newIngredientList = [...ingredients];
     newIngredientList.push(ingredient);
-
-    // console.log("newIngredientList after SAVE button ", newIngredientList);
-
-    // console.log("ingredient after SAVE is ", ingredient);
     setIngredients(newIngredientList);
 
     setIngredient({
@@ -164,9 +160,6 @@ export const RecipeForm = () => {
       amount: "",
       measurement: "",
     });
-
-    setCount(count + 1);
-    console.log("count is ", count);
   };
 
   useEffect(() => {
