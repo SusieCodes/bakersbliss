@@ -4,7 +4,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 // import { IngredientCard } from "../recipes/Cards";
-import { addRecipe, getMeasurements, addIngredient } from "./RecipeManager";
+import {
+  addRecipe,
+  getMeasurements,
+  addIngredient,
+  addImage,
+} from "./RecipeManager";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
 export const RecipeForm = () => {
@@ -37,7 +42,10 @@ export const RecipeForm = () => {
 
   // start of upload function
   const [clickedStyle, setClickedStyle] = useState("no-uploaded-image");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState({
+    recipeId: "",
+    image_path: "",
+  });
   const [uploadName, setUploadName] = useState("Choose Image");
   const [loading, setLoading] = useState(false);
 
@@ -57,7 +65,10 @@ export const RecipeForm = () => {
     );
 
     const file = await res.json();
-    setImage(file.secure_url);
+    const newImageObj = { ...image };
+    newImageObj.image_path = file.secure_url;
+    console.log("file.secure.url is: ", file.secure_url);
+    setImage(newImageObj);
     setLoading(false);
     setClickedStyle("uploaded-image");
   };
@@ -66,7 +77,7 @@ export const RecipeForm = () => {
   const ResetForm = () => {
     setClickedStyle("no-uploaded-image");
     setUploadName("Choose Image");
-    setImage("");
+    setImage({});
     setLoading(false);
     setRecipe({
       userId: parseInt(localStorage.getItem("bb_user")),
@@ -124,25 +135,31 @@ export const RecipeForm = () => {
         date: Date.now(),
       };
 
+      let newIngredients = [...ingredients];
+
       addRecipe(newRecipe)
         .then((response) => {
-          let newIngredients = [...ingredients];
-          console.log("newIngredients is ", newIngredients);
           const newInfo = newIngredients.map((ingredObj) => {
             console.log("ingredObj is ", ingredObj);
             ingredObj.recipeId = response.id;
             return ingredObj;
           });
-          console.log("newInfo is ", newInfo);
-          return newInfo;
+          let imageObj = { ...image };
+          imageObj.recipeId = response.id;
+          let allInfoObj = {
+            newInfo,
+            imageObj,
+          };
+          return allInfoObj;
         })
-        .then((newIngredArray) => {
-          console.log("newIngredArray is ", newIngredArray);
-          Promise.all(
-            newIngredArray.map((ingredientObj) => {
+        .then(({ newInfo, imageObj }) => {
+          console.log("newInfo & imageObj are ", newInfo, imageObj);
+          Promise.all([
+            newInfo.map((ingredientObj) => {
               addIngredient(ingredientObj);
-            })
-          ).then(() => {
+            }),
+            addImage(imageObj),
+          ]).then(() => {
             history.push("/category/1");
           });
         });
@@ -218,7 +235,7 @@ export const RecipeForm = () => {
                 ) : (
                   <div className="uploaded-image-wrapper">
                     <img
-                      src={image}
+                      src={image.image_path}
                       alt=""
                       width="150"
                       className={clickedStyle}

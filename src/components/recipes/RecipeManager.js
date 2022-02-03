@@ -41,6 +41,16 @@ export const addIngredient = (ingredient) => {
   }).then((response) => response.json());
 };
 
+export const addImage = (image) => {
+  return fetch(`${url}/images`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(image),
+  }).then((response) => response.json());
+};
+
 export const updateRecipe = (editedRecipe) => {
   return fetch(`${url}/recipes/${editedRecipe.id}`, {
     method: "PUT",
@@ -75,6 +85,10 @@ export const getAllCategories = () => {
 
 export const getAllImages = (recipeId) => {
   return fetch(`${url}/images/?recipeId=${recipeId}`).then((res) => res.json());
+};
+
+export const getAllNotes = (recipeId) => {
+  return fetch(`${url}/notes/?recipeId=${recipeId}`).then((res) => res.json());
 };
 
 export const getRecipesByCategory = (userId, categoryId) => {

@@ -6,6 +6,7 @@ import {
   updateRecipe,
   getRecipeById,
   getAllImages,
+  getAllNotes,
 } from "../recipes/RecipeManager";
 import { useParams, useHistory } from "react-router-dom";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
@@ -14,9 +15,8 @@ export const RecipeEditForm = () => {
   const { recipeId } = useParams();
   const history = useHistory();
 
-  // Defining initial state of the form inputs with useState()
-
   const [images, setImages] = useState([]);
+  const [notes, setNotes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conflictDialog, setConflictDialog] = useState(false);
   const [recipe, setRecipe] = useState({
@@ -104,9 +104,12 @@ export const RecipeEditForm = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
       setIsLoading(false);
-      getAllImages(recipeId).then((images) => {
-        setImages(images);
+      getAllImages(recipeId).then((imagesFromAPI) => {
+        setImages(imagesFromAPI);
         console.log("images array is ", images);
+      });
+      getAllNotes(recipeId).then((notesFromAPI) => {
+        setNotes(notesFromAPI);
       });
     });
   }, [recipeId]);
@@ -233,13 +236,25 @@ export const RecipeEditForm = () => {
 
             <div className="form-group">
               <label htmlFor="description">Description: </label>
-              <input
+              {/* <input
                 type="text"
                 id="description"
                 maxLength="120"
                 required
                 className="form-group__edit"
                 onChange={handleFieldChange}
+                value={recipe?.description}
+              /> */}
+              <textarea
+                name="description"
+                id="description"
+                maxLength="1000"
+                required
+                cols="42"
+                rows="4"
+                onChange={handleFieldChange}
+                className="form-group__edit"
+                placeholder=" Enter description"
                 value={recipe?.description}
               />
             </div>
@@ -283,9 +298,22 @@ export const RecipeEditForm = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group-instructions">
               <label htmlFor="instructions">Instructions: </label>
-              <input
+              <textarea
+                name="instructions"
+                id="instructions"
+                maxLength="1000"
+                required
+                cols="42"
+                rows="4"
+                onChange={handleFieldChange}
+                className="form-group__edit"
+                placeholder=" Enter instructions"
+                value={recipe?.instructions}
+              />
+
+              {/* <input
                 type="text"
                 id="instructions"
                 maxLength="500"
@@ -293,54 +321,35 @@ export const RecipeEditForm = () => {
                 className="form-group__edit"
                 onChange={handleFieldChange}
                 value={recipe?.instructions}
-              />
-            </div>
-            <div className="star-wrapper">
-              <label htmlFor="stars">Select # of Stars: </label>
-              <select
-                name="stars"
-                id="stars"
-                className="star-options"
-                onChange={handleFieldChange}
-                value={recipe?.stars}
-              >
-                <option value={recipe?.stars}>{recipe?.stars}</option>
-                <option value="★☆☆☆☆">★☆☆☆☆</option>
-                <option value="★★☆☆☆">★★☆☆☆</option>
-                <option value="★★★☆☆">★★★☆☆</option>
-                <option value="★★★★☆">★★★★☆</option>
-                <option value="★★★★★">★★★★★</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="servings">Servings: </label>
-              <input
-                type="text"
-                id="servings"
-                maxLength="2"
-                className="form-group__edit"
-                onChange={handleFieldChange}
-                value={recipe?.servings}
-              />
+              /> */}
             </div>
           </fieldset>
 
           <fieldset>
-            <div className="form-group">
-              <label htmlFor="notes">Notes: </label>
-              <textarea
-                name="notes"
-                id="notes"
-                maxLength="1000"
-                required
-                cols="24"
-                rows="4"
-                onChange={handleFieldChange}
-                className="form-group__edit"
-                placeholder=" Enter recipe notes"
-                value={recipe?.notes}
-              />
-            </div>
+            {notes[0] ? (
+              <div className="form-group-notes">
+                {notes.map((singleNote) => (
+                  <>
+                    <label htmlFor={singleNote.id}>Notes: </label>
+                    <textarea
+                      name={singleNote.id}
+                      id={singleNote.id}
+                      maxLength="1000"
+                      required
+                      cols="24"
+                      rows="2"
+                      onChange={handleFieldChange}
+                      className="form-group__edit"
+                      placeholder=" Enter recipe notes"
+                      value={singleNote.text}
+                    />
+                  </>
+                ))}
+              </div>
+            ) : (
+              // )}
+              ""
+            )}
           </fieldset>
 
           <div className="form-btns">

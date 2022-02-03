@@ -174,13 +174,55 @@
       background-color: white;
       border-radius: 10px;
       box-shadow: 2px 2px 3px 1px rgb(223, 223, 223);
+      .recipe-detail-image {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 30px 0px;
+        // border: 1px solid red;
+        img {
+          height: 300px;
+          width: 300px;
+          border-radius: 10px;
+          border: 5px solid lightgray;
+        }
+      }
+      .form-group-instructions {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px 10px;
+      }
+      .form-group-notes {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+.upload-section {
+  .upload-wrapper {
+    .upload-image-text {
+    }
+    input {
+    }
+  }
+  .uploaded-image-section {
+    .loading {
+      padding: 0px;
+      margin: 0px;
+    }
+    .uploaded-image-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 20px 0px 30px;
+      img {
+        border-radius: 10px;
+        border: 5px solid lightgray;
+      }
+    }
+  }
 }
 
 .form-group-row {
@@ -210,14 +252,18 @@
     margin: 0px 10px 0px;
   }
 }
-
-input#name,
-input#description {
-  margin-bottom: 20px;
+input,
+textarea {
+  padding: 0px 5px;
 }
 
-input#description {
-  // resize: none;
+input#name {
+  margin-bottom: 20px;
+  // border: 1px solid red;
+}
+
+textarea#description {
+  display: block;
 }
 
 .ingredients-wrapper {
@@ -401,8 +447,8 @@ input#description {
           display: flex;
           flex-direction: column;
           flex-wrap: wrap;
-          height: 175px;
-          padding: 10px 10px 0px;
+          max-height: 175px;
+          padding: 10px 10px 30px;
           // border: 1px solid green;
           .ingredient-info {
             margin: 0px 20px;
@@ -415,6 +461,7 @@ input#description {
         }
       }
       .instructions {
+        // border: 1px solid red;
       }
       .notes {
         padding-bottom: 10px;

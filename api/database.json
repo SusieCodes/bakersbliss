@@ -23,6 +23,14 @@
       "image": "",
       "email": "test@test.com",
       "last_visit": 1643859602257
+    },
+    {
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane@jane.com",
+      "image": "",
+      "last_visit": 1643921671899,
+      "id": 4
     }
   ],
   "recipes": [
@@ -587,83 +595,6 @@
       "amount": "tbsp",
       "measurement": "tbsp",
       "id": 4
-    },
-    {
-      "recipeId": 1,
-      "label": "milk",
-      "amount": 2,
-      "measurement": "tbsp",
-      "id": 5
-    },
-    {
-      "recipeId": 1,
-      "label": "cream",
-      "amount": 2,
-      "measurement": "tbsp",
-      "id": 6
-    },
-    {
-      "recipeId": 1,
-      "label": "icing sugar",
-      "amount": 2,
-      "measurement": "tbsp",
-      "id": 7
-    },
-    {
-      "recipeId": 1,
-      "label": "food coloring",
-      "amount": 2,
-      "measurement": "tbsp",
-      "id": 8
-    },
-    {
-      "recipeId": 1,
-      "label": "brown sugar",
-      "amount": 2,
-      "measurement": "tbsp",
-      "id": 9
-    },
-    {
-      "recipeId": 1,
-      "label": "sprinkles",
-      "amount": 2,
-      "measurement": "tsp",
-      "id": 10
-    },
-    {
-      "label": "ert",
-      "amount": "4",
-      "measurement": "dash",
-      "recipeId": 44,
-      "id": 11
-    },
-    {
-      "label": "wertgyhj",
-      "amount": "5",
-      "measurement": "pinch",
-      "recipeId": 45,
-      "id": 12
-    },
-    {
-      "label": "cream",
-      "amount": "4",
-      "measurement": "cups",
-      "recipeId": 47,
-      "id": 13
-    },
-    {
-      "label": "honey",
-      "amount": "5",
-      "measurement": "tbsp",
-      "recipeId": 47,
-      "id": 14
-    },
-    {
-      "label": "butter",
-      "amount": "3",
-      "measurement": "stick",
-      "recipeId": 47,
-      "id": 15
     }
   ],
   "images": [
@@ -671,61 +602,6 @@
       "recipeId": 1,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
       "id": 1
-    },
-    {
-      "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302239/cupcake_nzecbn.png",
-      "id": 2
-    },
-    {
-      "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302249/cupcake2_t6vypm.png",
-      "id": 3
-    },
-    {
-      "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
-      "id": 4
-    },
-    {
-      "recipeId": 2,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
-      "id": 5
-    },
-    {
-      "recipeId": 2,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
-      "id": 6
-    },
-    {
-      "recipeId": 2,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
-      "id": 7
-    },
-    {
-      "recipeId": 2,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
-      "id": 8
-    },
-    {
-      "recipeId": 3,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303602/bluepic_sylimn.png",
-      "id": 9
-    },
-    {
-      "recipeId": 3,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303602/bluepic_sylimn.png",
-      "id": 10
-    },
-    {
-      "recipeId": 4,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303608/purplepic_h0trrq.png",
-      "id": 11
-    },
-    {
-      "recipeId": 4,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303613/greenpic_i9uhkr.png",
-      "id": 12
     }
   ],
   "notes": [
