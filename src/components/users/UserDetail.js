@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { getUserById } from "./UserManager";
 import { useParams, useHistory } from "react-router-dom";
-import { formatDateNoWeekday } from "../helper";
-import { WelcomeBar } from "../../components/navbar/WelcomeBar";
+import { dateFormatWithSuffix } from "../../helper";
+import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
 export const UserDetail = () => {
   const [user, setUser] = useState({
-    userId: sessionStorage.getItem("bb_user"),
-    name: "",
+    userId: localStorage.getItem("bb_user"),
+    first_name: "",
+    last_name: "",
     image: "",
     email: "",
-    phone: "",
-    address: "",
-    city: "",
-    stateProvince: "",
-    zipCode: "",
-    country: "",
+    last_visit: "",
   });
 
   const { userId } = useParams();
@@ -35,94 +31,54 @@ export const UserDetail = () => {
     //use getuserById() from userManager to grab info  and set it to state
     getUserById(userId).then((userInfo) => {
       setUser({
-        userId: sessionStorage.getItem("lifehacker_user"),
-        name: userInfo.name,
+        userId: localStorage.getItem("bb_user"),
+        first_name: userInfo.first_name,
+        last_name: userInfo.last_name,
         image: userInfo.image,
         email: userInfo.email,
-        phone: userInfo.phone,
-        address: userInfo.address,
-        city: userInfo.city,
-        stateProvince: userInfo.stateProvince,
-        zipCode: userInfo.zipCode,
-        country: userInfo.country,
+        last_visit: userInfo.last_visit,
       });
     });
   }, [userId]);
 
   return (
     <>
-      <div className="page">
-        <WelcomeBar title="Your Account Details" />
+      <div className="user-detail">
+        <WelcomeBar2 title="Your Account Details" />
 
-        <div className="user-flex">
-          <div className="user-outer-flex">
+        <div className="user-wrapper">
+          <div className="user-flex">
+            <div className="user-name">
+              {user.first_name} {user.last_name}
+            </div>
             <div className="user-detail-image">
               {user.image ? (
-                <img
-                  src={user.image}
-                  alt={user.name}
-                  className="user-detail-photo"
-                />
+                <img src={user.image} alt={user.name} />
               ) : (
-                <img
-                  src={require(`../../images/default.png`).default}
-                  alt="default"
-                  className="user-detail-photo"
-                />
+                <img src={require(`../../images/default.png`)} alt="default" />
               )}
             </div>
 
             <div className="user-info">
-              <div className="user-info__name">{user.name}</div>
-
-              <div className="user-inner-flex">
-                <div className="u-inner-flex__row1">
-                  <div className="u-inner-flex__row1__col1">
-                    <div className="user-info__email">
-                      <div className="c-bold">Email:</div>
-                      <div className="c-indent">{user.email}</div>
-                    </div>
-
-                    <div className="user-info__phone">
-                      <div className="c-bold">Phone:</div>
-                      <div className="c-indent">{user.phone}</div>
-                    </div>
-                  </div>
-                  <div className="u-inner-flex__row1__col2">
-                    <div className="user-info__address">
-                      <div className="c-bold">Address:</div>
-                      <div className="inner-address">
-                        <div className="c-address">{user.address}</div>
-                        <div className="c-address">
-                          {user.city}&nbsp;
-                          {user.stateProvince}
-                        </div>
-                        <div className="c-address">
-                          {user.zipCode} {""} {user.country}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="user-info__bday">
-                      <div className="c-bold">Birthday:</div>
-                      <div className="c-indent">
-                        {user.bday ? (
-                          <>{formatDateNoWeekday(user?.bday)}</>
-                        ) : null}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="user-text">
+                Email:
+                <span> {user.email}</span>
+              </div>
+              <div className="user-text">
+                Last Visit:
+                <span> {dateFormatWithSuffix(user.last_visit)}</span>
               </div>
             </div>
 
-            <div className="btn-flex">
-              <div className="details-btn" onClick={() => handleEdit(user?.id)}>
-                Edit
-              </div>
+            <div className="btn-wrapper">
+              <div className="form-btns">
+                <button className="form-btn" onClick={handleEdit}>
+                  Edit
+                </button>
 
-              <div className="details-btn" onClick={goBack}>
-                Back
+                <button className="form-btn" onClick={goBack}>
+                  Back
+                </button>
               </div>
             </div>
           </div>

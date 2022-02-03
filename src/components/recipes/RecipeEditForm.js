@@ -19,7 +19,7 @@ export const RecipeEditForm = () => {
     cook: "",
     servings: 1,
     date: Date.now(),
-    userId: parseInt(sessionStorage.getItem("bb_user")),
+    userId: parseInt(localStorage.getItem("bb_user")),
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +39,7 @@ export const RecipeEditForm = () => {
 
     // This is an edit, so we need the id
     const editedRecipe = {
-      userId: parseInt(sessionStorage.getItem("bb_user")),
+      userId: parseInt(localStorage.getItem("bb_user")),
       name: recipe?.name,
       categoryId: recipe?.categoryId,
       description: recipe?.description,

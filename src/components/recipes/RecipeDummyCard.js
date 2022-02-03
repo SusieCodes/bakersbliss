@@ -14,15 +14,19 @@ export const RecipeDummyCard = () => {
           <img src={photo} alt="default-dessert" className="recipe-photo" />
         </div>
         <div className="recipe-text-wrapper">
-          <div className="name-fave-wrapper">
-            <div className="recipe-name">Recipe Name</div>
+          <div className="recipe-name">Recipe Name</div>
+          <div className="line">
+            <hr />
+          </div>
+          <div className="rate-fave-wrapper">
+            <div className="recipe-stars">Rating: ★★★★★</div>
             <Checkbox
               color="error"
               icon={<FavoriteBorder />}
               checkedIcon={<Favorite />}
             />
           </div>
-          <div className="recipe-stars">Rating: ★★★★★</div>
+
           <div className="recipe-description">
             Please Create A Recipe Using "Add Recipe" button above
           </div>

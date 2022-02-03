@@ -88,7 +88,11 @@ export const getCategoryById = (categoryId) => {
 };
 
 export const getIngredientsByRecipeId = (recipeId) => {
-  return fetch(
-    `${url}/ingredients/?recipeId=${recipeId}&_order=asc&_expand=measurement`
-  ).then((res) => res.json());
+  return fetch(`${url}/ingredients/?recipeId=${recipeId}&_order=asc`).then(
+    (res) => res.json()
+  );
+};
+
+export const getMeasurements = () => {
+  return fetch(`${url}/measurements`).then((res) => res.json());
 };

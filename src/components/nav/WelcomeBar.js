@@ -4,8 +4,8 @@ import { dateFormatWithSuffixNoYear } from "../../helper";
 
 //WelcomeBar displays username, title & date (use WelcomeBar2 if back button needed)
 export const WelcomeBar = (props) => {
-  const userName = sessionStorage.getItem("bb_username");
-  const userId = parseInt(sessionStorage.getItem("bb_user"));
+  const userName = localStorage.getItem("bb_username");
+  const userId = parseInt(localStorage.getItem("bb_user"));
   const { title } = props;
 
   return (

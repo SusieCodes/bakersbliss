@@ -1,12 +1,12 @@
 {
   "users": [
     {
+      "id": 1,
       "first_name": "Susie",
       "last_name": "Stanley",
-      "email": "me@me.com",
       "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1636436400/susie2_vzbbqq.png",
-      "last_visit": 1636443563791,
-      "id": 1
+      "email": "me@me.com",
+      "last_visit": 1643859187286
     },
     {
       "first_name": "Taylor",
@@ -17,12 +17,12 @@
       "id": 2
     },
     {
+      "id": 3,
       "first_name": "Testy",
       "last_name": "Tester",
-      "email": "test@test.com",
       "image": "",
-      "last_visit": 1643510276140,
-      "id": 3
+      "email": "test@test.com",
+      "last_visit": 1643859602257
     }
   ],
   "recipes": [
@@ -417,53 +417,6 @@
       "servings": 6,
       "date": 1635611882958,
       "id": 28
-    },
-    {
-      "userId": 1,
-      "name": "New Test Name",
-      "categoryId": "2",
-      "description": "I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! ",
-      "instructions": "Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! ",
-      "isFave": true,
-      "stars": "★★★★★",
-      "prep": "15",
-      "cook": "15",
-      "servings": "9",
-      "date": 1643565976956,
-      "id": 29
-    },
-    {
-      "userId": 1,
-      "name": "Susie Special",
-      "categoryId": "2",
-      "description": "I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes! I love cupcakes!",
-      "instructions": "Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes! Make all the cupcakes!",
-      "isFave": true,
-      "stars": "☆☆☆☆☆",
-      "prep": "40",
-      "cook": "120",
-      "servings": "10",
-      "date": 1643566314490,
-      "id": 30
-    },
-    {
-      "userId": 1,
-      "name": "Frank's Frosting",
-      "categoryId": "tsp",
-      "description": "I love me some frosting",
-      "instructions": "Put instructions here",
-      "isFave": true,
-      "stars": "☆☆☆☆☆",
-      "prep": "15",
-      "cook": "15",
-      "servings": "12",
-      "date": 1643566535657,
-      "id": 31
-    },
-    {
-      "name": "ingredient",
-      "categoryId": 2,
-      "id": 32
     }
   ],
   "categories": [
@@ -611,71 +564,106 @@
       "recipeId": 1,
       "label": "sugar",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 1
     },
     {
       "recipeId": 1,
       "label": "butter",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "cups",
       "id": 2
     },
     {
       "recipeId": 1,
       "label": "flour",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 3
     },
     {
       "recipeId": 1,
       "label": "eggs",
-      "amount": 2,
-      "measurementId": 2,
+      "amount": "tbsp",
+      "measurement": "tbsp",
       "id": 4
     },
     {
       "recipeId": 1,
       "label": "milk",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 5
     },
     {
       "recipeId": 1,
       "label": "cream",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 6
     },
     {
       "recipeId": 1,
       "label": "icing sugar",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 7
     },
     {
       "recipeId": 1,
       "label": "food coloring",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 8
     },
     {
       "recipeId": 1,
       "label": "brown sugar",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tbsp",
       "id": 9
     },
     {
       "recipeId": 1,
       "label": "sprinkles",
       "amount": 2,
-      "measurementId": 2,
+      "measurement": "tsp",
       "id": 10
+    },
+    {
+      "label": "ert",
+      "amount": "4",
+      "measurement": "dash",
+      "recipeId": 44,
+      "id": 11
+    },
+    {
+      "label": "wertgyhj",
+      "amount": "5",
+      "measurement": "pinch",
+      "recipeId": 45,
+      "id": 12
+    },
+    {
+      "label": "cream",
+      "amount": "4",
+      "measurement": "cups",
+      "recipeId": 47,
+      "id": 13
+    },
+    {
+      "label": "honey",
+      "amount": "5",
+      "measurement": "tbsp",
+      "recipeId": 47,
+      "id": 14
+    },
+    {
+      "label": "butter",
+      "amount": "3",
+      "measurement": "stick",
+      "recipeId": 47,
+      "id": 15
     }
   ],
   "images": [

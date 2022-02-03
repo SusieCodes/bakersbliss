@@ -4,29 +4,20 @@
 import React, { useState, useEffect } from "react";
 import { update, getUserById } from "./UserManager";
 import { useParams, useHistory } from "react-router-dom";
-import { WelcomeBar2 } from "../../components/navbar/WelcomeBar2";
-import { Input } from "../Input";
-import "../connections/Connections.css";
-import "../LifeHacker.css";
+import { WelcomeBar2 } from "../nav/WelcomeBar2";
+import { Input } from "../../Input";
 
 export const UserEditForm = () => {
   const [user, setUser] = useState({
-    userId: parseInt(sessionStorage.getItem("lifehacker_user")),
-    name: "",
-    image: "",
+    userId: parseInt(localStorage.getItem("bb_user")),
+    first_name: "",
+    last_name: "",
     email: "",
-    phone: "",
-    address: "",
-    city: "",
-    stateProvince: "",
-    zipCode: "",
-    country: "",
-    bday: "",
-    timestamp: Date.now(),
+    image: "",
+    last_visit: Date.now(),
   });
 
   const [conflictDialog, setConflictDialog] = useState(false);
-
   const [isLoading, setIsLoading] = useState(false);
 
   const { userId } = useParams();
@@ -35,7 +26,6 @@ export const UserEditForm = () => {
   // start of upload function
   const [clickedStyle, setClickedStyle] = useState("no-uploaded-image");
   const [image, setImage] = useState("");
-
   const [loading, setLoading] = useState(false);
 
   const uploadImage = async (evt) => {
@@ -73,20 +63,14 @@ export const UserEditForm = () => {
     // This is an edit, so we need the info
     const editedUser = {
       id: userId,
-      name: user.name,
+      first_name: user.first_name,
+      last_name: user.last_name,
       image: image ? image : user.image,
       email: user.email,
-      phone: user.phone,
-      address: user.address,
-      city: user.city,
-      stateProvince: user.stateProvince,
-      zipCode: user.zipCode,
-      country: user.country,
-      bday: user.bday,
-      timestamp: Date.now(),
+      last_visit: Date.now(),
     };
 
-    if (user.name === "") {
+    if (user.first_name === "") {
       setConflictDialog(true);
       setIsLoading(false);
     } else {
@@ -106,156 +90,112 @@ export const UserEditForm = () => {
 
   return (
     <>
-      <div className="page">
+      <div className="user-detail">
         <WelcomeBar2 title="Edit Your Account Details" />
 
-        <div className="form-flex">
-          <fieldset className="form">
-            <dialog className="dialog" open={conflictDialog}>
-              <div className="dialog-forms">
-                Please make sure name is filled in
-              </div>
-              <button
-                className="button-close"
-                onClick={(e) => setConflictDialog(false)}
-              >
-                Close
-              </button>
-            </dialog>
-            <div className="user-detail-image">
-              {user.image ? (
-                <img
-                  src={user.image}
-                  alt={user.name}
-                  className="user-detail-photo"
-                />
-              ) : (
-                <img
-                  src={require(`../../images/default.png`).default}
-                  alt="default"
-                  className="user-detail-photo"
-                />
-              )}
-            </div>
-
-            <div className="upload-section">
-              <div className="upload-wrapper">
-                <div className="upload-image-text">Image: </div>
-                <input
-                  type="file"
-                  id="image"
-                  name="file"
-                  className="upload-input"
-                  placeholder="Choose Image"
-                  onChange={uploadImage}
-                />
-              </div>
-            </div>
-
-            <div className="uploaded-image-section">
-              {loading ? (
-                <div className="loading">Loading...</div>
-              ) : (
-                <div className="uploaded-image-wrapper">
-                  {image ? (
-                    <img
-                      src={image}
-                      alt={user.name}
-                      width="150"
-                      height="150"
-                      className={`${clickedStyle}`}
-                    />
-                  ) : null}
+        <div className="user-edit-wrapper">
+          <div className="user-edit-flex">
+            <fieldset className="form">
+              <dialog className="dialog" open={conflictDialog}>
+                <div className="dialog-forms">
+                  Please make sure name is filled in
                 </div>
-              )}
+                <button
+                  className="button-close"
+                  onClick={(e) => setConflictDialog(false)}
+                >
+                  Close
+                </button>
+              </dialog>
+              <div className="user-detail-image">
+                {user.image ? (
+                  <img src={user.image} alt={user.first_name} />
+                ) : (
+                  <img
+                    src={require(`../../images/default.png`)}
+                    alt="default"
+                    className="user-detail-photo"
+                  />
+                )}
+              </div>
+
+              <div className="upload-section">
+                <div className="upload-wrapper">
+                  <div className="upload-image-text">Image: </div>
+                  <input
+                    type="file"
+                    id="image"
+                    name="file"
+                    className="upload-input"
+                    placeholder="Choose Image"
+                    onChange={uploadImage}
+                  />
+                </div>
+              </div>
+
+              <div className="uploaded-image-section">
+                {loading ? (
+                  <div className="loading">Loading...</div>
+                ) : (
+                  <div className="uploaded-image-wrapper">
+                    {image ? (
+                      <img
+                        src={image}
+                        alt={user.first_name}
+                        width="150"
+                        height="150"
+                        className={`${clickedStyle}`}
+                      />
+                    ) : null}
+                  </div>
+                )}
+              </div>
+
+              <Input
+                id="first_name"
+                required
+                value={user?.first_name}
+                onChange={handleFieldChange}
+                label="First Name: "
+              />
+
+              <Input
+                id="last_name"
+                required
+                value={user?.last_name}
+                onChange={handleFieldChange}
+                label="Last Name: "
+              />
+
+              <Input
+                id="email"
+                value={user?.email}
+                onChange={handleFieldChange}
+                label="Email: "
+              />
+            </fieldset>
+
+            <div className="form-btns">
+              <button
+                type="button"
+                disabled={isLoading}
+                className="form-btn"
+                onClick={updateExistingUser}
+              >
+                Submit
+              </button>
+
+              <button
+                type="button"
+                className="form-btn"
+                onClick={() => {
+                  history.goBack();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Cancel
+              </button>
             </div>
-
-            <Input
-              id="name"
-              required
-              value={user?.name}
-              onChange={handleFieldChange}
-              label="Name: "
-            />
-
-            <Input
-              id="email"
-              value={user?.email}
-              onChange={handleFieldChange}
-              label="Email: "
-            />
-
-            <Input
-              id="phone"
-              value={user?.phone}
-              onChange={handleFieldChange}
-              label="Phone: "
-            />
-
-            <Input
-              id="address"
-              value={user?.address}
-              onChange={handleFieldChange}
-              label="Address: "
-            />
-
-            <Input
-              id="city"
-              value={user?.city}
-              onChange={handleFieldChange}
-              label="City: "
-            />
-
-            <Input
-              id="stateProvince"
-              value={user?.stateProvince}
-              onChange={handleFieldChange}
-              label="State/Province: "
-            />
-
-            <Input
-              id="zipCode"
-              value={user?.zipCode}
-              onChange={handleFieldChange}
-              label="Zip/Postal Code: "
-            />
-
-            <Input
-              id="country"
-              value={user?.country}
-              onChange={handleFieldChange}
-              label="Country: "
-            />
-
-            <Input
-              id="bday"
-              type="date"
-              value={user?.bday}
-              onChange={handleFieldChange}
-              label="Birthday: "
-            />
-          </fieldset>
-
-          <div className="form-btns">
-            <button
-              type="button"
-              disabled={isLoading}
-              className="form-btn"
-              onClick={updateExistingUser}
-            >
-              Submit
-            </button>
-
-            <button
-              type="button"
-              className="form-btn"
-              onClick={() => {
-                history.goBack();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              Cancel
-            </button>
           </div>
         </div>
       </div>

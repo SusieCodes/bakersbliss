@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getUserById } from "../users/UserManager";
-import { SidebarData } from "./SidebarData";
-import { SidebarLogout } from "./SidebarData";
-import { IconContext } from "react-icons";
+// import { SidebarData } from "./SidebarData";
+// import { SidebarLogout } from "./SidebarData";
+import * as AiIcons from "react-icons/ai";
+import * as Io5Icons from "react-icons/io5";
+import * as FaIcons from "react-icons/fa";
 import logo from "../../images/logo2.png";
 
 export const Navigation = ({ clearUser }) => {
@@ -15,7 +17,7 @@ export const Navigation = ({ clearUser }) => {
   });
 
   const getUser = () => {
-    getUserById(sessionStorage.getItem("bb_user")).then((currentUser) =>
+    getUserById(localStorage.getItem("bb_user")).then((currentUser) =>
       setUser(currentUser)
     );
   };
@@ -34,10 +36,10 @@ export const Navigation = ({ clearUser }) => {
           </Link>
         </div>
         <div className="toolbar-right">
-          {sessionStorage.getItem("bb_user") ? (
+          {localStorage.getItem("bb_user") ? (
             <>
               <div className="avatar-wrapper">
-                <Link to={`/users/${sessionStorage.getItem("bb_user")}`}>
+                <Link to={`/users/${localStorage.getItem("bb_user")}`}>
                   {user?.image ? (
                     <img src={user?.image} alt={user?.name} />
                   ) : (
@@ -67,7 +69,27 @@ export const Navigation = ({ clearUser }) => {
       {/* start of side menu */}
       <div className="side-menu">
         <ul className="side-menu-items">
-          {SidebarData.map((item, index) => {
+          <Link to="/dashboard">
+            <li className="side-text" title="Home">
+              <AiIcons.AiFillHome />
+            </li>
+          </Link>
+          <Link to={`/users/${user.id}`}>
+            <li className="side-text" title="User Info">
+              <FaIcons.FaUserCircle />
+            </li>
+          </Link>
+          <Link to="/shoppinglist">
+            <li className="side-text" title="Shopping List">
+              <FaIcons.FaListUl />
+            </li>
+          </Link>
+          <Link to="/">
+            <li className="side-text" title="LogOut">
+              <Io5Icons.IoLogOut />
+            </li>
+          </Link>
+          {/* {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
                 <Link to={item.path} title={item.title}>
@@ -76,9 +98,9 @@ export const Navigation = ({ clearUser }) => {
               </li>
             );
           })}
-          {SidebarLogout.map((item, index) => {
+          {SidebarLogout.map((item) => {
             return (
-              <li key={index} className={item.cName}>
+              <li key={item.id} className={item.cName}>
                 <Link
                   to={item.path}
                   title={item.title}
@@ -86,11 +108,11 @@ export const Navigation = ({ clearUser }) => {
                     clearUser();
                   }}
                 >
-                  {item.icon}
-                </Link>
-              </li>
-            );
-          })}
+                  {item.icon} */}
+          {/* </Link> */}
+          {/* </li> */}
+          {/* );
+          })} */}
         </ul>
       </div>
       {/* end of side menu */}

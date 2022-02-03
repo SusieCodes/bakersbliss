@@ -21,7 +21,7 @@ export const IngredientCard = ({ ingredient }) => {
       <div className="ingredient-info">
         ❉{" "}
         <span>
-          {ingredient.amount} {ingredient.measurement.name} {ingredient.label}
+          {ingredient.amount} {ingredient.measurement} {ingredient.label}
         </span>
       </div>
     </>

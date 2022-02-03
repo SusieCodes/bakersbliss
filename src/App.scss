@@ -22,6 +22,7 @@
 @import "./components/buttons/buttons.scss";
 @import "./components/dashboard/dashboard.scss";
 @import "./components/recipes/recipes.scss";
+@import "./components/users/users.scss";
 @import "~bootstrap/scss/bootstrap";
 
 * {
@@ -47,4 +48,17 @@ body {
 .App {
   font-size: 3rem;
   height: 100%;
+}
+
+// buttons
+.form-btns {
+  .form-btn {
+    font-size: 1.3rem;
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: pink;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+  }
 }

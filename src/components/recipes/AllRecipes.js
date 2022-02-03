@@ -14,7 +14,7 @@ export const AllRecipes = () => {
 
   // sort all user's recipes by date (most recent first) and set it to state
   const getRecipes = () => {
-    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByUserId(localStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
         setRecipes(recipesFromAPI);
       }
@@ -23,7 +23,7 @@ export const AllRecipes = () => {
 
   //gets the user's recipes sorted by favorites and sets it to state
   const getRecipesByFave = () => {
-    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByUserId(localStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
         recipesFromAPI.sort(function (a, b) {
           return b.isFave - a.isFave;
@@ -35,7 +35,7 @@ export const AllRecipes = () => {
 
   //gets the user's recipes sorted by rating and sets it to state
   const getRecipesByStars = () => {
-    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByUserId(localStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
         recipesFromAPI.sort(function (a, b) {
           return b - a;
@@ -46,7 +46,7 @@ export const AllRecipes = () => {
   };
   // sort all user's recipes by name and set it to state
   const getRecipesByName = () => {
-    getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
+    getRecipesByUserId(localStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
         recipesFromAPI.sort((a, b) => a.name.localeCompare(b.name));
         setRecipes(recipesFromAPI);

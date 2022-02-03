@@ -1,29 +1,26 @@
 //Author: Susie Stanley
 //Purpose: Creates and displays an input form for user to add a recipe
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 // import { IngredientCard } from "../recipes/Cards";
-import {
-  addRecipe,
-  // addIngredient
-} from "./RecipeManager";
+import { addRecipe, getMeasurements, addIngredient } from "./RecipeManager";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
 export const RecipeForm = () => {
   const [conflictDialog, setConflictDialog] = useState(false);
   const [count, setCount] = useState(0);
-  const [ingredients, setIngredients] = useState([{}]);
+  const [measurements, setMeasurements] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState({
-    recipeId: 1000,
     label: "",
     amount: "",
-    measurementId: 100,
+    measurement: "",
   });
 
   // Defining initial state of the form inputs with useState
   const [recipe, setRecipe] = useState({
-    userId: parseInt(sessionStorage.getItem("bb_user")),
+    userId: parseInt(localStorage.getItem("bb_user")),
     name: "",
     categoryId: 1,
     description: "",
@@ -72,7 +69,7 @@ export const RecipeForm = () => {
     setImage("");
     setLoading(false);
     setRecipe({
-      userId: parseInt(sessionStorage.getItem("bb_user")),
+      userId: parseInt(localStorage.getItem("bb_user")),
       name: "",
       categoryId: 1,
       description: "",
@@ -86,10 +83,9 @@ export const RecipeForm = () => {
     });
     // single ingredient
     setIngredient({
-      recipeId: 1000,
       label: "",
       amount: "",
-      measurementId: 100,
+      measurement: "",
     });
     // ingredient list
     setIngredients([]);
@@ -106,7 +102,7 @@ export const RecipeForm = () => {
     const newIngredient = { ...ingredient };
     newIngredient[evt.target.id] = evt.target.value;
     setIngredient(newIngredient);
-    console.log("newIngredient while typing is: ", newIngredient);
+    // console.log("newIngredient while typing is: ", newIngredient);
   };
 
   const handleSaveRecipe = (evt) => {
@@ -115,7 +111,7 @@ export const RecipeForm = () => {
       setConflictDialog(true);
     } else {
       const newRecipe = {
-        userId: parseInt(sessionStorage.getItem("bb_user")),
+        userId: parseInt(localStorage.getItem("bb_user")),
         name: recipe.name,
         categoryId: recipe.categoryId,
         description: recipe.description,
@@ -128,74 +124,56 @@ export const RecipeForm = () => {
         date: Date.now(),
       };
 
-      addRecipe(newRecipe).then(() => history.push("/category/1"));
-      // ADD CODE THAT ADDS AN ARRAY OF INGREDIENTS TO DATABASE
-
-      // addRecipe(newRecipe).then((recipeObj) => {
-      // Promise.all(
-      //   ingredients.map((singleIngred) => {
-      //     singleIngred.recipeId = recipeObj.id;
-      //     return addIngredient(singleIngred);
-      //   })
-      // ).then(() => history.push("/category/1"));
+      addRecipe(newRecipe)
+        .then((response) => {
+          let newIngredients = [...ingredients];
+          console.log("newIngredients is ", newIngredients);
+          const newInfo = newIngredients.map((ingredObj) => {
+            console.log("ingredObj is ", ingredObj);
+            ingredObj.recipeId = response.id;
+            return ingredObj;
+          });
+          console.log("newInfo is ", newInfo);
+          return newInfo;
+        })
+        .then((newIngredArray) => {
+          console.log("newIngredArray is ", newIngredArray);
+          Promise.all(
+            newIngredArray.map((ingredientObj) => {
+              addIngredient(ingredientObj);
+            })
+          ).then(() => {
+            history.push("/category/1");
+          });
+        });
     }
   };
 
   const handleSaveIngredientToList = (evt) => {
     evt.preventDefault(); //Prevents the browser from submitting the form
-    const newIngredientList = { ...ingredients };
+    const newIngredientList = [...ingredients];
+    newIngredientList.push(ingredient);
 
-    console.log("newIngredientList after SAVE button ", newIngredientList);
+    // console.log("newIngredientList after SAVE button ", newIngredientList);
 
     // console.log("ingredient after SAVE is ", ingredient);
-    // setIngredients(newIngredientList);
-
-    // if (
-    //   ingredient.label === "" ||
-    //   ingredient.amount === "" ||
-    //   ingredient.measurementId === ""
-    // ) {
-    //   setConflictDialog(true);
-    // } else {
-    newIngredientList[count].label = ingredient.label;
-    newIngredientList[count].amount = ingredient.amount;
-    newIngredientList[count].measurementId = ingredient.measurementId;
-
-    // const newIngredientList = [];
-    // newIngredientList.push(ingredient);
-
-    console.log(`ingredients[${count}].label is `, ingredients[count]?.label);
-    console.log(`ingredients[${count}].amount is `, ingredients[count]?.amount);
-    console.log(
-      `ingredients[${count}].measurement is `,
-      ingredients[count]?.measurementId
-    );
-    console.log(
-      `ingredients[${count}].recipeId is `,
-      ingredients[count]?.recipeId
-    );
-    console.log(`ingredients[${count}] object is `, ingredients[count]);
+    setIngredients(newIngredientList);
 
     setIngredient({
-      recipeId: 1000,
       label: "",
       amount: "",
-      measurementId: 100,
+      measurement: "",
     });
 
     setCount(count + 1);
     console.log("count is ", count);
-    // }
   };
 
-  // addIngredient(newIngredient);
-  // .then(() => history.push("/category/1"));
-  // }
-  // };
-
-  // useEffect(() => {
-
-  // }, []);
+  useEffect(() => {
+    getMeasurements().then((measurementsFromAPI) => {
+      setMeasurements(measurementsFromAPI);
+    });
+  }, []);
 
   return (
     <>
@@ -359,38 +337,23 @@ export const RecipeForm = () => {
               />
             </div>
           </fieldset>
-          <div className="display">
-            <div className="blue">
-              Ingredient is:
-              {/* <div>recipeId: {ingredient?.recipeId}</div> */}
-              <div>label: {ingredient?.label}</div>
-              <div>amount: {ingredient?.amount}</div>
-              <div>measurementId: {ingredient?.measurementId}</div>
-            </div>
-            <div className="pink">
-              Ingredient List is:
-              {/* <div>recipeId: {ingredients[count - 1]?.recipeId}</div> */}
-              <div>label: {ingredients[count - 1]?.label}</div>
-              <div>amount: {ingredients[count - 1]?.amount}</div>
-              <div>measurementId: {ingredients[count - 1]?.measurementId}</div>
-            </div>
-            <div>Count is: {count}</div>
-          </div>
-          {/* <div className="ingredients-displayed">
-            {ingredients[0]
-              ? ingredients.map((ingred) => (
-                  <div className="ingredient-info">
-                    ❉{" "}
-                    <span>
-                      {ingred.amount} {ingred.measurement.name} {ingred.label}
-                    </span>
-                  </div>
-                ))
-              : ""}
-          </div> */}
           <fieldset>
             <div className="ingredients-wrapper">
               Ingredients:
+              <div className="ingredients-displayed">
+                {ingredients[0]
+                  ? ingredients.map((ingred, index) => (
+                      <div key={index} className="ingredient-info">
+                        ❉{" "}
+                        <span>
+                          <small>
+                            {ingred.amount} {ingred.measurement} {ingred.label}
+                          </small>
+                        </span>
+                      </div>
+                    ))
+                  : ""}
+              </div>
               <div className="ingredients-group">
                 <input
                   type="text"
@@ -404,27 +367,20 @@ export const RecipeForm = () => {
                 />
                 <select
                   name="measurement"
-                  id="measurementId"
+                  id="measurement"
                   required
                   onChange={handleIngredientChange}
                   className="form-group__edit"
-                  value={ingredient.measurementId}
+                  value={ingredient.measurement}
                 >
-                  <option value="1">tsp</option>
-                  <option value="2">tbsp</option>
-                  <option value="3">cup</option>
-                  <option value="4">cups</option>
-                  <option value="5">pinch</option>
-                  <option value="6">dash</option>
-                  <option value="7">pint</option>
-                  <option value="8">quart</option>
-                  <option value="9">stick</option>
-                  <option value="10">box</option>
-                  <option value="11">can</option>
-                  <option value="12">oz</option>
-                  <option value="13">liter</option>
-                  <option value="14">ml</option>
-                  <option value="15">grams</option>
+                  <option value=""></option>
+                  {measurements[0]
+                    ? measurements.map((measurement) => (
+                        <option key={measurement.id} value={measurement.name}>
+                          {measurement.name}
+                        </option>
+                      ))
+                    : ""}
                 </select>
                 <input
                   type="text"
@@ -442,6 +398,7 @@ export const RecipeForm = () => {
                 >
                   Save
                 </span>
+                <div>Press SAVE after each entry</div>
               </div>
             </div>
           </fieldset>

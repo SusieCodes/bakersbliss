@@ -116,7 +116,7 @@
     padding: 0px;
     margin: 0px;
     list-style-type: none;
-    .side-text a {
+    a {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -131,7 +131,7 @@
       border-radius: 0px 10px 10px 0px;
     }
 
-    .side-text a:hover {
+    a:hover {
       background-color: #efddff;
     }
   }

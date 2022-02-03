@@ -59,8 +59,9 @@ export const RecipeDetail = () => {
 
   useEffect(() => {
     getRecipe();
-    getIngredientsByRecipeId(recipeId).then((ingredients) => {
-      setIngredients(ingredients);
+    getIngredientsByRecipeId(recipeId).then((ingredientList) => {
+      setIngredients(ingredientList);
+      console.log("ingredientList");
     });
   }, []);
 

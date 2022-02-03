@@ -21,13 +21,13 @@ export const CategoryBoard = () => {
   //gets the user's recipes sorted by category and sets it to state
   const getRecipes = () => {
     if (categoryId > 1) {
-      getRecipesByCategory(sessionStorage.getItem("bb_user"), categoryId).then(
+      getRecipesByCategory(localStorage.getItem("bb_user"), categoryId).then(
         (recipesFromAPI) => {
           setRecipes(recipesFromAPI);
         }
       );
     } else {
-      getRecipesByUserId(sessionStorage.getItem("bb_user")).then(
+      getRecipesByUserId(localStorage.getItem("bb_user")).then(
         (recipesFromAPI) => {
           setRecipes(recipesFromAPI);
         }
@@ -66,7 +66,7 @@ export const CategoryBoard = () => {
             ))}
           </div>
         ) : (
-          <div className="dummy-container">
+          <div className="recipes-container">
             <RecipeDummyCard />
           </div>
         )}
