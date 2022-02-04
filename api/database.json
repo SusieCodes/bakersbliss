@@ -36,7 +36,7 @@
   "recipes": [
     {
       "userId": 1,
-      "name": "Sugar Cookies",
+      "name": "Sugar Cookies 3",
       "categoryId": 2,
       "description": "Summary will show a maximum character count of 120 and will make it show 3 dots at the end if it exceeds the amount specified by the code in recipe card",
       "instructions": "Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it",
@@ -45,7 +45,7 @@
       "prep": "15",
       "cook": "45",
       "servings": 6,
-      "date": 1635611882958,
+      "date": 1643950857682,
       "id": 1
     },
     {
@@ -590,11 +590,25 @@
       "id": 3
     },
     {
-      "recipeId": 1,
-      "label": "eggs",
-      "amount": "tbsp",
-      "measurement": "tbsp",
+      "amount": "3",
+      "measurement": "cups",
+      "label": "vinegar",
+      "recipeId": "1",
       "id": 4
+    },
+    {
+      "label": "vodka",
+      "amount": "5",
+      "measurement": "oz",
+      "recipeId": 1,
+      "id": 5
+    },
+    {
+      "amount": "4",
+      "measurement": "pinch",
+      "label": "tabasco",
+      "recipeId": 1,
+      "id": 6
     }
   ],
   "images": [
@@ -602,6 +616,26 @@
       "recipeId": 1,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
       "id": 1
+    },
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302249/cupcake2_t6vypm.png",
+      "id": 2
+    },
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302273/cupcake4_a2ujgl.png",
+      "id": 3
+    },
+    {
+      "recipeId": 1,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302239/cupcake_nzecbn.png",
+      "id": 4
+    },
+    {
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643950829/favicon_wohtyk.png",
+      "recipeId": 1,
+      "id": 5
     }
   ],
   "notes": [

@@ -21,6 +21,12 @@ export const deleteRecipe = (id) => {
   }).then((result) => result.json());
 };
 
+export const deleteIngredient = (id) => {
+  return fetch(`${url}/ingredients/${id}`, {
+    method: "DELETE",
+  }).then((result) => result.json());
+};
+
 export const addRecipe = (recipe) => {
   return fetch(`${url}/recipes`, {
     method: "POST",

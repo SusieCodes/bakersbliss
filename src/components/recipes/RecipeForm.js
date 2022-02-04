@@ -113,7 +113,6 @@ export const RecipeForm = () => {
     const newIngredient = { ...ingredient };
     newIngredient[evt.target.id] = evt.target.value;
     setIngredient(newIngredient);
-    // console.log("newIngredient while typing is: ", newIngredient);
   };
 
   const handleSaveRecipe = (evt) => {
@@ -440,7 +439,7 @@ export const RecipeForm = () => {
             </button>
 
             <button type="button" className="form-btn" onClick={ResetForm}>
-              Reset Form
+              Reset
             </button>
 
             <button

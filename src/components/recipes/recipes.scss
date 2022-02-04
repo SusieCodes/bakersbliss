@@ -196,6 +196,17 @@
         display: flex;
         flex-direction: column;
       }
+      // Notes section styling
+      .notes-header {
+        margin-bottom: 20px;
+      }
+      .form-group-notes {
+        .edit-notes {
+          .note-date {
+            font-size: 1.1rem;
+          }
+        }
+      }
     }
   }
 }
@@ -216,10 +227,15 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      margin: 20px 0px 30px;
-      img {
+      .uploaded-image {
+        margin: 20px 0px 30px;
         border-radius: 10px;
         border: 5px solid lightgray;
+      }
+      .no-uploaded-image {
+        border: none;
+        padding: 0px;
+        margin: 0px;
       }
     }
   }
@@ -241,10 +257,9 @@
 }
 
 .form-group-cat,
-.form-group-stars {
-  display: flex;
-  flex-direction: row;
-  padding: 0px 0px 20px;
+.form-group-stars,
+.form-group-description {
+  padding: 20px 0px 0px;
   label {
     white-space: nowrap;
   }
@@ -267,18 +282,32 @@ textarea#description {
 }
 
 .ingredients-wrapper {
+  .ingredients-displayed {
+    padding-top: 15px;
+    .edit-ingredient-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      button {
+        background-color: transparent;
+        border: none;
+        margin: 5px 10px;
+      }
+    }
+  }
   .ingredients-group {
     padding: 20px 0px 0px;
     input#amount {
       width: 50px;
-      margin: 0px 5px;
+      margin-right: 5px;
     }
     input#label {
       width: 260px;
-      margin: 0px 5px;
+      margin-right: 5px;
     }
     select#measurement {
       height: 35px;
+      margin-right: 5px;
     }
     .save-ingred-btn {
       font-weight: 400;

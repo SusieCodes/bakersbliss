@@ -7,7 +7,14 @@ import {
   getRecipeById,
   getAllImages,
   getAllNotes,
+  getIngredientsByRecipeId,
+  getMeasurements,
+  deleteIngredient,
+  addImage,
+  addIngredient,
 } from "../recipes/RecipeManager";
+import { EditIngredientCard } from "../recipes/Cards";
+import { formatDateFromIntStr } from "../../helper";
 import { useParams, useHistory } from "react-router-dom";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
@@ -17,8 +24,12 @@ export const RecipeEditForm = () => {
 
   const [images, setImages] = useState([]);
   const [notes, setNotes] = useState([]);
+  const [measurements, setMeasurements] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conflictDialog, setConflictDialog] = useState(false);
+  const [ingredient, setIngredient] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredients, setNewIngredients] = useState([]);
   const [recipe, setRecipe] = useState({
     name: "",
     categoryId: 1,
@@ -66,8 +77,33 @@ export const RecipeEditForm = () => {
     setRecipe(editedRecipe);
   };
 
+  const handleIngredientChange = (evt) => {
+    const editedIngred = { ...ingredient };
+    editedIngred[evt.target.id] = evt.target.value;
+    setIngredient(editedIngred);
+  };
+
+  const handleNoteChange = (evt) => {
+    const editedNotes = [...notes];
+    editedNotes[evt.target.id].text = evt.target.value;
+    setNotes(editedNotes);
+  };
+
+  const handleSaveIngredientToList = (evt) => {
+    evt.preventDefault(); //Prevents the browser from submitting the form
+    const newIngredientList = [...newIngredients];
+    newIngredientList.push(ingredient);
+    setNewIngredients(newIngredientList);
+
+    setIngredient({
+      label: "",
+      amount: "",
+      measurement: "",
+    });
+  };
+
   const updateExistingRecipe = (evt) => {
-    evt.preventDefault();
+    evt.preventDefault(); //Prevents the browser from submitting the form
 
     // This is an edit, so we need the id
     const editedRecipe = {
@@ -96,8 +132,48 @@ export const RecipeEditForm = () => {
     ) {
       setConflictDialog(true);
     } else {
-      updateRecipe(editedRecipe).then(() => history.push("/category/1"));
+      // let newIngredients = [];
+      updateRecipe(editedRecipe)
+        .then(() => {
+          const NewIngredArray = newIngredients.map((ingredObj) => {
+            console.log("ingredObj is ", ingredObj);
+            ingredObj.recipeId = parseInt(recipeId);
+            return ingredObj;
+          });
+          let imageObj = {};
+          imageObj.image_path = image;
+          imageObj.recipeId = parseInt(recipeId);
+          let allInfoObj = {
+            NewIngredArray,
+            imageObj,
+          };
+          return allInfoObj;
+        })
+        .then(({ NewIngredArray, imageObj }) => {
+          console.log(
+            "NewIngredArray & imageObj are ",
+            NewIngredArray,
+            imageObj
+          );
+          Promise.all([
+            NewIngredArray.map((ingredientObj) => {
+              addIngredient(ingredientObj);
+            }),
+            addImage(imageObj),
+          ]).then(() => {
+            history.push("/category/1");
+          });
+        });
     }
+  };
+
+  // deletes ingredient when icon clicked
+  const handleDelete = (ingredientId) => {
+    deleteIngredient(ingredientId).then(() => {
+      getIngredientsByRecipeId(recipeId).then((ingredientsFromAPI) => {
+        setIngredients(ingredientsFromAPI);
+      });
+    });
   };
 
   useEffect(() => {
@@ -106,10 +182,15 @@ export const RecipeEditForm = () => {
       setIsLoading(false);
       getAllImages(recipeId).then((imagesFromAPI) => {
         setImages(imagesFromAPI);
-        console.log("images array is ", images);
       });
       getAllNotes(recipeId).then((notesFromAPI) => {
         setNotes(notesFromAPI);
+      });
+      getIngredientsByRecipeId(recipeId).then((ingredientsFromAPI) => {
+        setIngredients(ingredientsFromAPI);
+      });
+      getMeasurements().then((measurementsFromAPI) => {
+        setMeasurements(measurementsFromAPI);
       });
     });
   }, [recipeId]);
@@ -165,7 +246,6 @@ export const RecipeEditForm = () => {
                 <input
                   type="file"
                   id="image"
-                  // name={uploadName}
                   className="upload-input"
                   placeholder="Choose Image"
                   onChange={uploadImage}
@@ -234,17 +314,8 @@ export const RecipeEditForm = () => {
               <small>(or leave unrated)</small>
             </div>
 
-            <div className="form-group">
+            <div className="form-group-description">
               <label htmlFor="description">Description: </label>
-              {/* <input
-                type="text"
-                id="description"
-                maxLength="120"
-                required
-                className="form-group__edit"
-                onChange={handleFieldChange}
-                value={recipe?.description}
-              /> */}
               <textarea
                 name="description"
                 id="description"
@@ -297,7 +368,108 @@ export const RecipeEditForm = () => {
                 value={recipe.servings}
               />
             </div>
+          </fieldset>
 
+          <fieldset>
+            <div className="ingredients-wrapper">
+              Ingredients:
+              <div className="ingredients-displayed">
+                {ingredients[0]
+                  ? ingredients.map((ingred) => (
+                      <EditIngredientCard
+                        key={ingred.id}
+                        ingred={ingred}
+                        handleDelete={handleDelete}
+                      />
+                    ))
+                  : ""}
+                {newIngredients[0]
+                  ? newIngredients.map((ingred) => (
+                      <EditIngredientCard
+                        key={ingred.id}
+                        ingred={ingred}
+                        handleDelete={handleDelete}
+                      />
+                    ))
+                  : ""}
+              </div>
+              <div className="ingredients-group">
+                <div className="add-ingredent">Add An Ingredient:</div>
+                <input
+                  type="text"
+                  id="amount"
+                  maxLength="3"
+                  required
+                  onChange={handleIngredientChange}
+                  className="form-group__edit"
+                  placeholder=" #"
+                  value={ingredient.amount}
+                />
+                <select
+                  name="measurement"
+                  id="measurement"
+                  required
+                  onChange={handleIngredientChange}
+                  className="form-group__edit"
+                  value={ingredient.measurement}
+                >
+                  <option value=""></option>
+                  {measurements[0]
+                    ? measurements.map((measurement) => (
+                        <option key={measurement.id} value={measurement.name}>
+                          {measurement.name}
+                        </option>
+                      ))
+                    : ""}
+                </select>
+                <input
+                  type="text"
+                  id="label"
+                  maxLength="20"
+                  required
+                  onChange={handleIngredientChange}
+                  className="form-group__edit"
+                  placeholder=" ingredient name"
+                  value={ingredient.label}
+                />
+                <span
+                  className="save-ingred-btn"
+                  onClick={handleSaveIngredientToList}
+                >
+                  Save
+                </span>
+                <div>Press SAVE after each entry</div>
+              </div>
+            </div>
+
+            {/* {ingredients[0] ? (
+              <div className="form-group-ingredients">
+                {ingredients.map((singleIngred, index) => (
+                  <div className="edit-ingredients" key={index}>
+                    <div className="ingredient-date">
+                      {formatDateFromIntStr(singleIngred.date)}
+                    </div>
+                    <textarea
+                      name="ingredient"
+                      id={index}
+                      maxLength="500"
+                      required
+                      cols="24"
+                      rows="2"
+                      onChange={handleingredientChange}
+                      placeholder=" Enter recipe singleingredients"
+                      value={singleingredient.text}
+                      // ASK BRENDA value={ingredients[singleingredient.id].text}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              ""
+            )} */}
+          </fieldset>
+
+          <fieldset>
             <div className="form-group-instructions">
               <label htmlFor="instructions">Instructions: </label>
               <textarea
@@ -312,42 +484,34 @@ export const RecipeEditForm = () => {
                 placeholder=" Enter instructions"
                 value={recipe?.instructions}
               />
-
-              {/* <input
-                type="text"
-                id="instructions"
-                maxLength="500"
-                required
-                className="form-group__edit"
-                onChange={handleFieldChange}
-                value={recipe?.instructions}
-              /> */}
             </div>
-          </fieldset>
+            {/* </fieldset>
 
-          <fieldset>
+          <fieldset> */}
+            <div className="notes-header">Notes:</div>
             {notes[0] ? (
               <div className="form-group-notes">
-                {notes.map((singleNote) => (
-                  <>
-                    <label htmlFor={singleNote.id}>Notes: </label>
+                {notes.map((singleNote, index) => (
+                  <div className="edit-notes" key={index}>
+                    <div className="note-date">
+                      {formatDateFromIntStr(singleNote.date)}
+                    </div>
                     <textarea
-                      name={singleNote.id}
-                      id={singleNote.id}
-                      maxLength="1000"
+                      name="note"
+                      id={index}
+                      maxLength="500"
                       required
                       cols="24"
                       rows="2"
-                      onChange={handleFieldChange}
-                      className="form-group__edit"
-                      placeholder=" Enter recipe notes"
+                      onChange={handleNoteChange}
+                      placeholder=" Enter recipe singleNotes"
                       value={singleNote.text}
+                      // ASK BRENDA value={notes[singleNote.id].text}
                     />
-                  </>
+                  </div>
                 ))}
               </div>
             ) : (
-              // )}
               ""
             )}
           </fieldset>
