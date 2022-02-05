@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { addNote } from "./RecipeManager";
 import { formatDateFromIntStr } from "../../helper";
 import { FaTrash } from "react-icons/fa";
+
 export const NoteCard = ({ note }) => {
   return (
     <>
@@ -14,28 +16,7 @@ export const NoteCard = ({ note }) => {
   );
 };
 
-// export const NoteEditCard = ({ singleNote }, { handleFieldChange }) => {
-//   return (
-//     <>
-//       <label htmlFor={singleNote.id}>Notes: </label>
-//       <textarea
-//         name={singleNote.id}
-//         id={singleNote.id}
-//         maxLength="1000"
-//         required
-//         cols="24"
-//         rows="2"
-//         onChange={handleFieldChange}
-//         className="form-group__edit"
-//         placeholder=" Enter recipe singleNotes"
-//         value={singleNote.text}
-//       />
-//     </>
-//   );
-// };
-
 export const IngredientCard = ({ ingredient }) => {
-  console.log("ingredient is ", ingredient);
   return (
     <>
       <div className="ingredient-info">
@@ -49,7 +30,6 @@ export const IngredientCard = ({ ingredient }) => {
 };
 
 export const EditIngredientCard = ({ ingred, handleDelete }) => {
-  console.log("ingredient is ", ingred);
   return (
     <>
       <div className="edit-ingredient-info">
@@ -64,6 +44,61 @@ export const EditIngredientCard = ({ ingred, handleDelete }) => {
           <FaTrash className="delete-icon" />
         </button>
       </div>
+    </>
+  );
+};
+
+export const EditNoteCard = ({ singleNote, handleDelete }) => {
+  // const [note, setNote] = useState({
+  //   recipeId: singleNote.recipeId,
+  //   text: singleNote.text,
+  //   date: singleNote.date,
+  //   id: singleNote.id,
+  // });
+
+  // const handleNoteChange = (evt) => {
+  //   const editedNote = { ...note };
+  //   console.log("editedNote is ", editedNote);
+  //   editedNote[evt.target.id] = evt.target.value;
+  //   setNote(editedNote);
+  // };
+
+  // const handleUpdate = (note) => {
+  //   if (note.text !== "") {
+  //     addNote(note);
+  //   }
+  // };
+
+  return (
+    <>
+      {/* previous classNames are notes-header & form-group-notes */}
+      <div className="edit-notes">
+        <span>
+          <small>{formatDateFromIntStr(singleNote?.date)} :</small>{" "}
+        </span>
+        <div className="text">{singleNote?.text}</div>
+        <button type="button" onClick={() => handleDelete(singleNote)}>
+          Delete
+          {/* <FaTrash className="delete-icon" /> */}
+        </button>
+      </div>
+
+      {/* <div className="note-date">{formatDateFromIntStr(singleNote.date)}</div>
+        <textarea
+          name="note"
+          id={note.id}
+          maxLength="500"
+          required
+          cols="24"
+          rows="2"
+          onChange={handleNoteChange}
+          placeholder=" Enter recipe note"
+          value={note?.text}
+        /> */}
+      {/* <button type="button" onClick={() => handleUpdate(note)}>
+          Update
+        </button> */}
+      {/* </div> */}
     </>
   );
 };

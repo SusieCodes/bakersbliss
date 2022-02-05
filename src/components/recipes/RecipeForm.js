@@ -291,7 +291,7 @@ export const RecipeForm = () => {
               <small>(or leave unrated)</small>
             </div>
 
-            <div className="form-group">
+            <div className="form-group-description">
               <label htmlFor="name">Description: </label>
               <textarea
                 name="description"

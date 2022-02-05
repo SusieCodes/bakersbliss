@@ -11,20 +11,6 @@ import photo from "../../images/defaultcupcake.png";
 export const RecipeCard = ({ recipe }) => {
   const [images, setImages] = useState([]);
 
-  // const formatStars = (stars) => {
-  //   if (stars == 1) {
-  //     return "★☆☆☆☆";
-  //   } else if (stars == 2) {
-  //     return "★★☆☆☆";
-  //   } else if (stars == 3) {
-  //     return "★★★☆☆";
-  //   } else if (stars == 4) {
-  //     return "★★★★☆";
-  //   } else if (stars == 5) {
-  //     return "★★★★★";
-  //   }
-  // };
-
   const handleFave = (e) => {
     changeFave(recipe.id, e.target.checked);
   };

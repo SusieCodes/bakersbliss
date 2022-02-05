@@ -168,7 +168,7 @@
     flex-direction: column;
     align-items: center;
     fieldset {
-      width: 600px;
+      width: 800px;
       padding: 25px 50px 30px;
       margin: 10px 0px;
       background-color: white;
@@ -187,6 +187,11 @@
           border: 5px solid lightgray;
         }
       }
+
+      .form-group-name {
+        width: 250px;
+      }
+
       .form-group-instructions {
         display: flex;
         flex-direction: column;
@@ -195,18 +200,44 @@
       .form-group-notes {
         display: flex;
         flex-direction: column;
-      }
-      // Notes section styling
-      .notes-header {
-        margin-bottom: 20px;
-      }
-      .form-group-notes {
+        margin-top: 20px;
         .edit-notes {
-          .note-date {
-            font-size: 1.1rem;
+          border-top: 1px solid rgb(237, 237, 237);
+          .text {
+            font-weight: 400;
+          }
+          button {
+            font-size: 1.2rem;
+            padding: 0px 8px;
+            margin: 0px 10px 10px 0px;
+            background-color: #efddff;
+            border: 2px solid transparent;
+            border-radius: 5px;
           }
         }
       }
+      // Notes section styling
+      // .notes-header {
+      //   margin-bottom: 20px;
+      //   .form-group-notes {
+      //     .recipe-notes {
+      //       .note-date {
+      //         font-size: 1.1rem;
+      //       }
+      //       .text {
+      //         font-weight: 400;
+      //       }
+      //       button {
+      //         font-size: 1.2rem;
+      //         padding: 0px 8px;
+      //         margin: 0px 10px 10px 0px;
+      //         background-color: #efddff;
+      //         border: 2px solid transparent;
+      //         border-radius: 5px;
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 }
@@ -269,7 +300,8 @@
 }
 input,
 textarea {
-  padding: 0px 5px;
+  width: 100%;
+  padding: 0px 2px;
 }
 
 input#name {

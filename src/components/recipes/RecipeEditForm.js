@@ -8,13 +8,15 @@ import {
   getAllImages,
   getAllNotes,
   getIngredientsByRecipeId,
+  getNotesByRecipeId,
   getMeasurements,
   deleteIngredient,
   addImage,
   addIngredient,
+  addNote,
 } from "../recipes/RecipeManager";
-import { EditIngredientCard } from "../recipes/Cards";
-import { formatDateFromIntStr } from "../../helper";
+import { EditIngredientCard, EditNoteCard } from "../recipes/Cards";
+
 import { useParams, useHistory } from "react-router-dom";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
@@ -23,7 +25,12 @@ export const RecipeEditForm = () => {
   const history = useHistory();
 
   const [images, setImages] = useState([]);
-  const [notes, setNotes] = useState([]);
+  const [note, setNote] = useState({
+    recipeId: parseInt(recipeId),
+    text: "",
+    date: Date.now(),
+  });
+  const [notes, setNotes] = useState({});
   const [measurements, setMeasurements] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conflictDialog, setConflictDialog] = useState(false);
@@ -46,8 +53,11 @@ export const RecipeEditForm = () => {
 
   // start of upload function
   const [clickedStyle, setClickedStyle] = useState("no-uploaded-image");
-  const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState({
+    recipeId: parseInt(recipeId),
+    image_path: "",
+  });
 
   const uploadImage = async (evt) => {
     const files = evt.target.files;
@@ -65,7 +75,11 @@ export const RecipeEditForm = () => {
     );
 
     const file = await res.json();
-    setImage(file.secure_url);
+    const newImageObj = {};
+    newImageObj.recipeId = parseInt(recipeId);
+    newImageObj.image_path = file.secure_url;
+    addImage(newImageObj);
+    setImage(newImageObj);
     setLoading(false);
     setClickedStyle("uploaded-image");
   };
@@ -83,10 +97,11 @@ export const RecipeEditForm = () => {
     setIngredient(editedIngred);
   };
 
-  const handleNoteChange = (evt) => {
-    const editedNotes = [...notes];
-    editedNotes[evt.target.id].text = evt.target.value;
-    setNotes(editedNotes);
+  const handleNewNoteChange = (evt) => {
+    console.log();
+    const editedNote = { ...note };
+    editedNote[evt.target.id] = evt.target.value;
+    setNote(editedNote);
   };
 
   const handleSaveIngredientToList = (evt) => {
@@ -102,23 +117,31 @@ export const RecipeEditForm = () => {
     });
   };
 
+  const addNewNote = (noteObj) => {
+    console.log("noteObj inside addNewNote is :", noteObj);
+    if (noteObj.text !== "") {
+      addNote(noteObj);
+    }
+  };
+
   const updateExistingRecipe = (evt) => {
     evt.preventDefault(); //Prevents the browser from submitting the form
 
     // This is an edit, so we need the id
     const editedRecipe = {
-      userId: parseInt(localStorage.getItem("bb_user")),
-      name: recipe?.name,
-      categoryId: recipe?.categoryId,
-      description: recipe?.description,
-      instructions: recipe?.instructions,
-      isFave: recipe?.isFave,
-      stars: recipe?.stars,
-      prep: recipe?.prep,
-      cook: recipe?.cook,
-      servings: recipe?.servings,
-      date: Date.now(),
-      id: recipeId,
+      ...recipe,
+      // userId: parseInt(localStorage.getItem("bb_user")),
+      // name: recipe?.name,
+      // categoryId: recipe?.categoryId,
+      // description: recipe?.description,
+      // instructions: recipe?.instructions,
+      // isFave: recipe?.isFave,
+      // stars: recipe?.stars,
+      // prep: recipe?.prep,
+      // cook: recipe?.cook,
+      // servings: recipe?.servings,
+      // date: Date.now(),
+      // id: recipeId,
     };
 
     if (
@@ -132,34 +155,25 @@ export const RecipeEditForm = () => {
     ) {
       setConflictDialog(true);
     } else {
-      // let newIngredients = [];
       updateRecipe(editedRecipe)
         .then(() => {
-          const NewIngredArray = newIngredients.map((ingredObj) => {
-            console.log("ingredObj is ", ingredObj);
+          let noteObj = { ...note };
+          const newIngredArray = newIngredients.map((ingredObj) => {
             ingredObj.recipeId = parseInt(recipeId);
             return ingredObj;
           });
-          let imageObj = {};
-          imageObj.image_path = image;
-          imageObj.recipeId = parseInt(recipeId);
           let allInfoObj = {
-            NewIngredArray,
-            imageObj,
+            newIngredArray,
+            noteObj,
           };
           return allInfoObj;
         })
-        .then(({ NewIngredArray, imageObj }) => {
-          console.log(
-            "NewIngredArray & imageObj are ",
-            NewIngredArray,
-            imageObj
-          );
+        .then(({ newIngredArray, noteObj }) => {
           Promise.all([
-            NewIngredArray.map((ingredientObj) => {
+            newIngredArray.map((ingredientObj) => {
               addIngredient(ingredientObj);
             }),
-            addImage(imageObj),
+            addNewNote(noteObj),
           ]).then(() => {
             history.push("/category/1");
           });
@@ -168,10 +182,19 @@ export const RecipeEditForm = () => {
   };
 
   // deletes ingredient when icon clicked
-  const handleDelete = (ingredientId) => {
+  const handleDeleteIngred = (ingredientId) => {
     deleteIngredient(ingredientId).then(() => {
       getIngredientsByRecipeId(recipeId).then((ingredientsFromAPI) => {
         setIngredients(ingredientsFromAPI);
+      });
+    });
+  };
+
+  // deletes ingredient when icon clicked
+  const handleDeleteNote = (noteId) => {
+    deleteIngredient(noteId).then(() => {
+      getNotesByRecipeId(recipeId).then((notesFromAPI) => {
+        setNotes(notesFromAPI);
       });
     });
   };
@@ -215,26 +238,25 @@ export const RecipeEditForm = () => {
             </dialog>
 
             <div className="recipe-detail-image">
-              {images[0] ? (
-                <img src={images[0]?.image_path} alt={recipe.name} />
+              {images[0] && images[0].image_path !== "" ? (
+                <img src={images[0]?.image_path} alt={recipe?.name} />
               ) : (
                 <img
-                  src={require(`../../images/default.png`)}
-                  alt="default"
+                  src={require(`../../images/defaultcupcake.png`)}
+                  alt="cupcake default"
                   className="recipe-detail-photo"
                 />
               )}
             </div>
 
-            <div className="form-group">
+            <div className="form-group-name">
               <label htmlFor="name">Name: </label>{" "}
               <input
                 type="text"
                 id="name"
-                maxLength="25"
+                maxLength="20"
                 required
                 autoFocus
-                className="form-group__edit"
                 onChange={handleFieldChange}
                 value={recipe?.name}
               />
@@ -257,7 +279,7 @@ export const RecipeEditForm = () => {
                 ) : (
                   <div className="uploaded-image-wrapper">
                     <img
-                      src={image}
+                      src={image?.image_path}
                       alt=""
                       width="150"
                       className={clickedStyle}
@@ -379,7 +401,7 @@ export const RecipeEditForm = () => {
                       <EditIngredientCard
                         key={ingred.id}
                         ingred={ingred}
-                        handleDelete={handleDelete}
+                        handleDelete={handleDeleteIngred}
                       />
                     ))
                   : ""}
@@ -388,7 +410,7 @@ export const RecipeEditForm = () => {
                       <EditIngredientCard
                         key={ingred.id}
                         ingred={ingred}
-                        handleDelete={handleDelete}
+                        handleDelete={handleDeleteIngred}
                       />
                     ))
                   : ""}
@@ -441,32 +463,6 @@ export const RecipeEditForm = () => {
                 <div>Press SAVE after each entry</div>
               </div>
             </div>
-
-            {/* {ingredients[0] ? (
-              <div className="form-group-ingredients">
-                {ingredients.map((singleIngred, index) => (
-                  <div className="edit-ingredients" key={index}>
-                    <div className="ingredient-date">
-                      {formatDateFromIntStr(singleIngred.date)}
-                    </div>
-                    <textarea
-                      name="ingredient"
-                      id={index}
-                      maxLength="500"
-                      required
-                      cols="24"
-                      rows="2"
-                      onChange={handleingredientChange}
-                      placeholder=" Enter recipe singleingredients"
-                      value={singleingredient.text}
-                      // ASK BRENDA value={ingredients[singleingredient.id].text}
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              ""
-            )} */}
           </fieldset>
 
           <fieldset>
@@ -485,31 +481,29 @@ export const RecipeEditForm = () => {
                 value={recipe?.instructions}
               />
             </div>
-            {/* </fieldset>
 
-          <fieldset> */}
-            <div className="notes-header">Notes:</div>
+            {/* <div className="notes-header">Notes:</div> */}
             {notes[0] ? (
               <div className="form-group-notes">
-                {notes.map((singleNote, index) => (
-                  <div className="edit-notes" key={index}>
-                    <div className="note-date">
-                      {formatDateFromIntStr(singleNote.date)}
-                    </div>
-                    <textarea
-                      name="note"
-                      id={index}
-                      maxLength="500"
-                      required
-                      cols="24"
-                      rows="2"
-                      onChange={handleNoteChange}
-                      placeholder=" Enter recipe singleNotes"
-                      value={singleNote.text}
-                      // ASK BRENDA value={notes[singleNote.id].text}
-                    />
-                  </div>
+                Notes:
+                {notes.map((singleNote) => (
+                  <EditNoteCard
+                    key={singleNote.id}
+                    singleNote={singleNote}
+                    handleDeleteNote={handleDeleteNote}
+                  />
                 ))}
+                <label htmlFor="note">Add New Note: </label>
+                <textarea
+                  name="note"
+                  id="text"
+                  maxLength="500"
+                  cols="42"
+                  rows="4"
+                  onChange={handleNewNoteChange}
+                  placeholder=" Enter notes"
+                  value={note?.text}
+                />
               </div>
             ) : (
               ""

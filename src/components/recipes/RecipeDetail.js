@@ -53,7 +53,6 @@ export const RecipeDetail = () => {
       setRecipe(recipe);
       setImages(recipe.images);
       setNotes(recipe.notes);
-      console.log("recipe info is ", recipe);
     });
   };
 
@@ -61,7 +60,6 @@ export const RecipeDetail = () => {
     getRecipe();
     getIngredientsByRecipeId(recipeId).then((ingredientList) => {
       setIngredients(ingredientList);
-      console.log("ingredientList");
     });
   }, []);
 
