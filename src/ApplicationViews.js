@@ -9,6 +9,8 @@ import { RecipeEditForm } from "./components/recipes/RecipeEditForm";
 import { RecipeDetail } from "./components/recipes/RecipeDetail";
 import { UserDetail } from "./components/users/UserDetail";
 import { UserEditForm } from "./components/users/UserEditForm";
+import { ShoppingList } from "./components/shopping/ShoppingList";
+import { PrintList } from "./components/shopping/PrintList";
 
 export const ApplicationViews = ({
   setAuthUser,
@@ -54,6 +56,14 @@ export const ApplicationViews = ({
       </Route>
       <Route exact path="/users/:userId(\d+)/edit">
         <UserEditForm />
+      </Route>
+
+      <Route exact path="/shopping/">
+        <ShoppingList />
+      </Route>
+
+      <Route exact path="/shopping/print">
+        <PrintList />
       </Route>
     </>
   );

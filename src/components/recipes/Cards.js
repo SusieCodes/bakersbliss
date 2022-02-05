@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { addNote } from "./RecipeManager";
+import React from "react";
 import { formatDateFromIntStr } from "../../helper";
 import { FaTrash } from "react-icons/fa";
 
@@ -29,18 +28,14 @@ export const IngredientCard = ({ ingredient }) => {
   );
 };
 
-export const EditIngredientCard = ({ ingred, handleDelete }) => {
+export const EditIngredientCard = ({ ingred, handleDeleteIngred }) => {
   return (
     <>
       <div className="edit-ingredient-info">
         <div>
           ❉ {ingred?.amount} {ingred?.measurement} {ingred?.label}
         </div>
-        <button
-          type="button"
-          className="ingred-delete"
-          onClick={() => handleDelete(ingred?.id)}
-        >
+        <button type="button" onClick={() => handleDeleteIngred(ingred?.id)}>
           <FaTrash className="delete-icon" />
         </button>
       </div>
@@ -48,7 +43,7 @@ export const EditIngredientCard = ({ ingred, handleDelete }) => {
   );
 };
 
-export const EditNoteCard = ({ singleNote, handleDelete }) => {
+export const EditNoteCard = ({ singleNote, handleDeleteNote }) => {
   // const [note, setNote] = useState({
   //   recipeId: singleNote.recipeId,
   //   text: singleNote.text,
@@ -73,32 +68,17 @@ export const EditNoteCard = ({ singleNote, handleDelete }) => {
     <>
       {/* previous classNames are notes-header & form-group-notes */}
       <div className="edit-notes">
-        <span>
-          <small>{formatDateFromIntStr(singleNote?.date)} :</small>{" "}
-        </span>
-        <div className="text">{singleNote?.text}</div>
-        <button type="button" onClick={() => handleDelete(singleNote)}>
+        <div className="note-wrapper">
+          <span>
+            <small>{formatDateFromIntStr(singleNote?.date)} :</small>{" "}
+          </span>
+          <div className="text">{singleNote?.text}</div>
+        </div>
+        <button type="button" onClick={() => handleDeleteNote(singleNote.id)}>
           Delete
           {/* <FaTrash className="delete-icon" /> */}
         </button>
       </div>
-
-      {/* <div className="note-date">{formatDateFromIntStr(singleNote.date)}</div>
-        <textarea
-          name="note"
-          id={note.id}
-          maxLength="500"
-          required
-          cols="24"
-          rows="2"
-          onChange={handleNoteChange}
-          placeholder=" Enter recipe note"
-          value={note?.text}
-        /> */}
-      {/* <button type="button" onClick={() => handleUpdate(note)}>
-          Update
-        </button> */}
-      {/* </div> */}
     </>
   );
 };

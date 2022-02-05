@@ -48,40 +48,41 @@ export const Login = ({ setAuthUser, clearUser }) => {
           Close
         </button>
       </dialog>
-
-      <div className="login-flex">
-        <form className="form-login" onSubmit={handleLogin}>
-          <div className="logo-wrapper">
+      <div className="outer-wrapper">
+        <div className="login-flex">
+          <form className="form-login" onSubmit={handleLogin}>
+            {/* <div className="logo-wrapper">
             <img className="logo" src={logo} alt="Baker's Bliss" />
-          </div>
+          </div> */}
 
-          <fieldset className="login-fieldset">
-            <div className="login-wrapper">
-              <label htmlFor="inputEmail" className="login-label">
-                Email:
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="form-group__edit"
-                placeholder="name@email.com"
-                required
-                autoFocus
-                value={loginUser.email}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-btns">
-              <button type="submit" className="login-btn">
-                Sign In
-              </button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      <div className="link-register">
-        <Link to="/register">Register for an account</Link>
+            <fieldset className="login-fieldset">
+              <div className="login-wrapper">
+                <label htmlFor="inputEmail" className="login-label">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="form-group__edit"
+                  placeholder="name@email.com"
+                  required
+                  autoFocus
+                  value={loginUser.email}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="form-btns">
+                <button type="submit" className="login-btn">
+                  Sign In
+                </button>
+              </div>
+              <div className="link-register">
+                <Link to="/register">Register for an account</Link>
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </main>
   );

@@ -5,12 +5,13 @@ import React, { useState, useEffect } from "react";
 import {
   updateRecipe,
   getRecipeById,
-  getAllImages,
+  getImagesByRecipeId,
   getAllNotes,
   getIngredientsByRecipeId,
   getNotesByRecipeId,
   getMeasurements,
   deleteIngredient,
+  deleteNote,
   addImage,
   addIngredient,
   addNote,
@@ -50,6 +51,8 @@ export const RecipeEditForm = () => {
     date: Date.now(),
     userId: parseInt(localStorage.getItem("bb_user")),
   });
+
+  const hundred = 100;
 
   // start of upload function
   const [clickedStyle, setClickedStyle] = useState("no-uploaded-image");
@@ -129,19 +132,18 @@ export const RecipeEditForm = () => {
 
     // This is an edit, so we need the id
     const editedRecipe = {
-      ...recipe,
-      // userId: parseInt(localStorage.getItem("bb_user")),
-      // name: recipe?.name,
-      // categoryId: recipe?.categoryId,
-      // description: recipe?.description,
-      // instructions: recipe?.instructions,
-      // isFave: recipe?.isFave,
-      // stars: recipe?.stars,
-      // prep: recipe?.prep,
-      // cook: recipe?.cook,
-      // servings: recipe?.servings,
-      // date: Date.now(),
-      // id: recipeId,
+      userId: parseInt(localStorage.getItem("bb_user")),
+      name: recipe?.name,
+      categoryId: recipe?.categoryId,
+      description: recipe?.description,
+      instructions: recipe?.instructions,
+      isFave: recipe?.isFave,
+      stars: recipe?.stars,
+      prep: recipe?.prep,
+      cook: recipe?.cook,
+      servings: recipe?.servings,
+      date: Date.now(),
+      id: recipeId,
     };
 
     if (
@@ -169,6 +171,7 @@ export const RecipeEditForm = () => {
           return allInfoObj;
         })
         .then(({ newIngredArray, noteObj }) => {
+          console.log("noteObj before promise is ", noteObj);
           Promise.all([
             newIngredArray.map((ingredientObj) => {
               addIngredient(ingredientObj);
@@ -192,7 +195,7 @@ export const RecipeEditForm = () => {
 
   // deletes ingredient when icon clicked
   const handleDeleteNote = (noteId) => {
-    deleteIngredient(noteId).then(() => {
+    deleteNote(noteId).then(() => {
       getNotesByRecipeId(recipeId).then((notesFromAPI) => {
         setNotes(notesFromAPI);
       });
@@ -203,7 +206,7 @@ export const RecipeEditForm = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
       setIsLoading(false);
-      getAllImages(recipeId).then((imagesFromAPI) => {
+      getImagesByRecipeId(recipeId).then((imagesFromAPI) => {
         setImages(imagesFromAPI);
       });
       getAllNotes(recipeId).then((notesFromAPI) => {
@@ -401,16 +404,16 @@ export const RecipeEditForm = () => {
                       <EditIngredientCard
                         key={ingred.id}
                         ingred={ingred}
-                        handleDelete={handleDeleteIngred}
+                        handleDeleteIngred={handleDeleteIngred}
                       />
                     ))
                   : ""}
                 {newIngredients[0]
-                  ? newIngredients.map((ingred) => (
+                  ? newIngredients.map((ingred, index) => (
                       <EditIngredientCard
-                        key={ingred.id}
+                        key={index + hundred}
                         ingred={ingred}
-                        handleDelete={handleDeleteIngred}
+                        handleDeleteIngred={handleDeleteIngred}
                       />
                     ))
                   : ""}

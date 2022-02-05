@@ -192,63 +192,57 @@
         width: 250px;
       }
 
+      .ingredients-wrapper {
+        .ingredients-group {
+          span {
+            cursor: pointer;
+          }
+        }
+      }
+
       .form-group-instructions {
         display: flex;
         flex-direction: column;
-        margin: 20px 0px 10px;
+        margin-bottom: 10px;
       }
       .form-group-notes {
         display: flex;
         flex-direction: column;
-        margin-top: 20px;
+        margin-top: 25px;
         .edit-notes {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
           border-top: 1px solid rgb(237, 237, 237);
-          .text {
-            font-weight: 400;
+          margin-top: 10px;
+          .note-wrapper {
+            display: flex;
+            flex-direction: column;
+            // align-content: center;
+            .text {
+              font-weight: 400;
+            }
           }
           button {
+            height: 40px;
             font-size: 1.2rem;
             padding: 0px 8px;
-            margin: 0px 10px 10px 0px;
+            margin: 10px 10px 10px 30px;
             background-color: #efddff;
             border: 2px solid transparent;
             border-radius: 5px;
           }
         }
+        label {
+          margin-top: 20px;
+        }
       }
-      // Notes section styling
-      // .notes-header {
-      //   margin-bottom: 20px;
-      //   .form-group-notes {
-      //     .recipe-notes {
-      //       .note-date {
-      //         font-size: 1.1rem;
-      //       }
-      //       .text {
-      //         font-weight: 400;
-      //       }
-      //       button {
-      //         font-size: 1.2rem;
-      //         padding: 0px 8px;
-      //         margin: 0px 10px 10px 0px;
-      //         background-color: #efddff;
-      //         border: 2px solid transparent;
-      //         border-radius: 5px;
-      //       }
-      //     }
-      //   }
-      // }
     }
   }
 }
 
+//uploading photos styling
 .upload-section {
-  .upload-wrapper {
-    .upload-image-text {
-    }
-    input {
-    }
-  }
   .uploaded-image-section {
     .loading {
       padding: 0px;
@@ -420,8 +414,12 @@ textarea#description {
             .prep-text {
               .prep,
               .cook,
-              .total {
+              .total,
+              .servings {
                 font-weight: 500;
+              }
+              .servings {
+                margin-bottom: 10px;
               }
               .total {
                 border-top: 1px solid lightgray;
@@ -430,10 +428,14 @@ textarea#description {
             .prep-times {
               .prep,
               .cook,
-              .total {
+              .total,
+              .servings {
                 text-align: right;
                 font-weight: 400;
                 padding-left: 15px;
+              }
+              .servings {
+                margin-bottom: 10px;
               }
               .total {
                 border-top: 1px solid lightgray;
@@ -543,15 +545,4 @@ textarea#description {
       }
     }
   }
-}
-
-.blue {
-  min-width: 300px;
-  padding: 20px;
-  background-color: powderblue;
-}
-.pink {
-  min-width: 300px;
-  padding: 20px;
-  background-color: pink;
 }

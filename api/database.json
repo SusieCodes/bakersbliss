@@ -6,7 +6,7 @@
       "last_name": "Stanley",
       "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1636436400/susie2_vzbbqq.png",
       "email": "me@me.com",
-      "last_visit": 1643859187286
+      "last_visit": 1644100267945
     },
     {
       "first_name": "Taylor",
@@ -42,105 +42,11 @@
       "instructions": "Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it Bake cake then eat it",
       "isFave": true,
       "stars": "★★★★☆",
-      "prep": "15",
-      "cook": "45",
-      "servings": 6,
-      "date": 1644031725760,
-      "id": 1,
-      "images": [
-        {
-          "recipeId": 1,
-          "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
-          "id": 1
-        },
-        {
-          "recipeId": 1,
-          "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302249/cupcake2_t6vypm.png",
-          "id": 2
-        },
-        {
-          "recipeId": 1,
-          "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302273/cupcake4_a2ujgl.png",
-          "id": 3
-        },
-        {
-          "recipeId": 1,
-          "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302239/cupcake_nzecbn.png",
-          "id": 4
-        },
-        {
-          "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643950829/favicon_wohtyk.png",
-          "recipeId": 1,
-          "id": 5
-        },
-        {
-          "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643985488/bluepic_ydwajb.png",
-          "recipeId": 1,
-          "id": 6
-        }
-      ],
-      "ingredients": [
-        {
-          "recipeId": 1,
-          "label": "sugar",
-          "amount": 2,
-          "measurement": "tbsp",
-          "id": 1
-        },
-        {
-          "recipeId": 1,
-          "label": "butter",
-          "amount": 2,
-          "measurement": "cups",
-          "id": 2
-        },
-        {
-          "recipeId": 1,
-          "label": "flour",
-          "amount": 2,
-          "measurement": "tbsp",
-          "id": 3
-        },
-        {
-          "label": "vodka",
-          "amount": "5",
-          "measurement": "oz",
-          "recipeId": 1,
-          "id": 5
-        },
-        {
-          "amount": "4",
-          "measurement": "pinch",
-          "label": "tabasco",
-          "recipeId": 1,
-          "id": 6
-        }
-      ],
-      "notes": [
-        {
-          "recipeId": 1,
-          "text": "Add less sugar next time",
-          "date": 1635611882958,
-          "id": 1
-        },
-        {
-          "recipeId": 1,
-          "text": "Add more sugar next time",
-          "date": 1635611882958,
-          "id": 2
-        },
-        {
-          "recipeId": 1,
-          "text": "Next time bake an extra 5 minutes, it was a touch undercooked in the middle. Add a bunch of words to see what it looks like.",
-          "date": 1635611882958,
-          "id": 3
-        }
-      ],
-      "category": {
-        "name": "Cookies",
-        "image": "140cookie.png",
-        "id": 2
-      }
+      "prep": "33",
+      "cook": "33",
+      "servings": "3",
+      "date": 1644082852636,
+      "id": 1
     },
     {
       "userId": 1,
@@ -152,7 +58,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 2
     },
@@ -166,7 +72,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 3
     },
@@ -180,7 +86,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 4
     },
@@ -194,7 +100,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 5
     },
@@ -208,7 +114,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 6
     },
@@ -222,7 +128,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 7
     },
@@ -236,7 +142,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 8
     },
@@ -250,7 +156,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 9
     },
@@ -264,7 +170,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 10
     },
@@ -278,7 +184,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 11
     },
@@ -292,7 +198,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 12
     },
@@ -306,7 +212,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 13
     },
@@ -320,7 +226,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 14
     },
@@ -334,7 +240,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 15
     },
@@ -348,7 +254,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 16
     },
@@ -362,7 +268,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 17
     },
@@ -376,7 +282,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 18
     },
@@ -390,7 +296,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 19
     },
@@ -404,7 +310,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 20
     },
@@ -418,7 +324,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 21
     },
@@ -432,7 +338,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 22
     },
@@ -446,7 +352,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 23
     },
@@ -460,7 +366,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 24
     },
@@ -474,7 +380,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 25
     },
@@ -488,7 +394,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 26
     },
@@ -502,7 +408,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 27
     },
@@ -516,7 +422,7 @@
       "stars": "★★★★☆",
       "prep": "20",
       "cook": "30",
-      "servings": 6,
+      "servings": "6",
       "date": 1635611882958,
       "id": 28
     }
@@ -703,43 +609,42 @@
       "label": "tabasco",
       "recipeId": 1,
       "id": 6
+    },
+    {
+      "label": "honey",
+      "amount": "1",
+      "measurement": "tsp",
+      "recipeId": 1,
+      "id": 7
+    },
+    {
+      "amount": "4",
+      "measurement": "cups",
+      "label": "cream",
+      "recipeId": 1,
+      "id": 8
     }
   ],
   "images": [
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302266/cupcake3_qpm9sd.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303580/pinkpic_ckmckb.png",
       "id": 1
     },
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302249/cupcake2_t6vypm.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303602/bluepic_sylimn.png",
       "id": 2
     },
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302273/cupcake4_a2ujgl.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303608/purplepic_h0trrq.png",
       "id": 3
     },
     {
       "recipeId": 1,
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302239/cupcake_nzecbn.png",
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303613/greenpic_i9uhkr.png",
       "id": 4
-    },
-    {
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643950829/favicon_wohtyk.png",
-      "recipeId": 1,
-      "id": 5
-    },
-    {
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643985488/bluepic_ydwajb.png",
-      "recipeId": 1,
-      "id": 6
-    },
-    {
-      "recipeId": "1",
-      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643302249/cupcake2_t6vypm.png",
-      "id": 7
     }
   ],
   "notes": [
@@ -757,8 +662,25 @@
     },
     {
       "recipeId": 1,
-      "text": "Next time bake an extra 5 minutes, it was a touch undercooked in the middle. Add a bunch of words to see what it looks like.",
+      "text": "Next time bake an extra 5 minutes, it was a little teeny bit undercooked in the middle.",
       "date": 1635611882958,
+      "id": 3
+    }
+  ],
+  "items": [
+    {
+      "userId": 1,
+      "text": "itemOne",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "text": "itemOne",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "text": "itemOne",
       "id": 3
     }
   ]

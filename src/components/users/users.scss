@@ -10,17 +10,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 75px 0px;
       font-size: 1.3rem;
       background-color: white;
       width: 600px;
       border-radius: 20px;
       box-shadow: 3px 3px 3px 1px lightgray;
-      padding: 30px 0px 60px;
+      padding: 20px 0px 40px;
       .user-name {
         font-size: 2rem;
         font-weight: 600;
-        margin: 20px 0px 40px;
+        margin: 20px 0px 20px;
       }
       .user-detail-image {
         width: 250px;
@@ -62,19 +61,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 75px 0px;
       font-size: 1.3rem;
       background-color: white;
       width: 600px;
       border-radius: 20px;
       box-shadow: 3px 3px 3px 1px lightgray;
-      padding: 30px 0px 60px;
+      padding: 30px 0px 20px;
       fieldset {
         display: flex;
         flex-direction: column;
         align-content: center;
         font-weight: 600;
-        margin: 20px 0px;
+        margin: 10px 0px;
         .user-detail-image {
           align-self: center;
           width: 250px;
@@ -86,6 +84,7 @@
           }
         }
         .upload-section {
+          margin-bottom: 20px;
           .upload-wrapper {
             .upload-image-text {
             }
@@ -105,13 +104,8 @@
           }
         }
 
-        input {
-          .form-group {
-            label {
-            }
-            input {
-            }
-          }
+        .form-group {
+          margin: 8px 0px;
         }
       }
     }

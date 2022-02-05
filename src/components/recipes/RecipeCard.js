@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
-import { changeFave, getAllImages } from "./RecipeManager";
+import { changeFave, getImagesByRecipeId } from "./RecipeManager";
 import photo from "../../images/defaultcupcake.png";
 
 export const RecipeCard = ({ recipe }) => {
@@ -16,7 +16,7 @@ export const RecipeCard = ({ recipe }) => {
   };
 
   const getImages = (recipeId) => {
-    getAllImages(recipeId).then((imagesFromAPI) => {
+    getImagesByRecipeId(recipeId).then((imagesFromAPI) => {
       setImages(imagesFromAPI);
     });
   };

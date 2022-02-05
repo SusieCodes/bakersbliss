@@ -4,6 +4,7 @@ import {
   deleteRecipe,
   changeFave,
   getIngredientsByRecipeId,
+  getImagesByRecipeId,
 } from "./RecipeManager";
 import { useParams, useHistory } from "react-router-dom";
 import { NoteCard, IngredientCard } from "../recipes/Cards";
@@ -27,7 +28,7 @@ export const RecipeDetail = () => {
     stars: 1,
     prep: "",
     cook: "",
-    servings: 1,
+    servings: "",
     date: 1,
   });
 
@@ -51,13 +52,15 @@ export const RecipeDetail = () => {
   const getRecipe = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
-      setImages(recipe.images);
-      setNotes(recipe.notes);
+      setNotes(recipe?.notes);
     });
   };
 
   useEffect(() => {
     getRecipe();
+    getImagesByRecipeId(recipeId).then((imageArray) => {
+      setImages(imageArray);
+    });
     getIngredientsByRecipeId(recipeId).then((ingredientList) => {
       setIngredients(ingredientList);
     });
@@ -95,11 +98,16 @@ export const RecipeDetail = () => {
               <div className="recipe-time">
                 <div className="prep-time-wrapper">
                   <div className="prep-text">
+                    <div className="servings">Servings:</div>
+
                     <div className="prep">Prep time:</div>
                     <div className="cook">Cook time:</div>
                     <div className="total">Total:</div>
                   </div>
                   <div className="prep-times">
+                    <div className="servings">
+                      {recipe?.servings !== "" ? recipe?.servings : 0}
+                    </div>
                     <div className="prep">
                       {recipe?.prep !== "" ? recipe.prep : 0}mins
                     </div>

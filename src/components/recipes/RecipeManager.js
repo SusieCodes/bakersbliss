@@ -1,5 +1,5 @@
 //Author: Susie Stanley
-//Purpose: To export multiple components that fetch/update/delete connection info from database
+//Purpose: To export multiple components that fetch/update/delete recipe info from database
 
 const url = "http://localhost:8088";
 
@@ -11,7 +11,7 @@ export const getRecipesByUserId = (userId) => {
 
 export const getRecipeById = (id) => {
   return fetch(
-    `${url}/recipes/${id}?_expand=category&_embed=images&_embed=ingredients&_embed=notes`
+    `${url}/recipes/${id}?_expand=category&_embed=ingredients&_embed=notes`
   ).then((res) => res.json());
 };
 
@@ -23,6 +23,12 @@ export const deleteRecipe = (id) => {
 
 export const deleteIngredient = (id) => {
   return fetch(`${url}/ingredients/${id}`, {
+    method: "DELETE",
+  }).then((result) => result.json());
+};
+
+export const deleteNote = (id) => {
+  return fetch(`${url}/notes/${id}`, {
     method: "DELETE",
   }).then((result) => result.json());
 };
@@ -99,12 +105,6 @@ export const getAllCategories = () => {
   return fetch(`${url}/categories`).then((res) => res.json());
 };
 
-export const getAllImages = (recipeId) => {
-  return fetch(`${url}/images/?recipeId=${recipeId}&_sort=id&_order=desc`).then(
-    (res) => res.json()
-  );
-};
-
 export const getAllNotes = (recipeId) => {
   return fetch(`${url}/notes/?recipeId=${recipeId}`).then((res) => res.json());
 };
@@ -121,6 +121,12 @@ export const getCategoryById = (categoryId) => {
 
 export const getIngredientsByRecipeId = (recipeId) => {
   return fetch(`${url}/ingredients/?recipeId=${recipeId}&_order=asc`).then(
+    (res) => res.json()
+  );
+};
+
+export const getImagesByRecipeId = (recipeId) => {
+  return fetch(`${url}/images/?recipeId=${recipeId}&_sort=id&_order=desc`).then(
     (res) => res.json()
   );
 };
