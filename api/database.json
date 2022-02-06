@@ -31,6 +31,14 @@
       "image": "",
       "last_visit": 1643921671899,
       "id": 4
+    },
+    {
+      "first_name": "myfirstname",
+      "last_name": "mylastname",
+      "email": "name@name.com",
+      "image": "",
+      "last_visit": 1644174477678,
+      "id": 5
     }
   ],
   "recipes": [
@@ -683,34 +691,9 @@
       "id": 3
     },
     {
-      "text": "icing sugar",
+      "text": "love",
       "userId": 1,
       "id": 4
-    },
-    {
-      "text": "eggs",
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "text": "food coloring",
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "text": "candy corn",
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "text": "flour",
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "text": "almond flavor",
-      "userId": 1,
-      "id": 9
     }
   ]
 }

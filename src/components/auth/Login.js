@@ -51,10 +51,6 @@ export const Login = ({ setAuthUser, clearUser }) => {
       <div className="outer-wrapper">
         <div className="login-flex">
           <form className="form-login" onSubmit={handleLogin}>
-            {/* <div className="logo-wrapper">
-            <img className="logo" src={logo} alt="Baker's Bliss" />
-          </div> */}
-
             <fieldset className="login-fieldset">
               <div className="login-wrapper">
                 <label htmlFor="inputEmail" className="login-label">
@@ -78,7 +74,7 @@ export const Login = ({ setAuthUser, clearUser }) => {
                 </button>
               </div>
               <div className="link-register">
-                <Link to="/register">Register for an account</Link>
+                <Link to="/register">or register for an account</Link>
               </div>
             </fieldset>
           </form>

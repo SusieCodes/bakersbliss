@@ -71,88 +71,65 @@ export const Register = ({ setAuthUser }) => {
         </button>
       </dialog>
 
-      <div className="form-flex">
-        <div className="form-flex__inner">
-          <form className="form-login" onSubmit={handleRegister}>
-            <div className="form-register__headline">Please Register</div>
-            <div className="logo-login-wrapper">
-              <img
-                className="logo-login"
-                src={logo}
-                width="300"
-                alt="Baker's Bliss"
-              />
+      {/* <div className="outer-wrapper"> */}
+      <div className="register-flex">
+        <form className="form-login" onSubmit={handleRegister}>
+          <div className="form-register__headline">Please Register</div>
+          <div className="logo-register">
+            <img src={logo} width="300" alt="Baker's Bliss" />
+          </div>
+          <fieldset>
+            <div className="register-wrapper">
+              <div className="register-name">
+                <label htmlFor="first_name">First Name:</label>
+
+                <input
+                  type="text"
+                  name="first_name"
+                  id="first_name"
+                  placeholder="First Name"
+                  required
+                  autoFocus
+                  value={registerUser.first_name}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="register-name">
+                <label htmlFor="last_name">Last Name:</label>
+
+                <input
+                  type="text"
+                  name="last_name"
+                  id="last_name"
+                  placeholder="Last Name"
+                  required
+                  value={registerUser.last_name}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="register-name">
+                <label htmlFor="inputEmail">Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="name@email.com"
+                  required
+                  value={registerUser.email}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
-            <fieldset className="login-fieldset">
-              <div className="register-wrapper">
-                <div className="register-name">
-                  <label htmlFor="first_name" className="register-label">
-                    First Name:
-                  </label>
+            <div className="form-btns">
+              <button type="submit">Register</button>
 
-                  <input
-                    type="text"
-                    name="first_name"
-                    id="first_name"
-                    className="form-group__edit"
-                    placeholder="First Name"
-                    required
-                    autoFocus
-                    value={registerUser.first_name}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="register-name">
-                  <label htmlFor="last_name" className="register-label">
-                    Last Name:
-                  </label>
-
-                  <input
-                    type="text"
-                    name="last_name"
-                    id="last_name"
-                    className="form-group__edit"
-                    placeholder="Last Name"
-                    required
-                    value={registerUser.last_name}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="register-name">
-                  <label
-                    htmlFor="inputEmail"
-                    className="register-label login-indent"
-                  >
-                    Email address:
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="form-group__edit"
-                    placeholder="name@email.com"
-                    required
-                    value={registerUser.email}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-              <div className="form-btns">
-                <button type="submit" className="login-btn">
-                  Register
-                </button>
-
-                <button
-                  type="button"
-                  className="login-btn"
-                  onClick={() => history.push(`/`)}
-                >
-                  Cancel
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+              <button type="button" onClick={() => history.push(`/`)}>
+                Cancel
+              </button>
+            </div>
+          </fieldset>
+        </form>
+        {/* </div> */}
       </div>
     </main>
   );

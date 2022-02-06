@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { deleteItem, getItemsByUserId } from "./ShoppingManager";
 import { ItemCard } from "./ItemCard";
-import { WelcomeBar2 } from "../nav/WelcomeBar2";
+import { WelcomeBar3 } from "../nav/WelcomeBar3";
 
 export const ShoppingList = () => {
   const [items, setItems] = useState([]);
@@ -26,7 +26,7 @@ export const ShoppingList = () => {
   return (
     <>
       <div className="shopping-list">
-        <WelcomeBar2 title="Shopping List" />
+        <WelcomeBar3 title="Shopping List" />
 
         <div className="shopping-create">
           <Link to={`/items/create`}>
@@ -39,7 +39,7 @@ export const ShoppingList = () => {
             ))}
             <div className="list-print">
               <Link to={`/shopping/print`}>
-                <div className="print-btn">Print</div>
+                <div className="list-print-btn">Print</div>
               </Link>
             </div>
           </div>

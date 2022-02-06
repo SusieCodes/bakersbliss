@@ -133,14 +133,14 @@ export const RecipeDetail = () => {
                   </div>
 
                   <div
-                    className="details-btn middle-btn"
+                    className="detail-btn middle-btn"
                     onClick={() => handleEdit(recipe?.id)}
                   >
                     Edit
                   </div>
 
                   <div
-                    className="details-btn"
+                    className="detail-btn"
                     onClick={() => handleDelete(recipe?.id)}
                   >
                     Delete
