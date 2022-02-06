@@ -496,7 +496,6 @@
     {
       "name": "Rolls ",
       "image": "140roll.png",
-      "path": "/rolls",
       "id": 14
     },
     {
@@ -699,7 +698,7 @@
       "id": 6
     },
     {
-      "text": "brown sugar",
+      "text": "candy corn",
       "userId": 1,
       "id": 7
     },
@@ -712,16 +711,6 @@
       "text": "almond flavor",
       "userId": 1,
       "id": 9
-    },
-    {
-      "text": "brown sugah",
-      "userId": null,
-      "id": 10
-    },
-    {
-      "text": "cookies",
-      "userId": 1,
-      "id": 11
     }
   ]
 }
