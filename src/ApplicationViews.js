@@ -10,6 +10,8 @@ import { RecipeDetail } from "./components/recipes/RecipeDetail";
 import { UserDetail } from "./components/users/UserDetail";
 import { UserEditForm } from "./components/users/UserEditForm";
 import { ShoppingList } from "./components/shopping/ShoppingList";
+import { ItemForm } from "./components/shopping/ItemForm";
+import { ItemEditForm } from "./components/shopping/ItemEditForm";
 import { PrintList } from "./components/shopping/PrintList";
 
 export const ApplicationViews = ({
@@ -58,8 +60,16 @@ export const ApplicationViews = ({
         <UserEditForm />
       </Route>
 
-      <Route exact path="/shopping/">
+      <Route exact path="/shopping">
         <ShoppingList />
+      </Route>
+
+      <Route exact path="/items/create">
+        <ItemForm />
+      </Route>
+
+      <Route exact path="/items/:itemId(\d+)/edit">
+        <ItemEditForm />
       </Route>
 
       <Route exact path="/shopping/print">

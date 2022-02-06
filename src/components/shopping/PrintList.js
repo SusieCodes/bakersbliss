@@ -2,15 +2,16 @@ import React, { useRef } from "react";
 import { render } from "react-dom";
 import { useHistory } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
-import { getItemsByUserId } from "./itemManager";
+import { getItemsByUserId } from "./ShoppingManager";
 import { ListPrintCard } from "./ItemCard";
-import "./item.css";
+import "../shopping/print.css";
 
+// this component is displayed when user is directed to /shopping/print from clicking PRINT button in ShoppingList.js
 export class ComponentToPrint extends React.Component {
   state = { items: [] };
 
   componentDidMount() {
-    getItemsByUserId(sessionStorage.getItem("bb_user")).then((userItems) => {
+    getItemsByUserId(localStorage.getItem("bb_user")).then((userItems) => {
       this.setState({ items: userItems });
     });
   }
@@ -18,16 +19,17 @@ export class ComponentToPrint extends React.Component {
   render() {
     return (
       <>
-        <div className="print-item-container">
-          <div className="print-item-info">
-            <div className="print-header">
-              {sessionStorage.getItem("bb_username")}&#39;s Item List
-            </div>
-
-            <div className="print-item-list">
-              {this.state.items.map((item) => (
-                <ListPrintCard key={item.id} item={item} />
-              ))}
+        <div className="print-container">
+          <div className="print-info">
+            <div className="printable-list">
+              <div className="print-header">
+                {localStorage.getItem("bb_username")}&#39;s List
+              </div>
+              <div className="print-list">
+                {this.state.items.map((item) => (
+                  <ListPrintCard key={item.id} item={item} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -45,22 +47,22 @@ export const PrintList = () => {
   });
 
   return (
-    <div className="print-page-item">
-      <div className="print-wrapper-item">
+    <div className="print-page">
+      <div className="print-wrapper">
         <ComponentToPrint ref={componentRef} />
         <div className="print-btn-flex">
-          <button className="print-btn" onClick={handlePrint}>
+          <div className="print-btn" onClick={handlePrint}>
             Print
-          </button>
+          </div>
 
-          <button
+          <div
             className="print-btn"
             onClick={() => {
               history.goBack();
             }}
           >
             Back
-          </button>
+          </div>
         </div>
       </div>
     </div>

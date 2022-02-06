@@ -1,0 +1,85 @@
+/* print page styling */
+.print-page {
+  padding: 125px 0px 0px 70px;
+}
+
+.print-wrapper {
+  /* background-color: orange; */
+}
+
+.print-container {
+  /* background-color: yellow; */
+}
+
+.print-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 100px 0px 30px;
+  /* border: 1px solid red; */
+}
+
+.printable-list {
+  /* everything inside here is printed */
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding: 30px 30px 25px;
+}
+
+.print-header {
+  padding: 0px 0px 15px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.print-list {
+  /* ListPrintCards are defined inside ItemCard & invoked in PrintList */
+}
+
+.print-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 10px 0px;
+  font-size: 1.2rem;
+}
+
+.print-item__text {
+  font-weight: 500;
+}
+
+.print-item__icons {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.item-checkbox {
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  /* padding-bottom: 3px; */
+}
+
+.print-btn-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.print-btn {
+  font-size: 1.4rem;
+  font-weight: 500;
+  background-color: lightpink;
+  padding: 5px 15px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

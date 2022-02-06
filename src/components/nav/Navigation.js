@@ -79,7 +79,7 @@ export const Navigation = ({ clearUser }) => {
               <FaIcons.FaUserCircle />
             </li>
           </Link>
-          <Link to="/shoppinglist">
+          <Link to="/shopping">
             <li className="side-text" title="Shopping List">
               <FaIcons.FaListUl />
             </li>

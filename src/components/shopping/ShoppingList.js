@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { deleteItem, addItem, getItemsByUserId } from "./ShoppingManager";
+import { deleteItem, getItemsByUserId } from "./ShoppingManager";
 import { ItemCard } from "./ItemCard";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
 
@@ -10,12 +10,6 @@ export const ShoppingList = () => {
   const getItems = () => {
     getItemsByUserId(localStorage.getItem("bb_user")).then((userItems) => {
       setItems(userItems);
-    });
-  };
-
-  const handleAddItem = (item) => {
-    addItem(item).then(() => {
-      getItems();
     });
   };
 
@@ -31,31 +25,23 @@ export const ShoppingList = () => {
 
   return (
     <>
-      <div className="page">
+      <div className="shopping-list">
         <WelcomeBar2 title="Shopping List" />
 
-        <div className="shopping-flex">
-          <div className="add-item">
-            <button onClick={handleAddItem} className="add-item">
-              + Add Items
-            </button>
-          </div>
+        <div className="shopping-create">
+          <Link to={`/items/create`}>
+            <button className="add-item">Add Item</button>
+          </Link>
 
-          <div className="shopping-items">
-            <div className="item-list">
-              {items.map((item) => (
-                <ItemCard
-                  key={item.id}
-                  item={item}
-                  handleDelete={handleDelete}
-                />
-              ))}
+          <div className="item-list">
+            {items.map((item) => (
+              <ItemCard key={item.id} item={item} handleDelete={handleDelete} />
+            ))}
+            <div className="list-print">
+              <Link to={`/shopping/print`}>
+                <div className="print-btn">Print</div>
+              </Link>
             </div>
-          </div>
-          <div className="list-print">
-            <Link to={`/shopping/print`}>
-              <button className="printable-btn">Print</button>
-            </Link>
           </div>
         </div>
       </div>

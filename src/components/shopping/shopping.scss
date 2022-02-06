@@ -1,0 +1,131 @@
+//shopping list styling
+.shopping-list {
+  padding: 125px 0px 0px 70px;
+  .shopping-create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // text-align: center;
+    button {
+      font-size: 1.3rem;
+      font-weight: 500;
+      width: 170px;
+      padding: 5px 0px;
+      margin: 15px 0px;
+      border-radius: 10px;
+      border: 5px solid white;
+      background-image: linear-gradient(
+        45deg,
+        #ff62bba0 6%,
+        #ff9f39a0,
+        #ffe62fa0,
+        #90ff42a0,
+        #4bdbffa0,
+        #c27cffa0 92%
+      );
+    }
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      width: 450px;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 3px 3px 3px 1px lightgray;
+      .item-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 15px 0px 20px;
+        margin: 5px 0px;
+        font-weight: 500;
+        border-radius: 5px;
+        background-color: #f7efff;
+        .item-info {
+          font-size: 1.3rem;
+        }
+        .item-icons {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          // align-items: center;
+          padding-bottom: 2px;
+          // border: 1px solid red;
+          .item-edit {
+            font-size: 1.9rem;
+            padding-bottom: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            // border: 1px solid blue;
+          }
+          .item-delete {
+            font-size: 1.6rem;
+            margin-left: 15px;
+            padding-top: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            // border: 1px solid green;
+          }
+          .item-edit:hover {
+            transform: scale(1.5);
+            color: #41c5d8;
+          }
+          .item-delete:hover {
+            transform: scale(1.5);
+            color: #ff65b5;
+          }
+        }
+      }
+      .list-print {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        a {
+          text-decoration: none;
+          color: black;
+          .print-btn {
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 5px 20px;
+            margin: 25px 0px 0px;
+            border-radius: 10px;
+            background-color: lightpink;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+// item edit styling
+.add-item,
+.edit-item {
+  padding: 125px 0px 0px 70px;
+  .create-wrapper,
+  .edit-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    fieldset {
+      .form-group-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        label {
+          font-size: 1.6rem;
+        }
+        input {
+          font-size: 1.4rem;
+          height: 40px;
+          border-radius: 5px;
+          margin: 0px 10px;
+        }
+      }
+    }
+  }
+}

@@ -2,10 +2,12 @@
 //Purpose: Displays items on user's shopping list
 
 import React from "react";
-import { GrCheckbox } from "react-icons/gr";
-import { FaTrash } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 export const ItemCard = ({ item, handleDelete }) => {
+  const history = useHistory();
+
   return (
     <>
       <div className="item-card">
@@ -14,6 +16,12 @@ export const ItemCard = ({ item, handleDelete }) => {
         </div>
 
         <div className="item-icons">
+          <div
+            className="item-edit"
+            onClick={() => history.push(`/items/${item.id}/edit`)}
+          >
+            <FaEdit className="item-edit-icon" />
+          </div>
           <div className="item-delete" onClick={() => handleDelete(item.id)}>
             <FaTrash className="item-delete-icon" />
           </div>
@@ -23,16 +31,15 @@ export const ItemCard = ({ item, handleDelete }) => {
   );
 };
 
+// invoked on PrintList.js line 28
 export const ListPrintCard = ({ item }) => {
   return (
     <>
-      <div className="print-item-card">
-        <div className="print-item-text">{item.text}</div>
+      <div className="print-item">
+        <div className="print-item__text">{item.text}</div>
 
-        <div className="print-item-icons">
-          <div className="item-check">
-            <GrCheckbox className="item-check-icon" />
-          </div>
+        <div className="print-item__icons">
+          <div className="item-checkbox"></div>
         </div>
       </div>
     </>
