@@ -1,16 +1,7 @@
 /* print page styling */
-.print-page {
+.print-container {
   padding: 125px 0px 0px 70px;
 }
-
-.print-wrapper {
-  /* background-color: orange; */
-}
-
-.print-container {
-  /* background-color: yellow; */
-}
-
 .print-info {
   display: flex;
   flex-direction: row;
@@ -82,4 +73,8 @@
   margin: 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.test-printing {
+  padding: 300px 0px 0px 80px;
 }

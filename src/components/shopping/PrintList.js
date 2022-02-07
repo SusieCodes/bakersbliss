@@ -41,22 +41,21 @@ export class ComponentToPrint extends React.Component {
 export const PrintList = () => {
   const componentRef = useRef();
   const history = useHistory();
-
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
 
   return (
-    <div className="print-page">
+    <>
       <div className="print-wrapper">
         <ComponentToPrint ref={componentRef} />
         <div className="print-btn-flex">
-          <div className="print-btn" onClick={handlePrint}>
+          <div className="shop-print-btn" onClick={handlePrint}>
             Print
           </div>
 
           <div
-            className="print-btn"
+            className="shop-print-btn"
             onClick={() => {
               history.goBack();
             }}
@@ -65,7 +64,7 @@ export const PrintList = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

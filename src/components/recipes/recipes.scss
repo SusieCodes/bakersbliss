@@ -1,25 +1,89 @@
 .recipe-board {
   padding: 125px 0px 0px 70px;
   .recipe-create {
-    text-align: center;
-    a {
-      button {
-        font-size: 1.3rem;
-        font-weight: 500;
-        width: 170px;
-        padding: 5px 0px;
-        margin: 15px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 50px;
+    // border: 1px solid red;
+    .recipe-top-spacer {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .recipe-top-add {
+      a {
+        button {
+          font-size: 1.3rem;
+          font-weight: 500;
+          width: 170px;
+          padding: 5px 0px;
+          margin: 15px 0px;
+          border-radius: 10px;
+          border: 5px solid white;
+          background-image: linear-gradient(
+            45deg,
+            #ff62bba0 6%,
+            #ff9f39a0,
+            #ffe62fa0,
+            #90ff42a0,
+            #4bdbffa0,
+            #c27cffa0 92%
+          );
+        }
+      }
+    }
+    .recipe-top-sort {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      font-weight: 500;
+      .sort-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        border: 1px solid white;
         border-radius: 10px;
-        border: 5px solid white;
-        background-image: linear-gradient(
-          45deg,
-          #ff62bba0 6%,
-          #ff9f39a0,
-          #ffe62fa0,
-          #90ff42a0,
-          #4bdbffa0,
-          #c27cffa0 92%
-        );
+        .sort {
+          padding: 5px 10px;
+          border-right: 1px solid white;
+          border-left: 1px solid white;
+          cursor: pointer;
+        }
+        .pink {
+          background-color: #ff62bba0;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+        .blue {
+          background-color: #4bdbffa0;
+        }
+        .purple {
+          background-color: #c27cffa0;
+        }
+        .green {
+          background-color: #90ff42a0;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        .pink:hover {
+          background-color: #ff34a7;
+        }
+        .blue:hover {
+          background-color: #00ccff;
+        }
+        .purple:hover {
+          background-color: #a43cff;
+        }
+        .green:hover {
+          background-color: #6aff00;
+        }
+        .sort:hover {
+          color: white;
+        }
       }
     }
   }
@@ -522,9 +586,7 @@ textarea#description {
           }
         }
       }
-      .instructions {
-        // border: 1px solid red;
-      }
+
       .notes {
         padding-bottom: 10px;
         .recipe-notes {

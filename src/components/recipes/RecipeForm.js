@@ -31,7 +31,7 @@ export const RecipeForm = () => {
     description: "",
     instructions: "",
     isFave: false,
-    stars: "☆☆☆☆☆",
+    ratingId: "",
     prep: "",
     cook: "",
     servings: "",
@@ -86,7 +86,7 @@ export const RecipeForm = () => {
       description: "",
       instructions: "",
       isFave: false,
-      stars: "☆☆☆☆☆",
+      ratingId: "",
       prep: "",
       cook: "",
       servings: "",
@@ -127,7 +127,7 @@ export const RecipeForm = () => {
         description: recipe.description,
         instructions: recipe.instructions,
         isFave: recipe.isFave,
-        stars: recipe.stars,
+        ratingId: recipe.ratingId,
         prep: recipe.prep,
         cook: recipe.cook,
         servings: recipe.servings,
@@ -273,20 +273,20 @@ export const RecipeForm = () => {
             </div>
 
             <div className="form-group-stars">
-              <label htmlFor="stars">Select # of Stars: </label>
+              <label htmlFor="ratingId">Select # of Stars: </label>
               <select
-                name="stars"
-                id="stars"
+                name="ratingId"
+                id="ratingId"
                 className="star-options"
                 onChange={handleFieldChange}
-                value={recipe.stars}
+                value={recipe.ratingId}
               >
-                <option value="☆☆☆☆☆">☆☆☆☆☆</option>
-                <option value="★☆☆☆☆">★☆☆☆☆</option>
-                <option value="★★☆☆☆">★★☆☆☆</option>
-                <option value="★★★☆☆">★★★☆☆</option>
-                <option value="★★★★☆">★★★★☆</option>
-                <option value="★★★★★">★★★★★</option>
+                <option value="6">☆☆☆☆☆</option>
+                <option value="1">★☆☆☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="4">★★★★☆</option>
+                <option value="5">★★★★★</option>
               </select>{" "}
               <small>(or leave unrated)</small>
             </div>

@@ -25,7 +25,7 @@ export const RecipeDetail = () => {
     description: "",
     instructions: "",
     isFave: true,
-    stars: 1,
+    ratingId: 1,
     prep: "",
     cook: "",
     servings: "",
@@ -45,14 +45,19 @@ export const RecipeDetail = () => {
   };
 
   const handleEdit = () => {
-    history.push(`/recipes/${recipeId}/edit`);
+    history.push(`/recipes/${recipe?.id}/edit`);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handlePrint = () => {
+    history.push(`/recipes/${recipeId}/print`);
   };
 
   const getRecipe = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
       setNotes(recipe?.notes);
+      console.log("recipe is ", recipe);
     });
   };
 
@@ -91,7 +96,7 @@ export const RecipeDetail = () => {
                     Category: <span>{recipe?.category.name}</span>
                   </div>
                   <div className="rating">
-                    Rating: <span>{recipe?.stars}</span>
+                    {/* Rating: <span>{recipe?.rating.stars}</span> */}
                   </div>
                 </div>
               </div>
@@ -127,7 +132,7 @@ export const RecipeDetail = () => {
                 <div className="btn-list">
                   <div
                     className="print-btn"
-                    // onClick={}
+                    onClick={() => handlePrint(recipe?.id)}
                   >
                     Print
                   </div>

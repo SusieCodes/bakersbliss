@@ -11,7 +11,7 @@ export const getRecipesByUserId = (userId) => {
 
 export const getRecipeById = (id) => {
   return fetch(
-    `${url}/recipes/${id}?_expand=category&_embed=ingredients&_embed=notes`
+    `${url}/recipes/${id}?_expand=category&_expand=rating&_embed=ingredients&_embed=notes`
   ).then((res) => res.json());
 };
 

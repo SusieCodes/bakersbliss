@@ -13,6 +13,7 @@ import { ShoppingList } from "./components/shopping/ShoppingList";
 import { ItemForm } from "./components/shopping/ItemForm";
 import { ItemEditForm } from "./components/shopping/ItemEditForm";
 import { PrintList } from "./components/shopping/PrintList";
+import { PrintRecipe } from "./components/recipes/PrintRecipe";
 
 export const ApplicationViews = ({
   setAuthUser,
@@ -75,6 +76,10 @@ export const ApplicationViews = ({
       <Route exact path="/shopping/print">
         <PrintList />
       </Route>
+
+      {/* <Route exact path="/recipes/:recipeId(\d+)/print">
+        <PrintRecipe />
+      </Route> */}
     </>
   );
 };
