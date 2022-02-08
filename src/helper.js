@@ -1,3 +1,31 @@
+// Helper file to hold formatting functions
+
+//converts a ratingId integer into a string representing how many stars to display
+export const formatStars = (ratingId) => {
+  let stars = "";
+  if (ratingId === 1) {
+    stars = "☆☆☆☆☆";
+    return stars;
+  } else if (ratingId === 2) {
+    stars = "★☆☆☆☆";
+    return stars;
+  } else if (ratingId === 3) {
+    stars = "★★☆☆☆";
+    return stars;
+  } else if (ratingId === 4) {
+    stars = "★★★☆☆";
+    return stars;
+  } else if (ratingId === 5) {
+    stars = "★★★★☆";
+    return stars;
+  } else if (ratingId === 6) {
+    stars = "★★★★★";
+    return stars;
+  } else {
+    return null;
+  }
+};
+
 // converts date object or numeric timestamp to a string that displays in format "Sun Jul 22 2018"
 export const formatDate = (obj) => {
   const date = new Date(obj);

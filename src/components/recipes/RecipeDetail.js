@@ -11,6 +11,7 @@ import { NoteCard, IngredientCard } from "../recipes/Cards";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { WelcomeBar2 } from "../nav/WelcomeBar2";
+import { formatStars } from "../../helper";
 import photo from "../../images/defaultcupcake.png";
 
 export const RecipeDetail = () => {
@@ -82,13 +83,13 @@ export const RecipeDetail = () => {
                 <div className="name-fave-wrapper">
                   <div className="recipe-name">{recipe?.name}</div>
                   <div className="checkbox">
-                    <Checkbox
+                    {/* <Checkbox
                       color="error"
                       icon={<FavoriteBorder />}
                       checkedIcon={<Favorite />}
-                      defaultChecked={recipe.isFave}
+                      defaultChecked={recipe?.isFave}
                       onChange={(e) => handleFave(e)}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="cat-rating-wrapper">
@@ -96,7 +97,7 @@ export const RecipeDetail = () => {
                     Category: <span>{recipe?.category.name}</span>
                   </div>
                   <div className="rating">
-                    {/* Rating: <span>{recipe?.rating.stars}</span> */}
+                    Rating: <span>{formatStars(recipe?.ratingId)}</span>
                   </div>
                 </div>
               </div>
@@ -132,7 +133,7 @@ export const RecipeDetail = () => {
                 <div className="btn-list">
                   <div
                     className="print-btn"
-                    onClick={() => handlePrint(recipe?.id)}
+                    // onClick={() => handlePrint(recipe?.id)}
                   >
                     Print
                   </div>

@@ -1,4 +1,8 @@
 /* print page styling */
+.print-wrapper {
+  padding: 125px 0px 0px 70px;
+}
+
 .print-container {
   padding: 125px 0px 0px 70px;
 }

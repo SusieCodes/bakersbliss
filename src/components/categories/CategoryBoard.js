@@ -59,7 +59,7 @@ export const CategoryBoard = () => {
   const getRecipesByName = () => {
     getRecipesByUserId(localStorage.getItem("bb_user")).then(
       (recipesFromAPI) => {
-        let sortByName = recipesFromAPI.sort(function (a, b) {
+        let sortByName = recipesFromAPI.sort((a, b) => {
           var nameA = a.name.toUpperCase(); // ignore upper and lowercase
           var nameB = b.name.toUpperCase(); // ignore upper and lowercase
           if (nameA < nameB) {
@@ -88,35 +88,40 @@ export const CategoryBoard = () => {
         let unrated = [];
         let sortByStars = [];
         recipesFromAPI.map((recipe) => {
-          if (recipe?.stars === "★★★★★") {
+          if (recipe?.ratingId === 6) {
             five.push(recipe);
-          } else if (recipe.stars === "★★★★☆") {
+          } else if (recipe.ratingId === 5) {
             four.push(recipe);
-          } else if (recipe.stars === "★★★☆☆") {
+          } else if (recipe.ratingId === 4) {
             three.push(recipe);
-          } else if (recipe.stars === "★★☆☆☆") {
+          } else if (recipe.ratingId === 3) {
             two.push(recipe);
-          } else if (recipe.stars === "★☆☆☆☆") {
+          } else if (recipe.ratingId === 2) {
             one.push(recipe);
           } else {
             unrated.push(recipe);
           }
           sortByStars = five.concat(four, three, two, one, unrated);
-          return sortByStars;
+          // sortByStars = [
+          //   ...five,
+          //   ...four,
+          //   ...three,
+          //   ...two,
+          //   ...one,
+          //   ...unrated,
+          // ];
         });
+        console.log("sortByStars inside first .then is :", sortByStars);
+        return sortByStars;
       })
       .then((sortByStars) => {
-        console.log("sortByStars is :", sortByStars);
+        console.log("sortByStars inside 2nd .then is :", sortByStars);
         setRecipes(sortByStars);
-        // sortByStars = [
-        //   ...five,
-        //   ...four,
-        //   ...three,
-        //   ...two,
-        //   ...one,
-        //   ...unrated,
-        // ];
       });
+  };
+
+  const getRecipesByDate = () => {
+    getRecipes();
   };
 
   useEffect(() => {
@@ -165,9 +170,9 @@ export const CategoryBoard = () => {
               </div>
               <div
                 className="sort green"
-                // onClick={() => {
-                //   getRecipesByDate();
-                // }}
+                onClick={() => {
+                  getRecipesByDate();
+                }}
               >
                 Newest
               </div>

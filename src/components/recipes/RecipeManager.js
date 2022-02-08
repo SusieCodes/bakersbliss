@@ -4,14 +4,14 @@
 const url = "http://localhost:8088";
 
 export const getRecipesByUserId = (userId) => {
-  return fetch(`${url}/recipes/?userId=${userId}&_sort=date&_order=desc`).then(
-    (res) => res.json()
-  );
+  return fetch(
+    `${url}/recipes/?userId=${userId}&_expand=ratingId&_sort=date&_order=desc`
+  ).then((res) => res.json());
 };
 
 export const getRecipeById = (id) => {
   return fetch(
-    `${url}/recipes/${id}?_expand=category&_expand=rating&_embed=ingredients&_embed=notes`
+    `${url}/recipes/${id}?_expand=category&_expand=ratingId&_embed=ingredients&_embed=notes`
   ).then((res) => res.json());
 };
 
@@ -63,7 +63,7 @@ export const addImage = (image) => {
   }).then((response) => response.json());
 };
 
-export const addNote = ({ note }) => {
+export const addNote = (note) => {
   return fetch(`${url}/notes`, {
     method: "POST",
     headers: {
@@ -111,7 +111,7 @@ export const getAllNotes = (recipeId) => {
 
 export const getRecipesByCategory = (userId, categoryId) => {
   return fetch(
-    `${url}/recipes/?userId=${userId}&categoryId=${categoryId}`
+    `${url}/recipes/?userId=${userId}&categoryId=${categoryId}&_expand=rating`
   ).then((res) => res.json());
 };
 

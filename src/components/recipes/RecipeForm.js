@@ -117,8 +117,15 @@ export const RecipeForm = () => {
 
   const handleSaveRecipe = (evt) => {
     evt.preventDefault(); //Prevents the browser from submitting the form
-    if (recipe.name === "") {
+    if (
+      recipe?.name === "" ||
+      recipe?.category === "" ||
+      recipe?.description === "" ||
+      recipe?.ingredients === "" ||
+      recipe?.instructions === ""
+    ) {
       setConflictDialog(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const newRecipe = {
         userId: parseInt(localStorage.getItem("bb_user")),
@@ -192,16 +199,21 @@ export const RecipeForm = () => {
         <div className="recipe-form">
           <fieldset>
             <dialog open={conflictDialog}>
-              <div className="dialog-recipe">Please Input A Recipe Name</div>
+              {/* <div className="dialog-wrapper"> */}
+              <div className="dialog-text">
+                Please Input All Recipe Info Before Submitting
+              </div>
+
               <button
                 className="button-close"
                 onClick={(e) => setConflictDialog(false)}
               >
                 Close
               </button>
+              {/* </div> */}
             </dialog>
 
-            <div className="form-group">
+            <div className="form-group-name">
               <label htmlFor="name">Name: </label>
               <input
                 type="text"

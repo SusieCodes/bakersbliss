@@ -35,7 +35,12 @@ export const RecipeEditForm = () => {
   const [measurements, setMeasurements] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conflictDialog, setConflictDialog] = useState(false);
-  const [ingredient, setIngredient] = useState([]);
+  const [ingredient, setIngredient] = useState({
+    recipeId: recipeId,
+    label: "",
+    amount: "",
+    measurement: "",
+  });
   const [ingredients, setIngredients] = useState([]);
   const [newIngredients, setNewIngredients] = useState([]);
   const [recipe, setRecipe] = useState({
@@ -44,7 +49,7 @@ export const RecipeEditForm = () => {
     description: "",
     instructions: "",
     isFave: false,
-    stars: "",
+    ratingId: "",
     prep: "",
     cook: "",
     servings: 1,
@@ -123,6 +128,7 @@ export const RecipeEditForm = () => {
   const addNewNote = (noteObj) => {
     console.log("noteObj inside addNewNote is :", noteObj);
     if (noteObj.text !== "") {
+      console.log("it is making inside the conditional");
       addNote(noteObj);
     }
   };
@@ -138,7 +144,7 @@ export const RecipeEditForm = () => {
       description: recipe?.description,
       instructions: recipe?.instructions,
       isFave: recipe?.isFave,
-      stars: recipe?.stars,
+      ratingId: parseInt(recipe?.ratingId),
       prep: recipe?.prep,
       cook: recipe?.cook,
       servings: recipe?.servings,
@@ -176,9 +182,10 @@ export const RecipeEditForm = () => {
             newIngredArray.map((ingredientObj) => {
               addIngredient(ingredientObj);
             }),
-            addNewNote(noteObj),
+            addNewNote(note),
           ]).then(() => {
-            history.push("/category/1");
+            history.goBack();
+            window.scrollTo({ top: 0, behavior: "smooth" });
           });
         });
     }
@@ -321,20 +328,20 @@ export const RecipeEditForm = () => {
             </div>
 
             <div className="form-group-stars">
-              <label htmlFor="stars">Select # of Stars: </label>
+              <label htmlFor="ratingId">Select # of Stars: </label>
               <select
-                name="stars"
-                id="stars"
+                name="ratingId"
+                id="ratingId"
                 className="star-options"
                 onChange={handleFieldChange}
-                value={recipe.stars}
+                value={recipe?.ratingId}
               >
-                <option value="☆☆☆☆☆">☆☆☆☆☆</option>
-                <option value="★☆☆☆☆">★☆☆☆☆</option>
-                <option value="★★☆☆☆">★★☆☆☆</option>
-                <option value="★★★☆☆">★★★☆☆</option>
-                <option value="★★★★☆">★★★★☆</option>
-                <option value="★★★★★">★★★★★</option>
+                <option value="1">☆☆☆☆☆</option>
+                <option value="2">★☆☆☆☆</option>
+                <option value="3">★★☆☆☆</option>
+                <option value="4">★★★☆☆</option>
+                <option value="5">★★★★☆</option>
+                <option value="6">★★★★★</option>
               </select>{" "}
               <small>(or leave unrated)</small>
             </div>
@@ -428,7 +435,7 @@ export const RecipeEditForm = () => {
                   onChange={handleIngredientChange}
                   className="form-group__edit"
                   placeholder=" #"
-                  value={ingredient.amount}
+                  value={ingredient?.amount}
                 />
                 <select
                   name="measurement"
@@ -436,7 +443,7 @@ export const RecipeEditForm = () => {
                   required
                   onChange={handleIngredientChange}
                   className="form-group__edit"
-                  value={ingredient.measurement}
+                  value={ingredient?.measurement}
                 >
                   <option value=""></option>
                   {measurements[0]

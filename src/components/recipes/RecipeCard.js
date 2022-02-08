@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { Checkbox } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { changeFave, getImagesByRecipeId } from "./RecipeManager";
+import { formatStars } from "../../helper";
 import photo from "../../images/defaultcupcake.png";
 
 export const RecipeCard = ({ recipe }) => {
+  // console.log("recipe inside recipe card is ", recipe);
   const [images, setImages] = useState([]);
 
   const handleFave = (e) => {
@@ -50,15 +52,17 @@ export const RecipeCard = ({ recipe }) => {
           </div>
           <div className="rate-fave-wrapper">
             <Link to={`/recipes/${recipe?.id}`}>
-              <div className="recipe-stars">Rating: {recipe?.stars}</div>
+              <div className="recipe-stars">
+                Rating: {formatStars(recipe?.ratingId)}
+              </div>
             </Link>
-            <Checkbox
+            {/* <Checkbox
               color="error"
               icon={<FavoriteBorder />}
               checkedIcon={<Favorite />}
-              defaultChecked={recipe.isFave}
+              defaultChecked={recipe?.isFave}
               onChange={(e) => handleFave(e)}
-            />
+            /> */}
           </div>
           <Link to={`/recipes/${recipe?.id}`}>
             <div className="recipe-description">
