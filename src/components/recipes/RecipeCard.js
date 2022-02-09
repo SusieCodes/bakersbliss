@@ -56,13 +56,13 @@ export const RecipeCard = ({ recipe }) => {
                 Rating: {formatStars(recipe?.ratingId)}
               </div>
             </Link>
-            {/* <Checkbox
+            <Checkbox
               color="error"
               icon={<FavoriteBorder />}
               checkedIcon={<Favorite />}
               defaultChecked={recipe?.isFave}
               onChange={(e) => handleFave(e)}
-            /> */}
+            />
           </div>
           <Link to={`/recipes/${recipe?.id}`}>
             <div className="recipe-description">

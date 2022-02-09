@@ -433,6 +433,34 @@
       "servings": "6",
       "date": 1635611882958,
       "id": 28
+    },
+    {
+      "userId": 1,
+      "name": "Snickerdoodles",
+      "categoryId": "2",
+      "description": "I love these sweet cinnamon treats. Great with a big mug of milk on a cold snowy day! I like to use light brown sugar on top.",
+      "instructions": "Bake all the cookies then eat all the cookies!",
+      "isFave": true,
+      "ratingId": 6,
+      "prep": "3",
+      "cook": "3",
+      "servings": "3",
+      "date": 1644333241784,
+      "id": 29
+    },
+    {
+      "userId": 1,
+      "name": "Blueberry Muffins",
+      "categoryId": 5,
+      "description": "I love a hot warm muffin straight out of the oven smothered in creamy butter! These are great warm and cold and contain lots of antioxidants too.",
+      "instructions": "Bake the muffins then eat the muffins! YUM!",
+      "isFave": true,
+      "ratingId": 3,
+      "prep": "3",
+      "cook": "3",
+      "servings": "3",
+      "date": 1644337690640,
+      "id": 30
     }
   ],
   "categories": [
@@ -658,6 +686,20 @@
       "measurement": "tbsp",
       "recipeId": 15,
       "id": 12
+    },
+    {
+      "label": "brown sugar",
+      "amount": "3",
+      "measurement": "cups",
+      "recipeId": 29,
+      "id": 13
+    },
+    {
+      "label": "blueberries",
+      "amount": "3",
+      "measurement": "cups",
+      "recipeId": 30,
+      "id": 14
     }
   ],
   "images": [
@@ -680,6 +722,16 @@
       "recipeId": 1,
       "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1643303613/greenpic_i9uhkr.png",
       "id": 4
+    },
+    {
+      "recipeId": 29,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1644331632/3dcookie_gvhlf7.png",
+      "id": 5
+    },
+    {
+      "recipeId": 30,
+      "image_path": "https://res.cloudinary.com/dllowdq2w/image/upload/v1644331826/140muffin_qclaxg.png",
+      "id": 6
     }
   ],
   "notes": [

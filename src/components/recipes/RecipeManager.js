@@ -111,7 +111,7 @@ export const getAllNotes = (recipeId) => {
 
 export const getRecipesByCategory = (userId, categoryId) => {
   return fetch(
-    `${url}/recipes/?userId=${userId}&categoryId=${categoryId}&_expand=rating`
+    `${url}/recipes/?userId=${userId}&categoryId=${categoryId}&_expand=rating&_sort=date&_order=desc`
   ).then((res) => res.json());
 };
 

@@ -83,13 +83,13 @@ export const RecipeDetail = () => {
                 <div className="name-fave-wrapper">
                   <div className="recipe-name">{recipe?.name}</div>
                   <div className="checkbox">
-                    {/* <Checkbox
+                    <Checkbox
                       color="error"
                       icon={<FavoriteBorder />}
                       checkedIcon={<Favorite />}
                       defaultChecked={recipe?.isFave}
                       onChange={(e) => handleFave(e)}
-                    /> */}
+                    />
                   </div>
                 </div>
                 <div className="cat-rating-wrapper">
@@ -106,8 +106,8 @@ export const RecipeDetail = () => {
                   <div className="prep-text">
                     <div className="servings">Servings:</div>
 
-                    <div className="prep">Prep time:</div>
-                    <div className="cook">Cook time:</div>
+                    <div className="prep">Prep:</div>
+                    <div className="cook">Cook:</div>
                     <div className="total">Total:</div>
                   </div>
                   <div className="prep-times">

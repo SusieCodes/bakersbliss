@@ -130,11 +130,11 @@ export const RecipeForm = () => {
       const newRecipe = {
         userId: parseInt(localStorage.getItem("bb_user")),
         name: recipe.name,
-        categoryId: recipe.categoryId,
+        categoryId: parseInt(recipe.categoryId),
         description: recipe.description,
         instructions: recipe.instructions,
         isFave: recipe.isFave,
-        ratingId: recipe.ratingId,
+        ratingId: parseInt(recipe.ratingId),
         prep: recipe.prep,
         cook: recipe.cook,
         servings: recipe.servings,
@@ -194,16 +194,15 @@ export const RecipeForm = () => {
   return (
     <>
       <div className="add-edit-recipe">
-        <WelcomeBar2 title="Add New Recipe" />
+        <WelcomeBar2 title="Add Recipe" />
 
         <div className="recipe-form">
           <fieldset>
             <dialog open={conflictDialog}>
               {/* <div className="dialog-wrapper"> */}
-              <div className="dialog-text">
-                Please Input All Recipe Info Before Submitting
-              </div>
-
+              {/* <div className="dialog-text"> */}
+              <span>Please Input All Recipe Info Before Submitting</span>
+              {/* </div> */}
               <button
                 className="button-close"
                 onClick={(e) => setConflictDialog(false)}
@@ -320,30 +319,32 @@ export const RecipeForm = () => {
             </div>
 
             <div className="form-group-row">
-              <label htmlFor="prep">
-                Prep Time: <small>(mins)</small>
-              </label>
-              <input
-                type="text"
-                id="prep"
-                maxLength="3"
-                required
-                onChange={handleFieldChange}
-                className="form-group__edit"
-                value={recipe.prep}
-              />
-              <label htmlFor="cook">
-                Cook time: <small>(mins)</small>
-              </label>
-              <input
-                type="text"
-                id="cook"
-                maxLength="3"
-                required
-                onChange={handleFieldChange}
-                classcook="form-group__edit"
-                value={recipe.cook}
-              />
+              <div className="prep-input">
+                <label htmlFor="prep">
+                  Prep Time: <small>(mins)</small>
+                </label>
+                <input
+                  type="text"
+                  id="prep"
+                  maxLength="3"
+                  required
+                  onChange={handleFieldChange}
+                  value={recipe?.prep}
+                />
+              </div>
+              <div className="cook-input">
+                <label htmlFor="cook">
+                  Cook time: <small>(mins)</small>
+                </label>
+                <input
+                  type="text"
+                  id="cook"
+                  maxLength="3"
+                  required
+                  onChange={handleFieldChange}
+                  value={recipe?.cook}
+                />
+              </div>
             </div>
             <div className="form-group-row">
               <label htmlFor="servings">Servings: </label>
@@ -353,8 +354,7 @@ export const RecipeForm = () => {
                 maxLength="3"
                 required
                 onChange={handleFieldChange}
-                className="form-group__edit"
-                value={recipe.servings}
+                value={recipe?.servings}
               />
             </div>
           </fieldset>
@@ -382,9 +382,8 @@ export const RecipeForm = () => {
                   maxLength="8"
                   required
                   onChange={handleIngredientChange}
-                  className="form-group__edit"
                   placeholder="  #"
-                  value={ingredient.amount}
+                  value={ingredient?.amount}
                 />
                 <select
                   name="measurement"
@@ -392,13 +391,13 @@ export const RecipeForm = () => {
                   required
                   onChange={handleIngredientChange}
                   className="form-group__edit"
-                  value={ingredient.measurement}
+                  value={ingredient?.measurement}
                 >
                   <option value=""></option>
                   {measurements[0]
                     ? measurements.map((measurement) => (
                         <option key={measurement.id} value={measurement.name}>
-                          {measurement.name}
+                          {measurement?.name}
                         </option>
                       ))
                     : ""}
@@ -409,18 +408,18 @@ export const RecipeForm = () => {
                   maxLength="20"
                   required
                   onChange={handleIngredientChange}
-                  className="form-group__edit"
+                  className="ingred-name"
                   placeholder=" ingredient name"
                   value={ingredient.label}
                 />
-                <span
-                  className="save-ingred-btn"
+                <div
+                  className="add-ingred-btn"
                   onClick={handleSaveIngredientToList}
                 >
                   Save
-                </span>
-                <div>Press SAVE after each entry</div>
+                </div>
               </div>
+              <div className="ingredient-save">Press SAVE after each entry</div>
             </div>
           </fieldset>
           <fieldset>
@@ -441,26 +440,26 @@ export const RecipeForm = () => {
             </div>
           </fieldset>
 
-          <div className="form-btns">
-            <button
+          <div className="add-form-btns">
+            <div
               type="button"
-              className="form-btn"
+              className="add-form-btn"
               onClick={handleSaveRecipe}
             >
               Submit
-            </button>
+            </div>
 
-            <button type="button" className="form-btn" onClick={ResetForm}>
+            <div type="button" className="add-form-btn" onClick={ResetForm}>
               Reset
-            </button>
+            </div>
 
-            <button
+            <div
               type="button"
-              className="form-btn"
+              className="add-form-btn"
               onClick={() => history.push("/category/1")}
             >
               Cancel
-            </button>
+            </div>
           </div>
         </div>
       </div>

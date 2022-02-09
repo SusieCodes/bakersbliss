@@ -70,22 +70,22 @@ export const Navigation = ({ clearUser }) => {
       <div className="side-menu">
         <ul className="side-menu-items">
           <Link to="/dashboard">
-            <li className="side-text" title="Home">
+            <li title="Home">
               <AiIcons.AiFillHome />
             </li>
           </Link>
           <Link to={`/users/${user.id}`}>
-            <li className="side-text" title="User Info">
+            <li title="User Info">
               <FaIcons.FaUserCircle />
             </li>
           </Link>
           <Link to="/shopping">
-            <li className="side-text" title="Shopping List">
+            <li title="Shopping List">
               <FaIcons.FaListUl />
             </li>
           </Link>
           <Link to="/">
-            <li className="side-text" title="LogOut">
+            <li title="LogOut">
               <Io5Icons.IoLogOut />
             </li>
           </Link>

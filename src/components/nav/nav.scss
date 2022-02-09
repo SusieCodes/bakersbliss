@@ -65,7 +65,7 @@
   // border: 1px solid red;
   .welcome-left {
     text-align: left;
-    width: 250px;
+    flex: 1;
     // border: 1px solid blue;
     .welcome-name {
       padding: 0px;
@@ -89,15 +89,14 @@
     }
   }
   .welcome-title {
-    flex: 1;
     text-align: center;
     font-family: "BananaSplit", "Montserrat", sans-serif;
     font-size: 2.5rem;
-    // text-transform: capitalize;
+    white-space: nowrap;
   }
   .welcome-right {
     text-align: right;
-    width: 250px;
+    flex: 1;
   }
 }
 
@@ -131,7 +130,6 @@
       padding: 0px;
       border-radius: 0px 10px 10px 0px;
     }
-
     a:hover {
       background-color: #efddff;
     }
@@ -139,8 +137,10 @@
 }
 // end of side menu styling
 
+// media queries
 @media (max-width: 900px) {
   .welcome-flex {
+    justify-content: center;
     .welcome-left,
     .welcome-right {
       display: none;
@@ -170,12 +170,64 @@
   .toolbar {
     justify-content: center;
     padding: 15px 0px;
+    box-shadow: none;
     .toolbar-right {
       display: none;
     }
   }
   .side-menu {
-    margin-top: 87px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 81px;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    transition: 850ms;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.1);
+    // border: 1px solid red;
+    ul.side-menu-items {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 0px;
+      margin: 0px;
+      list-style-type: none;
+      // border: 1px solid blue;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(37, 37, 37);
+        list-style: none;
+        padding: 0px;
+        border-radius: 0px;
+        // border: 2px solid green;
+        li {
+          align-self: center;
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          // border: 1px solid orange;
+          padding: 0px;
+          margin: 0px;
+        }
+      }
+
+      a:hover {
+        background-color: #efddff;
+      }
+    }
+  }
+  .recipe-board {
+    .welcome-flex {
+      padding: 0px;
+      // .welcome-left,
+      // .welcome-right {
+      //   display: none;
+      // }
+    }
   }
 }
 
@@ -189,44 +241,6 @@
     }
     .toolbar-right {
       display: none;
-    }
-  }
-
-  .side-menu {
-    justify-content: center;
-    margin-top: 70px;
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    transition: 850ms;
-    background-color: white;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.1);
-    ul.side-menu-items {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding: 0px;
-      margin: 0px;
-      list-style-type: none;
-      .side-text a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: rgb(37, 37, 37);
-        font-size: 24px;
-        width: 100%;
-        height: 100%;
-        list-style: none;
-        width: 70px;
-        height: 70px;
-        padding: 0px;
-        border-radius: 0px;
-      }
-
-      .side-text a:hover {
-        background-color: #efddff;
-      }
     }
   }
 }

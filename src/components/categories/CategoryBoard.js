@@ -45,83 +45,143 @@ export const CategoryBoard = () => {
 
   //gets the user's recipes sorted by favorites and sets it to state
   const getRecipesByFave = () => {
-    getRecipesByUserId(localStorage.getItem("bb_user")).then(
-      (recipesFromAPI) => {
-        recipesFromAPI.sort(function (a, b) {
-          return b.isFave - a.isFave;
-        });
-        setRecipes(recipesFromAPI);
-      }
-    );
+    if (categoryId > 1) {
+      getRecipesByCategory(localStorage.getItem("bb_user"), categoryId).then(
+        (recipesFromAPI) => {
+          recipesFromAPI.sort(function (a, b) {
+            return b.isFave - a.isFave;
+          });
+          setRecipes(recipesFromAPI);
+        }
+      );
+    } else {
+      getRecipesByUserId(localStorage.getItem("bb_user")).then(
+        (recipesFromAPI) => {
+          recipesFromAPI.sort(function (a, b) {
+            return b.isFave - a.isFave;
+          });
+          setRecipes(recipesFromAPI);
+        }
+      );
+    }
   };
 
   //gets the user's recipes sort by name and sets it to state
   const getRecipesByName = () => {
-    getRecipesByUserId(localStorage.getItem("bb_user")).then(
-      (recipesFromAPI) => {
-        let sortByName = recipesFromAPI.sort((a, b) => {
-          var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-          var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1; //nameA comes first
-          }
-          if (nameA > nameB) {
-            return 1; // nameB comes first
-          }
-          return 0; // names must be equal
-        });
-        console.log("sortByName is ", sortByName);
-        setRecipes(sortByName);
-      }
-    );
+    if (categoryId > 1) {
+      getRecipesByCategory(localStorage.getItem("bb_user"), categoryId).then(
+        (recipesFromAPI) => {
+          let sortByName = recipesFromAPI.sort((a, b) => {
+            var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1; //nameA comes first
+            }
+            if (nameA > nameB) {
+              return 1; // nameB comes first
+            }
+            return 0; // names must be equal
+          });
+          setRecipes(sortByName);
+        }
+      );
+    } else {
+      getRecipesByUserId(localStorage.getItem("bb_user")).then(
+        (recipesFromAPI) => {
+          let sortByName = recipesFromAPI.sort((a, b) => {
+            var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1; //nameA comes first
+            }
+            if (nameA > nameB) {
+              return 1; // nameB comes first
+            }
+            return 0; // names must be equal
+          });
+          setRecipes(sortByName);
+        }
+      );
+    }
   };
 
   //gets the user's recipes sorted by ratings and sets it to state
   const getRecipesByRating = () => {
-    getRecipesByUserId(localStorage.getItem("bb_user"))
-      .then((recipesFromAPI) => {
-        let five = [];
-        let four = [];
-        let three = [];
-        let two = [];
-        let one = [];
-        let unrated = [];
-        let sortByStars = [];
-        recipesFromAPI.map((recipe) => {
-          if (recipe?.ratingId === 6) {
-            five.push(recipe);
-          } else if (recipe.ratingId === 5) {
-            four.push(recipe);
-          } else if (recipe.ratingId === 4) {
-            three.push(recipe);
-          } else if (recipe.ratingId === 3) {
-            two.push(recipe);
-          } else if (recipe.ratingId === 2) {
-            one.push(recipe);
-          } else {
-            unrated.push(recipe);
-          }
-          sortByStars = five.concat(four, three, two, one, unrated);
-          // sortByStars = [
-          //   ...five,
-          //   ...four,
-          //   ...three,
-          //   ...two,
-          //   ...one,
-          //   ...unrated,
-          // ];
+    if (categoryId > 1) {
+      getRecipesByCategory(localStorage.getItem("bb_user"), categoryId)
+        .then((recipesFromAPI) => {
+          let five = [];
+          let four = [];
+          let three = [];
+          let two = [];
+          let one = [];
+          let unrated = [];
+          let sortByStars = [];
+          recipesFromAPI.map((recipe) => {
+            if (recipe?.ratingId === 6) {
+              five.push(recipe);
+            } else if (recipe.ratingId === 5) {
+              four.push(recipe);
+            } else if (recipe.ratingId === 4) {
+              three.push(recipe);
+            } else if (recipe.ratingId === 3) {
+              two.push(recipe);
+            } else if (recipe.ratingId === 2) {
+              one.push(recipe);
+            } else {
+              unrated.push(recipe);
+            }
+            sortByStars = five.concat(four, three, two, one, unrated);
+          });
+          return sortByStars;
+        })
+        .then((sortByStars) => {
+          setRecipes(sortByStars);
         });
-        console.log("sortByStars inside first .then is :", sortByStars);
-        return sortByStars;
-      })
-      .then((sortByStars) => {
-        console.log("sortByStars inside 2nd .then is :", sortByStars);
-        setRecipes(sortByStars);
-      });
+    } else {
+      getRecipesByUserId(localStorage.getItem("bb_user"))
+        .then((recipesFromAPI) => {
+          let five = [];
+          let four = [];
+          let three = [];
+          let two = [];
+          let one = [];
+          let unrated = [];
+          let sortByStars = [];
+          recipesFromAPI.map((recipe) => {
+            if (recipe?.ratingId === 6) {
+              five.push(recipe);
+            } else if (recipe.ratingId === 5) {
+              four.push(recipe);
+            } else if (recipe.ratingId === 4) {
+              three.push(recipe);
+            } else if (recipe.ratingId === 3) {
+              two.push(recipe);
+            } else if (recipe.ratingId === 2) {
+              one.push(recipe);
+            } else {
+              unrated.push(recipe);
+            }
+            sortByStars = five.concat(four, three, two, one, unrated);
+          });
+          return sortByStars;
+        })
+        .then((sortByStars) => {
+          setRecipes(sortByStars);
+        });
+    }
   };
 
   const getRecipesByDate = () => {
-    getRecipes();
+    if (categoryId > 1) {
+      getRecipesByCategory(localStorage.getItem("bb_user"), categoryId).then(
+        (recipesFromAPI) => {
+          setRecipes(recipesFromAPI);
+        }
+      );
+    } else {
+      getRecipes();
+    }
   };
 
   useEffect(() => {
@@ -142,6 +202,8 @@ export const CategoryBoard = () => {
               <button className="add-recipe">Add recipe</button>
             </Link>
           </div>
+
+          {/* this begins the sort button section */}
           <div className="recipe-top-sort">
             <div className="sort-wrapper">
               <div
@@ -179,6 +241,7 @@ export const CategoryBoard = () => {
             </div>
           </div>
         </div>
+        {/* end of sort button section*/}
 
         {/* ternary statement that shows recipe cards if they exist and dummy card if none exist yet */}
         {recipes[0] ? (

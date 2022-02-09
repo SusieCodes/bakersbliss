@@ -254,7 +254,6 @@ export const RecipeEditForm = () => {
                 <img
                   src={require(`../../images/defaultcupcake.png`)}
                   alt="cupcake default"
-                  className="recipe-detail-photo"
                 />
               )}
             </div>
@@ -363,30 +362,32 @@ export const RecipeEditForm = () => {
             </div>
 
             <div className="form-group-row">
-              <label htmlFor="prep">
-                Prep Time: <small>(mins)</small>
-              </label>
-              <input
-                type="text"
-                id="prep"
-                maxLength="3"
-                required
-                onChange={handleFieldChange}
-                className="form-group__edit"
-                value={recipe.prep}
-              />
-              <label htmlFor="cook">
-                Cook time: <small>(mins)</small>
-              </label>
-              <input
-                type="text"
-                id="cook"
-                maxLength="3"
-                required
-                onChange={handleFieldChange}
-                classcook="form-group__edit"
-                value={recipe.cook}
-              />
+              <div className="prep-input">
+                <label htmlFor="prep">
+                  Prep Time: <small>(mins)</small>
+                </label>
+                <input
+                  type="text"
+                  id="prep"
+                  maxLength="3"
+                  required
+                  onChange={handleFieldChange}
+                  value={recipe.prep}
+                />
+              </div>
+              <div className="cook-input">
+                <label htmlFor="cook">
+                  Cook time: <small>(mins)</small>
+                </label>
+                <input
+                  type="text"
+                  id="cook"
+                  maxLength="3"
+                  required
+                  onChange={handleFieldChange}
+                  value={recipe.cook}
+                />
+              </div>
             </div>
             <div className="form-group-row">
               <label htmlFor="servings">Servings: </label>
@@ -396,7 +397,6 @@ export const RecipeEditForm = () => {
                 maxLength="3"
                 required
                 onChange={handleFieldChange}
-                className="form-group__edit"
                 value={recipe.servings}
               />
             </div>
