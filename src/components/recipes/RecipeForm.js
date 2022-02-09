@@ -376,47 +376,50 @@ export const RecipeForm = () => {
                   : ""}
               </div>
               <div className="ingredients-group">
-                <input
-                  type="text"
-                  id="amount"
-                  maxLength="8"
-                  required
-                  onChange={handleIngredientChange}
-                  placeholder="  #"
-                  value={ingredient?.amount}
-                />
-                <select
-                  name="measurement"
-                  id="measurement"
-                  required
-                  onChange={handleIngredientChange}
-                  className="form-group__edit"
-                  value={ingredient?.measurement}
-                >
-                  <option value=""></option>
-                  {measurements[0]
-                    ? measurements.map((measurement) => (
-                        <option key={measurement.id} value={measurement.name}>
-                          {measurement?.name}
-                        </option>
-                      ))
-                    : ""}
-                </select>
-                <input
-                  type="text"
-                  id="label"
-                  maxLength="20"
-                  required
-                  onChange={handleIngredientChange}
-                  className="ingred-name"
-                  placeholder=" ingredient name"
-                  value={ingredient.label}
-                />
-                <div
-                  className="add-ingred-btn"
-                  onClick={handleSaveIngredientToList}
-                >
-                  Save
+                <div className="add-ingredient">Add An Ingredient:</div>
+                <div className="ingred-input-wrapper">
+                  <input
+                    type="text"
+                    id="amount"
+                    maxLength="8"
+                    required
+                    onChange={handleIngredientChange}
+                    placeholder="  #"
+                    value={ingredient?.amount}
+                  />
+                  <select
+                    name="measurement"
+                    id="measurement"
+                    required
+                    onChange={handleIngredientChange}
+                    className="form-group__edit"
+                    value={ingredient?.measurement}
+                  >
+                    <option value=""></option>
+                    {measurements[0]
+                      ? measurements.map((measurement) => (
+                          <option key={measurement.id} value={measurement.name}>
+                            {measurement?.name}
+                          </option>
+                        ))
+                      : ""}
+                  </select>
+                  <input
+                    type="text"
+                    id="label"
+                    maxLength="20"
+                    required
+                    onChange={handleIngredientChange}
+                    className="ingred-name"
+                    placeholder=" ingredient name"
+                    value={ingredient.label}
+                  />
+                  <div
+                    className="add-ingred-btn"
+                    onClick={handleSaveIngredientToList}
+                  >
+                    Save
+                  </div>
                 </div>
               </div>
               <div className="ingredient-save">Press SAVE after each entry</div>

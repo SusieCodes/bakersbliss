@@ -44,7 +44,7 @@ export const UserDetail = () => {
   return (
     <>
       <div className="user-detail">
-        <WelcomeBar2 title="Your Account Details" />
+        <WelcomeBar2 title="Account Details" />
 
         <div className="user-wrapper">
           <div className="user-flex">

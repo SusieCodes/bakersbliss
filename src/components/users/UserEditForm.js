@@ -91,7 +91,7 @@ export const UserEditForm = () => {
   return (
     <>
       <div className="user-detail">
-        <WelcomeBar2 title="Edit Account Details" />
+        <WelcomeBar2 title="Edit Details" />
 
         <div className="user-edit-wrapper">
           <div className="user-edit-flex">

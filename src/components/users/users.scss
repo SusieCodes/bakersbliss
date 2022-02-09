@@ -1,20 +1,21 @@
+// User Detail
 .user-detail {
   padding: 125px 0px 0px 70px;
   .user-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 50px;
-    // border: 1px solid red;
+    margin-top: 30px;
     .user-flex {
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 1.3rem;
       background-color: white;
       width: 600px;
       border-radius: 20px;
       box-shadow: 3px 3px 3px 1px lightgray;
+      // font-size: 2rem;
+      font-weight: 600;
       padding: 20px 0px 40px;
       .user-name {
         font-size: 2rem;
@@ -32,6 +33,7 @@
       }
       .user-info {
         .user-text {
+          font-size: 1.5rem;
           font-weight: 500;
           // border: 1px solid red;
           span {
@@ -51,12 +53,11 @@
 
 // User Edit form
 .user-detail {
-  padding: 125px 0px 0px 70px;
   .user-edit-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20px;
     .user-edit-flex {
       display: flex;
       flex-direction: column;
@@ -75,7 +76,7 @@
         margin: 10px 0px;
         .user-detail-image {
           align-self: center;
-          width: 250px;
+          width: 300px;
           margin-bottom: 30px;
           img {
             width: 100%;
@@ -85,10 +86,10 @@
         }
         .upload-section {
           margin-bottom: 20px;
-          .upload-wrapper {
-            .upload-image-text {
-            }
-          }
+          // .upload-wrapper {
+          //   .upload-image-text {
+          //   }
+          // }
         }
         .uploaded-image-section {
           .uploaded-image-wrapper {
@@ -106,6 +107,158 @@
 
         .form-group {
           margin: 8px 0px;
+        }
+      }
+    }
+  }
+}
+
+// media queries
+@media (max-width: 745px) {
+  // User Detail
+  .user-detail {
+    padding: 105px 0px 0px 70px;
+    .user-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 50px;
+      // border: 1px solid red;
+      .user-flex {
+        width: 370px;
+        padding: 20px 30px;
+        .user-info {
+          .user-text {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  // User Edit form
+  .user-detail {
+    .user-edit-wrapper {
+      margin-top: 20px;
+      .user-edit-flex {
+        width: 380px;
+        padding: 30px 30px 20px;
+        fieldset {
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          font-weight: 600;
+          margin: 10px 0px;
+          .user-detail-image {
+            align-self: center;
+            // width: 300px;
+            margin-bottom: 30px;
+            img {
+              width: 100%;
+              border-radius: 20px;
+              border: 5px solid lightgray;
+            }
+          }
+          .upload-section {
+            margin-bottom: 20px;
+            // .upload-wrapper {
+            //   .upload-image-text {
+            //   }
+            // }
+          }
+          .uploaded-image-section {
+            .uploaded-image-wrapper {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              margin: 0px auto;
+              .uploaded-image {
+                margin: 20px 0px;
+                border-radius: 20px;
+                border: 5px solid lightgray;
+              }
+            }
+          }
+
+          .form-group {
+            margin: 8px 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .user-detail {
+    padding: 160px 0px 0px 0px;
+    .user-wrapper {
+      margin: 20px 0px 0px;
+      .user-flex {
+        width: 330px;
+        box-shadow: none;
+        border: 1px solid rgb(233, 233, 233);
+        padding: 10px 20px 20px;
+        margin: 0px;
+      }
+    }
+  }
+  // User Edit form
+  .user-detail {
+    .user-edit-wrapper {
+      .user-edit-flex {
+        width: 330px;
+        box-shadow: none;
+        border: 1px solid rgb(233, 233, 233);
+        padding: 30px 20px 20px;
+        fieldset {
+          margin: 0px 0px;
+          .user-detail-image {
+            align-self: center;
+            width: 280px;
+            margin-bottom: 30px;
+            img {
+              width: 100%;
+              border-radius: 20px;
+              border: 5px solid lightgray;
+            }
+          }
+          .upload-section {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 359px) {
+  .user-detail {
+    padding: 170px 0px 0px 0px;
+    .user-wrapper {
+      padding: 0px;
+      margin: 20px 0px 0px;
+      .user-flex {
+        width: 295px;
+        padding: 10px 20px 20px;
+        .user-info {
+          .user-text {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  // User Edit form
+  .user-detail {
+    .user-edit-wrapper {
+      margin: 10px 0px 30px;
+      .user-edit-flex {
+        width: 300px;
+        fieldset {
+          .user-detail-image {
+            width: 240px;
+          }
         }
       }
     }

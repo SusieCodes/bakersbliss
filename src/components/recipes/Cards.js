@@ -44,29 +44,9 @@ export const EditIngredientCard = ({ ingred, handleDeleteIngred }) => {
 };
 
 export const EditNoteCard = ({ singleNote, handleDeleteNote }) => {
-  // const [note, setNote] = useState({
-  //   recipeId: singleNote.recipeId,
-  //   text: singleNote.text,
-  //   date: singleNote.date,
-  //   id: singleNote.id,
-  // });
-
-  // const handleNoteChange = (evt) => {
-  //   const editedNote = { ...note };
-  //   console.log("editedNote is ", editedNote);
-  //   editedNote[evt.target.id] = evt.target.value;
-  //   setNote(editedNote);
-  // };
-
-  // const handleUpdate = (note) => {
-  //   if (note.text !== "") {
-  //     addNote(note);
-  //   }
-  // };
-
   return (
     <>
-      {/* previous classNames are notes-header & form-group-notes */}
+      {/* classNames that wrap this component are notes-header > form-group-notes */}
       <div className="edit-notes">
         <div className="note-wrapper">
           <span>
