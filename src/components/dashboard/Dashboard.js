@@ -32,7 +32,7 @@ export const Dashboard = () => {
                 title={category?.name}
                 key={index}
               >
-                <CategoryCard key={category.id} category={category} />
+                <CategoryCard key={category?.id} category={category} />
               </Link>
             ))}
           </div>

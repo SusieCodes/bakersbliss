@@ -73,9 +73,9 @@ export const ApplicationViews = ({
         <ItemEditForm />
       </Route>
 
-      {/* <Route exact path="/shopping/print">
+      <Route exact path="/shopping/print">
         <PrintList />
-      </Route> */}
+      </Route>
 
       {/* <Route exact path="/recipes/:recipeId(\d+)/print">
         <PrintRecipe />

@@ -31,7 +31,7 @@ export const RecipeForm = () => {
     description: "",
     instructions: "",
     isFave: false,
-    ratingId: "",
+    ratingId: 6,
     prep: "",
     cook: "",
     servings: "",
@@ -86,7 +86,7 @@ export const RecipeForm = () => {
       description: "",
       instructions: "",
       isFave: false,
-      ratingId: "",
+      ratingId: 0,
       prep: "",
       cook: "",
       servings: "",
@@ -217,7 +217,7 @@ export const RecipeForm = () => {
               <input
                 type="text"
                 id="name"
-                maxLength="20"
+                maxLength="22"
                 required
                 autoFocus
                 onChange={handleFieldChange}

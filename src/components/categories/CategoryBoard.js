@@ -37,7 +37,7 @@ export const CategoryBoard = () => {
 
   const getName = (categoryId) => {
     getCategoryById(categoryId).then((category) => {
-      setName(category.name);
+      setName(category?.name);
     });
   };
 

@@ -291,29 +291,6 @@
               // border: 1px solid red;
             }
           }
-          // input#amount,
-          // input#label,
-          // select#measurement {
-          //   height: 35px;
-          //   margin-right: 5px;
-          // }
-          // input#amount {
-          //   width: 50px;
-          // }
-          // input#label {
-          //   width: 243px;
-          // }
-          // .add-ingred-btn {
-          //   font-weight: 500;
-          //   background-color: lightpink;
-          //   border-radius: 5px;
-          //   text-align: center;
-          //   padding: 3px 10px;
-          //   margin: 0px;
-          //   width: 80px;
-          //   cursor: pointer;
-          //   // border: 1px solid red;
-          // }
         }
         // applies to edit form
         .ingredients-edit-group {
@@ -551,7 +528,7 @@ textarea#description {
           justify-content: space-between;
           font-weight: 500;
           padding: 10px 15px;
-          margin: 10px 0px 0px;
+          margin: 10px 15px 0px 0px;
           border: 1px dashed lightgray;
           border-radius: 10px;
           .prep-time-wrapper {
@@ -624,7 +601,7 @@ textarea#description {
           .thumbnail {
             width: 87px;
             height: 87px;
-            margin: 0px 10px;
+            margin: 0px 10px 0px 0px;
             border: 5px solid #f1f1f1;
             border-radius: 10px;
             img {
