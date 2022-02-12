@@ -58,7 +58,6 @@ export const RecipeDetail = () => {
     getRecipeById(recipeId).then((recipe) => {
       setRecipe(recipe);
       setNotes(recipe?.notes);
-      console.log("recipe is ", recipe);
     });
   };
 

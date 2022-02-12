@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getUserById } from "../users/UserManager";
-// import { SidebarData } from "./SidebarData";
-// import { SidebarLogout } from "./SidebarData";
 import * as AiIcons from "react-icons/ai";
 import * as Io5Icons from "react-icons/io5";
 import * as FaIcons from "react-icons/fa";
@@ -27,7 +25,6 @@ export const Navigation = ({ clearUser }) => {
   }, []);
   return (
     <>
-      {/* <IconContext.Provider value={{ color: "#000000", size: "1.5em" }}> */}
       {/* start of NavBar at top of page */}
       <div className="toolbar">
         <div className="toolbar-left">
@@ -89,34 +86,9 @@ export const Navigation = ({ clearUser }) => {
               <Io5Icons.IoLogOut />
             </li>
           </Link>
-          {/* {SidebarData.map((item, index) => {
-            return (
-              <li key={index} className={item.cName}>
-                <Link to={item.path} title={item.title}>
-                  {item.icon}
-                </Link>
-              </li>
-            );
-          })}
-          {SidebarLogout.map((item) => {
-            return (
-              <li key={item.id} className={item.cName}>
-                <Link
-                  to={item.path}
-                  title={item.title}
-                  onClick={() => {
-                    clearUser();
-                  }}
-                >
-                  {item.icon} */}
-          {/* </Link> */}
-          {/* </li> */}
-          {/* );
-          })} */}
         </ul>
       </div>
       {/* end of side menu */}
-      {/* </IconContext.Provider> */}
     </>
   );
 };

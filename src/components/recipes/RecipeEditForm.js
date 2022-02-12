@@ -106,7 +106,6 @@ export const RecipeEditForm = () => {
   };
 
   const handleNewNoteChange = (evt) => {
-    console.log();
     const editedNote = { ...note };
     editedNote[evt.target.id] = evt.target.value;
     setNote(editedNote);
@@ -126,9 +125,7 @@ export const RecipeEditForm = () => {
   };
 
   const addNewNote = (noteObj) => {
-    console.log("noteObj inside addNewNote is :", noteObj);
     if (noteObj.text !== "") {
-      console.log("it is making inside the conditional");
       addNote(noteObj);
     }
   };
@@ -176,8 +173,7 @@ export const RecipeEditForm = () => {
           };
           return allInfoObj;
         })
-        .then(({ newIngredArray, noteObj }) => {
-          console.log("noteObj before promise is ", noteObj);
+        .then(({ newIngredArray }) => {
           Promise.all([
             newIngredArray.map((ingredientObj) => {
               addIngredient(ingredientObj);
@@ -306,7 +302,7 @@ export const RecipeEditForm = () => {
                 required
                 onChange={handleFieldChange}
                 className="form-group__edit"
-                value={recipe.categoryId}
+                value={recipe?.categoryId}
               >
                 <option value="">Choose</option>
                 <option value="2">Cookies</option>
@@ -409,7 +405,7 @@ export const RecipeEditForm = () => {
                 {ingredients[0]
                   ? ingredients.map((ingred) => (
                       <EditIngredientCard
-                        key={ingred.id}
+                        key={ingred?.id}
                         ingred={ingred}
                         handleDeleteIngred={handleDeleteIngred}
                       />
@@ -418,7 +414,7 @@ export const RecipeEditForm = () => {
                 {newIngredients[0]
                   ? newIngredients.map((ingred, index) => (
                       <EditIngredientCard
-                        key={index + hundred}
+                        key={ingred?.id + hundred}
                         ingred={ingred}
                         handleDeleteIngred={handleDeleteIngred}
                       />
@@ -491,7 +487,6 @@ export const RecipeEditForm = () => {
               />
             </div>
 
-            {/* <div className="notes-header">Notes:</div> */}
             {notes[0] ? (
               <div className="form-group-notes">
                 Notes:

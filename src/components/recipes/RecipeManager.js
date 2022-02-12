@@ -134,3 +134,15 @@ export const getImagesByRecipeId = (recipeId) => {
 export const getMeasurements = () => {
   return fetch(`${url}/measurements`).then((res) => res.json());
 };
+
+export const logVisit = (userId, date) => {
+  return fetch(`${url}/users/${userId}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      last_visit: date,
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).then((res) => res.json());
+};

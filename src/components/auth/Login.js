@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import logo from "../../images/small-logo.png";
+import { logVisit } from "../recipes/RecipeManager";
 
 export const Login = ({ setAuthUser, clearUser }) => {
   const [loginUser, setLoginUser] = useState({ email: "" });
   const [existDialog, setExistDialog] = useState(false);
 
   const history = useHistory();
+  const userId = "";
 
   const handleInputChange = (event) => {
     const newUser = { ...loginUser };
@@ -26,6 +27,7 @@ export const Login = ({ setAuthUser, clearUser }) => {
     existingUserCheck().then((exists) => {
       if (exists) {
         setAuthUser(exists);
+        logVisit(exists.id, Date.now());
         history.push("/dashboard");
       } else {
         setExistDialog(true);

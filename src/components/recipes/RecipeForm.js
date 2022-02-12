@@ -67,7 +67,6 @@ export const RecipeForm = () => {
     const file = await res.json();
     const newImageObj = { ...image };
     newImageObj.image_path = file.secure_url;
-    console.log("file.secure.url is: ", file.secure_url);
     setImage(newImageObj);
     setLoading(false);
     setClickedStyle("uploaded-image");
@@ -146,7 +145,6 @@ export const RecipeForm = () => {
       addRecipe(newRecipe)
         .then((response) => {
           const newInfo = newIngredients.map((ingredObj) => {
-            console.log("ingredObj is ", ingredObj);
             ingredObj.recipeId = response.id;
             return ingredObj;
           });
@@ -159,7 +157,6 @@ export const RecipeForm = () => {
           return allInfoObj;
         })
         .then(({ newInfo, imageObj }) => {
-          console.log("newInfo & imageObj are ", newInfo, imageObj);
           Promise.all([
             newInfo.map((ingredientObj) => {
               addIngredient(ingredientObj);
@@ -199,17 +196,13 @@ export const RecipeForm = () => {
         <div className="recipe-form">
           <fieldset>
             <dialog open={conflictDialog}>
-              {/* <div className="dialog-wrapper"> */}
-              {/* <div className="dialog-text"> */}
               <span>Please Input All Recipe Info Before Submitting</span>
-              {/* </div> */}
               <button
                 className="button-close"
                 onClick={(e) => setConflictDialog(false)}
               >
                 Close
               </button>
-              {/* </div> */}
             </dialog>
 
             <div className="form-group-name">

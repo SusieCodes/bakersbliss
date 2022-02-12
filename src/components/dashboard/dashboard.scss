@@ -132,24 +132,39 @@
 
 @media (max-width: 480px) {
   .dashboard {
-    padding: 85px 0px 10px 70px;
+    padding: 150px 0px 10px;
+    // padding: 85px 0px 10px 0px;
     .categories {
       .category-container {
         max-width: 450px;
         padding: 10px 0px 20px 25px;
-        grid-template-columns: repeat(auto-fill, 220px);
+        grid-template-columns: repeat(auto-fill, 260px);
+        // grid-template-columns: repeat(auto-fill, 220px);
         grid-row-gap: 1.4rem;
+        // a {
+        //   .category-card {
+        //     .icon {
+        //       width: 60px;
+        //       height: 60px;
+        //       margin-left: -45px;
+        //     }
+        //     .title {
+        //       width: 140px;
+        //       font-size: 24px;
+        //       // border: 1px solid aqua;
+        //     }
+        //   }
+        // }
         a {
           .category-card {
-            .icon {
-              width: 60px;
-              height: 60px;
-              margin-left: -45px;
-            }
             .title {
-              width: 140px;
-              font-size: 24px;
-              // border: 1px solid aqua;
+              width: 160px;
+              font-size: 28px;
+            }
+            .icon {
+              width: 70px;
+              height: 70px;
+              margin-left: -55px;
             }
           }
         }
@@ -165,18 +180,18 @@
       .category-container {
         grid-template-columns: repeat(auto-fill, 260px);
         // border: 1px solid red;
-        a {
-          .category-card {
-            .title {
-              width: 160px;
-            }
-            .icon {
-              width: 70px;
-              height: 70px;
-              margin-left: -55px;
-            }
-          }
-        }
+        // a {
+        //   .category-card {
+        //     .title {
+        //       width: 160px;
+        //     }
+        //     .icon {
+        //       width: 70px;
+        //       height: 70px;
+        //       margin-left: -55px;
+        //     }
+        //   }
+        // }
       }
     }
   }

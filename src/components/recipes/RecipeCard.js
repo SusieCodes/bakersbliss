@@ -10,7 +10,6 @@ import { formatStars } from "../../helper";
 import photo from "../../images/defaultcupcake.png";
 
 export const RecipeCard = ({ recipe }) => {
-  // console.log("recipe inside recipe card is ", recipe);
   const [images, setImages] = useState([]);
 
   const handleFave = (e) => {
