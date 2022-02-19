@@ -50,9 +50,9 @@ export const RecipeDetail = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handlePrint = () => {
-    history.push(`/recipes/${recipeId}/print`);
-  };
+  // const handlePrint = () => {
+  //   history.push(`/recipes/${recipeId}/print`);
+  // };
 
   const getRecipe = () => {
     getRecipeById(recipeId).then((recipe) => {
@@ -130,12 +130,12 @@ export const RecipeDetail = () => {
                 </div>
                 <div className="recipe-prep-info"></div>
                 <div className="btn-list">
-                  <div
-                    className="print-btn"
-                    // onClick={() => handlePrint(recipe?.id)}
-                  >
-                    Print
-                  </div>
+                  {/* <div
+                    className="print-btn" */}
+                  {/* // onClick={() => handlePrint(recipe?.id)}
+                  // >
+                  //   Print
+                  // </div> */}
 
                   <div
                     className="detail-btn middle-btn"

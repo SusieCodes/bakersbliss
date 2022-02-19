@@ -6,7 +6,7 @@
       "last_name": "Stanley",
       "image": "https://res.cloudinary.com/dllowdq2w/image/upload/v1636436400/susie2_vzbbqq.png",
       "email": "me@me.com",
-      "last_visit": 1644683482782
+      "last_visit": 1645220177670
     },
     {
       "first_name": "Taylor",
@@ -228,14 +228,14 @@
       "userId": 1,
       "name": "Coated Strawberries",
       "categoryId": 15,
-      "description": "Why pay top dollar for expensive chocolate covered strawberries when you can easily make them at home - super fresh and at a fraction of the cost? For the best finished look, try to find jumbo berries with stems.",
+      "description": "Why pay top $$ dollar for expensive chocolate covered strawberries when you can easily make them at home - super fresh and at a fraction of the cost? For the best finished look, try to find jumbo berries with stems.",
       "instructions": "Put the semisweet and white chocolates into 2 separate heatproof medium bowls. Fill 2 medium saucepans with a couple inches of water and bring to a simmer over medium heat. Turn off the heat; set the bowls of chocolate over the water to melt. Stir until smooth. (Alternatively, melt the chocolates in a microwave at half power, for 1 minute, stir and then heat for another minute or until melted.) Once the chocolates are melted and smooth, remove from the heat. Line a sheet pan with parchment or waxed paper. Holding the strawberry by the stem, dip the fruit into the dark chocolate, lift and twist slightly, letting any excess chocolate fall back into the bowl. Set strawberries on the parchment paper. Repeat with the rest of the strawberries. Dip a fork in the white chocolate and drizzle the white chocolate over the dipped strawberries.",
       "isFave": true,
       "ratingId": 5,
       "prep": "20",
       "cook": "30",
       "servings": "6",
-      "date": 1644596982415,
+      "date": 1645113079613,
       "id": 14
     },
     {
@@ -368,7 +368,7 @@
       "userId": 1,
       "name": "Creamcheese Frosting",
       "categoryId": 11,
-      "description": "This is my entire extended family's favorite1 cream cheese frosting recipe!  It goes great on Carrot Cake, Red Velvet Cake, and just about any other flavor cake or cupcake you can imagine.  I’ve been making this cream cheese icing for years!",
+      "description": "This is my entire extended family's favorite cream cheese frosting recipe!  It goes great on Carrot Cake, Red Velvet Cake, and just about any other flavor cake or cupcake you can imagine.  I’ve been making this cream cheese icing for years!",
       "instructions": "Combine butter and cream cheese in the bowl of a stand mixer (or you may use an electric mixer) and beat until creamy, well-combined, and lump-free. Add vanilla extract and salt and stir well to combine. With mixer on low, gradually add powdered sugar until completely combined. Use to frost completely cooled cake or cupcakes.",
       "isFave": false,
       "ratingId": 5,
@@ -394,7 +394,7 @@
     },
     {
       "userId": 1,
-      "name": "Cronut",
+      "name": "Chocolate Cronut",
       "categoryId": 13,
       "description": "My nieces and nephews love cronuts, but in the summer heat I rarely want to deep-fry them. I tried making this easy air-fryer cronut recipe, and it turned out so well with no mess!",
       "instructions": "Preheat air fryer to 375°. Separate biscuits. Cut out centers using a 1-inch cutter; save centers. In batches, place doughnuts in a single layer in greased air fryer. Cook until golden brown and puffed, turning once, about 5 minutes. In batches, cook doughnut holes until golden brown, 3-4 minutes. Meanwhile, in a shallow dish, combine sugar and cinnamon. In a separate bowl, mix melted butter and vanilla. Brush doughnuts and doughnut holes with butter; toss in sugar mixture. Serve warm.",
@@ -403,7 +403,7 @@
       "prep": "20",
       "cook": "30",
       "servings": "6",
-      "date": 1644593581817,
+      "date": 1644810481360,
       "id": 26
     },
     {
@@ -478,7 +478,7 @@
     },
     {
       "userId": 1,
-      "name": "Croissants",
+      "name": "French Croissants",
       "categoryId": 15,
       "description": "These soft buttery french \"kwasson\" will melt in your mouth. The combination of textures between the flakey pastry and buttery smoothness transport me to Paris.",
       "instructions": "For the croissant dough: In the bowl of your stand mixer, combine the flour, yeast, sugar and salt, then whisk together. Add 2 tablespoons of room temperature butter and beat with the paddle attachment. Mix on low speed until combined and the butter is no longer visible. Add the milk. Mix on low speed until the dough comes together, then switch to the dough hook. Knead on medium-high until the dough comes together into a smooth but still slightly loose ball, about 5 minutes. Remove from the mixer, then pat into a rectangle and wrap in plastic wrap. Let rest in the refrigerator for 1 hour.",
@@ -487,7 +487,7 @@
       "prep": "30",
       "cook": "30",
       "servings": "6",
-      "date": 1644555076083,
+      "date": 1645113048021,
       "id": 32
     },
     {

@@ -7,7 +7,6 @@ export const Login = ({ setAuthUser, clearUser }) => {
   const [existDialog, setExistDialog] = useState(false);
 
   const history = useHistory();
-  const userId = "";
 
   const handleInputChange = (event) => {
     const newUser = { ...loginUser };
@@ -76,7 +75,7 @@ export const Login = ({ setAuthUser, clearUser }) => {
                 </button>
               </div>
               <div className="link-register">
-                <Link to="/register">or register for an account</Link>
+                <Link to="/register">Register for an account</Link>
               </div>
             </fieldset>
           </form>
